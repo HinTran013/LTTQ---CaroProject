@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form2 : Form
+    public partial class FormMenu : Form
     {
-        public Form2()
+        public FormMenu()
         {
             InitializeComponent();
         }
@@ -21,14 +21,14 @@ namespace WindowsFormsApp1
         {
             //Link form
             this.Hide();
-            Form1 f1 = new Form1();
+            FormPVP f1 = new FormPVP();
             f1.ShowDialog();
             this.Show();
         }
         private void Rules(object sender, EventArgs e)
         {
             this.Hide();
-            Form3 f3 = new Form3();
+            FormRule f3 = new FormRule();
             f3.ShowDialog();
             this.Show();
         }

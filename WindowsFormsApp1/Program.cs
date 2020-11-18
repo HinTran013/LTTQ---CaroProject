@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
             //Console.OutputEncoding = Encoding.UTF8;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            Application.Run(new FormMenu());
         }
     }
 }

@@ -10,15 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form3 : Form
+    public partial class FormPVP : Form
     {
-        public Form3()
+        #region Properties
+        QuanLyBanCo BanCo;
+        #endregion
+        public FormPVP()
         {
             InitializeComponent();
-        }
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+
+            BanCo = new QuanLyBanCo(BanCo_pnl,null);
+            //...
+            //BanCo.hide
+
+            BanCo.VeBanCo();   
         }
     }
 }
