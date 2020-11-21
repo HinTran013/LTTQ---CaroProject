@@ -33,19 +33,22 @@
             this.BanCo_pnl = new System.Windows.Forms.Panel();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2BorderlessForm2 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.textBox_PlayerName1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox_PlayerName2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.textBox_PlayerTime1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.textBox_PlayerTime2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.thanos1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ironman1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.textBox_PlayerIP1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox_PlayerIP2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.timer_Player1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_Player2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_Game = new System.Windows.Forms.Timer(this.components);
+            this.label_GameTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.label_timePlayer1 = new System.Windows.Forms.Label();
+            this.label_timePlayer2 = new System.Windows.Forms.Label();
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thanos1)).BeginInit();
@@ -65,7 +68,6 @@
             // guna2PictureBox4
             // 
             this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
             this.guna2PictureBox4.Location = new System.Drawing.Point(1044, 182);
             this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
@@ -78,21 +80,6 @@
             // guna2BorderlessForm1
             // 
             this.guna2BorderlessForm1.ContainerControl = this;
-            // 
-            // guna2ContextMenuStrip1
-            // 
-            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
-            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
-            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // guna2ControlBox1
             // 
@@ -161,30 +148,6 @@
             this.textBox_PlayerName2.Size = new System.Drawing.Size(253, 44);
             this.textBox_PlayerName2.TabIndex = 6;
             // 
-            // textBox_PlayerTime1
-            // 
-            this.textBox_PlayerTime1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox_PlayerTime1.DefaultText = "";
-            this.textBox_PlayerTime1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textBox_PlayerTime1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textBox_PlayerTime1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBox_PlayerTime1.DisabledState.Parent = this.textBox_PlayerTime1;
-            this.textBox_PlayerTime1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBox_PlayerTime1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_PlayerTime1.FocusedState.Parent = this.textBox_PlayerTime1;
-            this.textBox_PlayerTime1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox_PlayerTime1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_PlayerTime1.HoverState.Parent = this.textBox_PlayerTime1;
-            this.textBox_PlayerTime1.Location = new System.Drawing.Point(147, 523);
-            this.textBox_PlayerTime1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox_PlayerTime1.Name = "textBox_PlayerTime1";
-            this.textBox_PlayerTime1.PasswordChar = '\0';
-            this.textBox_PlayerTime1.PlaceholderText = "";
-            this.textBox_PlayerTime1.SelectedText = "";
-            this.textBox_PlayerTime1.ShadowDecoration.Parent = this.textBox_PlayerTime1;
-            this.textBox_PlayerTime1.Size = new System.Drawing.Size(161, 53);
-            this.textBox_PlayerTime1.TabIndex = 7;
-            // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
@@ -210,30 +173,6 @@
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(83, 33);
             this.guna2HtmlLabel2.TabIndex = 10;
             this.guna2HtmlLabel2.Text = "Time:";
-            // 
-            // textBox_PlayerTime2
-            // 
-            this.textBox_PlayerTime2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox_PlayerTime2.DefaultText = "";
-            this.textBox_PlayerTime2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textBox_PlayerTime2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textBox_PlayerTime2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBox_PlayerTime2.DisabledState.Parent = this.textBox_PlayerTime2;
-            this.textBox_PlayerTime2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBox_PlayerTime2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_PlayerTime2.FocusedState.Parent = this.textBox_PlayerTime2;
-            this.textBox_PlayerTime2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox_PlayerTime2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_PlayerTime2.HoverState.Parent = this.textBox_PlayerTime2;
-            this.textBox_PlayerTime2.Location = new System.Drawing.Point(1171, 523);
-            this.textBox_PlayerTime2.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox_PlayerTime2.Name = "textBox_PlayerTime2";
-            this.textBox_PlayerTime2.PasswordChar = '\0';
-            this.textBox_PlayerTime2.PlaceholderText = "";
-            this.textBox_PlayerTime2.SelectedText = "";
-            this.textBox_PlayerTime2.ShadowDecoration.Parent = this.textBox_PlayerTime2;
-            this.textBox_PlayerTime2.Size = new System.Drawing.Size(161, 53);
-            this.textBox_PlayerTime2.TabIndex = 9;
             // 
             // thanos1
             // 
@@ -312,7 +251,50 @@
             this.textBox_PlayerIP2.Size = new System.Drawing.Size(253, 44);
             this.textBox_PlayerIP2.TabIndex = 12;
             // 
-            // Form1
+            // timer_Player1
+            // 
+            this.timer_Player1.Interval = 1000;
+            this.timer_Player1.Tick += new System.EventHandler(this.timer_Player1_Tick);
+            // 
+            // timer_Player2
+            // 
+            this.timer_Player2.Interval = 1000;
+            this.timer_Player2.Tick += new System.EventHandler(this.timer_Player2_Tick);
+            // 
+            // timer_Game
+            // 
+            this.timer_Game.Interval = 1000;
+            this.timer_Game.Tick += new System.EventHandler(this.timer_Game_Tick);
+            // 
+            // label_GameTime
+            // 
+            this.label_GameTime.BackColor = System.Drawing.Color.Transparent;
+            this.label_GameTime.Font = new System.Drawing.Font("Segoe UI Emoji", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_GameTime.Location = new System.Drawing.Point(657, 25);
+            this.label_GameTime.Name = "label_GameTime";
+            this.label_GameTime.Size = new System.Drawing.Size(48, 33);
+            this.label_GameTime.TabIndex = 15;
+            this.label_GameTime.Text = "0:00";
+            // 
+            // label_timePlayer1
+            // 
+            this.label_timePlayer1.BackColor = System.Drawing.Color.Transparent;
+            this.label_timePlayer1.Location = new System.Drawing.Point(146, 545);
+            this.label_timePlayer1.Name = "label_timePlayer1";
+            this.label_timePlayer1.Size = new System.Drawing.Size(47, 23);
+            this.label_timePlayer1.TabIndex = 16;
+            this.label_timePlayer1.Text = "10";
+            // 
+            // label_timePlayer2
+            // 
+            this.label_timePlayer2.BackColor = System.Drawing.Color.Transparent;
+            this.label_timePlayer2.Location = new System.Drawing.Point(1169, 540);
+            this.label_timePlayer2.Name = "label_timePlayer2";
+            this.label_timePlayer2.Size = new System.Drawing.Size(47, 23);
+            this.label_timePlayer2.TabIndex = 17;
+            this.label_timePlayer2.Text = "10";
+            // 
+            // FormPVP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -320,12 +302,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1365, 761);
+            this.Controls.Add(this.label_timePlayer2);
+            this.Controls.Add(this.label_timePlayer1);
+            this.Controls.Add(this.label_GameTime);
             this.Controls.Add(this.textBox_PlayerIP2);
             this.Controls.Add(this.textBox_PlayerIP1);
             this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.textBox_PlayerTime2);
             this.Controls.Add(this.guna2HtmlLabel1);
-            this.Controls.Add(this.textBox_PlayerTime1);
             this.Controls.Add(this.textBox_PlayerName2);
             this.Controls.Add(this.textBox_PlayerName1);
             this.Controls.Add(this.thanos1);
@@ -336,7 +319,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
+            this.Name = "FormPVP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
             this.BanCo_pnl.ResumeLayout(false);
@@ -353,19 +336,22 @@
         private System.Windows.Forms.Panel BanCo_pnl;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerTime1;
         private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerName2;
         private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerName1;
         private Guna.UI2.WinForms.Guna2PictureBox thanos1;
         private Guna.UI2.WinForms.Guna2PictureBox ironman1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerTime2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerIP2;
         private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerIP1;
+        public System.Windows.Forms.Timer timer_Player1;
+        public System.Windows.Forms.Timer timer_Player2;
+        private System.Windows.Forms.Timer timer_Game;
+        private Guna.UI2.WinForms.Guna2HtmlLabel label_GameTime;
+        public System.Windows.Forms.Label label_timePlayer1;
+        public System.Windows.Forms.Label label_timePlayer2;
     }
 }
 
