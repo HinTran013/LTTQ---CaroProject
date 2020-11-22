@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         #region Properties
         
         private Panel BanCo;
+        private QuanLyTime timeG;
+        private FormPVP FormMain;
 
         private List<Player> player;
         public List<Player> Player
@@ -40,14 +42,6 @@ namespace WindowsFormsApp1
             set { playerName = value; }
         }
 
-        private PictureBox mark;
-
-        public PictureBox Mark
-        {
-            get { return mark; }
-            set { mark = value; }
-        }
-
         //Lưu trữ 1 list mà trong đó mỗi phần tử của list cũng là 1 list các button
         //Dùng để truy xuất tới nút nhấn trên bàn cờ để xử lý thắng thua
         private List<List<Button>> Matrix;
@@ -56,10 +50,13 @@ namespace WindowsFormsApp1
 
         #region Initialize
 
-        public QuanLyBanCo(Panel BanCo, TextBox playerName)
+        public QuanLyBanCo(Panel BanCo,QuanLyTime timeG,FormPVP FormMain)
         {
 
             this.BanCo = BanCo;
+            this.timeG = timeG;
+            this.FormMain = FormMain;
+
             this.PlayerName = playerName;
 
             this.Player = new List<Player>();
@@ -79,12 +76,10 @@ namespace WindowsFormsApp1
         public void VeBanCo()
         {
             //Khởi tạo đối tượng matrix
-           this.BanCo.Hide();
             Matrix = new List<List<Button>>();
 
             //Button truoc cua moi button khi tao
             Button PreButton = new Button() { Width = 0, Location = new Point(0, 0) };
-
 
             //Vong lap de tao ban co
             for (int i = 0; i < Constant.ChieuCaoBanCo; i++)
@@ -140,27 +135,53 @@ namespace WindowsFormsApp1
             if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
 
             Marking(btn);
+            ChangeTimeCounter();
+
             //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
             if (IsEndGame(btn))
             {
                 EndGame(); //Nếu end game rồi thì chạy hàm endgame
             }
         }
-
-
         private void Marking(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Mark;
+        }
 
-           if (CurrentPlayer == 0) CurrentPlayer = 1;
-            else CurrentPlayer = 0;
+        //Phải cho QuanLyBanCo nhận tham số FormMain để có access tới các control trong đó
+        //Public các control cần truy cập
+        public void ChangeTimeCounter()
+        {
+            if (currentPlayer == 0)
+            {
+                FormMain.timer_Player1.Stop();
+                timeG.Time1 = Constant.timePlayer1;
+                FormMain.label_timePlayer1.Text = timeG.Time1.ToString();
+                currentPlayer = 1;
+
+                FormMain.timer_Player2.Start();
+            }
+            else if (currentPlayer == 1)
+            {
+                FormMain.timer_Player2.Stop();
+                timeG.Time2 = Constant.timePlayer2;
+                FormMain.label_timePlayer2.Text = timeG.Time2.ToString();
+                currentPlayer = 0;
+
+                FormMain.timer_Player1.Start();
+            }
         }
 
         public void EndGame()
         {
-            //CurrentPlayer-1 là người thắng 
-            //Ko đặt là CurrentPlayer vì nó sẽ chỉ người thua
-            MessageBox.Show(Player[currentPlayer-1].Name + " win!");
+            if(currentPlayer == 0)
+            {
+                MessageBox.Show(Player[1].Name + " win!");
+            }
+            else
+            {
+                MessageBox.Show(Player[0].Name + " win!");
+            }
         }
 
         public bool IsEndGame(Button btn)

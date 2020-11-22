@@ -75,6 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyBanCo.cs" />
     <Compile Include="QuanLyPlayer.cs" />
+    <Compile Include="QuanLyTime.cs" />
     <EmbeddedResource Include="FormPVP.resx">
       <DependentUpon>FormPVP.cs</DependentUpon>
     </EmbeddedResource>
