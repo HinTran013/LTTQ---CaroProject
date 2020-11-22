@@ -1,0 +1,133 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace WindowsFormsApp1
+{
+    public class SocketManager
+    {
+        #region Server
+        Socket Server;
+
+
+        public void CreateServer()
+        {
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
+            Server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            Server.Bind(iep);
+            Server.Listen(10); //Listen Client trong 10s
+
+            // Tạo luồng riêng, không ăn tài nguyên của luồng chính
+            Thread acceptClient = new Thread(() =>
+            {
+                Client = Server.Accept();
+            });
+            acceptClient.IsBackground = true; //Chương trình tắt ngang thì thread tự tắt theo
+            acceptClient.Start();
+        }
+
+        #endregion
+
+        #region Client
+        Socket Client;
+
+        //Hàm tạo kết nối tới server
+        public bool ConnectServer()
+        {
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
+            Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            // return true nếu kết nối thành công, false nếu kết nối thất bại
+            try
+            {
+                Client.Connect(iep);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region Both
+        public string IP = "127.0.0.1";
+        public int Port = 9999;
+        public const int BUFFER = 1024;
+        public bool isServer = true;
+
+        //Hàm Nén đối tượng thành mảng byte[]
+        public byte[] SerializeData(Object o)
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryFormatter bf1 = new BinaryFormatter();
+            bf1.Serialize(ms, o);
+            return ms.ToArray();
+        }
+
+        //Hàm Giải nén mảng byte[] thành đối tượng object
+        public object DeserializeData(byte[] theByteArray)
+        {
+            MemoryStream ms = new MemoryStream(theByteArray);
+            BinaryFormatter bf1 = new BinaryFormatter();
+            ms.Position = 0;
+            return bf1.Deserialize(ms);
+        }
+
+        //Hàm này dùng để lấy IPv4 của card mạng đang dùng
+        public string GetLocalIPv4(NetworkInterfaceType _type)
+        {
+            string output = "";
+            foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (item.NetworkInterfaceType == _type && item.OperationalStatus == OperationalStatus.Up)
+                {
+                    foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            output = ip.Address.ToString();
+                        }
+                    }
+                }
+            }
+            return output;
+        }
+
+        public bool Send(object data)
+        {
+            byte[] sendData = SerializeData(data);
+
+            return SendData(Client, sendData);
+        }
+
+        public object Receive()
+        {
+            byte[] receiveData = new byte[BUFFER];
+            bool isOk = ReceiveData(Client, receiveData);
+
+            return DeserializeData(receiveData);
+        }
+
+        private bool SendData(Socket target, byte[] data)
+        {
+            return target.Send(data) == 1 ? true : false;
+        }
+
+        private bool ReceiveData(Socket target, byte[] data)
+        {
+            return target.Receive(data) == 1 ? true : false;
+        }
+        #endregion
+    }
+}
+

@@ -49,6 +49,7 @@
             this.label_GameTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_timePlayer1 = new System.Windows.Forms.Label();
             this.label_timePlayer2 = new System.Windows.Forms.Label();
+            this.KetNoiLAN_Btn = new Guna.UI2.WinForms.Guna2Button();
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thanos1)).BeginInit();
@@ -151,26 +152,26 @@
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Lucida Handwriting", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Crimson;
             this.guna2HtmlLabel1.IsSelectionEnabled = false;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(55, 530);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(55, 521);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(83, 33);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(86, 35);
             this.guna2HtmlLabel1.TabIndex = 8;
             this.guna2HtmlLabel1.Text = "Time:";
             // 
             // guna2HtmlLabel2
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Lucida Handwriting", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.MediumPurple;
             this.guna2HtmlLabel2.IsSelectionEnabled = false;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(1079, 530);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(1079, 521);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(83, 33);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(86, 35);
             this.guna2HtmlLabel2.TabIndex = 10;
             this.guna2HtmlLabel2.Text = "Time:";
             // 
@@ -270,7 +271,7 @@
             // 
             this.label_GameTime.BackColor = System.Drawing.Color.Transparent;
             this.label_GameTime.Font = new System.Drawing.Font("Segoe UI Emoji", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GameTime.Location = new System.Drawing.Point(657, 25);
+            this.label_GameTime.Location = new System.Drawing.Point(651, 48);
             this.label_GameTime.Name = "label_GameTime";
             this.label_GameTime.Size = new System.Drawing.Size(48, 33);
             this.label_GameTime.TabIndex = 15;
@@ -279,20 +280,39 @@
             // label_timePlayer1
             // 
             this.label_timePlayer1.BackColor = System.Drawing.Color.Transparent;
-            this.label_timePlayer1.Location = new System.Drawing.Point(146, 545);
+            this.label_timePlayer1.Font = new System.Drawing.Font("Lucida Handwriting", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_timePlayer1.ForeColor = System.Drawing.Color.Crimson;
+            this.label_timePlayer1.Location = new System.Drawing.Point(148, 529);
             this.label_timePlayer1.Name = "label_timePlayer1";
-            this.label_timePlayer1.Size = new System.Drawing.Size(47, 23);
+            this.label_timePlayer1.Size = new System.Drawing.Size(47, 27);
             this.label_timePlayer1.TabIndex = 16;
             this.label_timePlayer1.Text = "10";
             // 
             // label_timePlayer2
             // 
             this.label_timePlayer2.BackColor = System.Drawing.Color.Transparent;
-            this.label_timePlayer2.Location = new System.Drawing.Point(1169, 540);
+            this.label_timePlayer2.Font = new System.Drawing.Font("Lucida Handwriting", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_timePlayer2.ForeColor = System.Drawing.Color.MediumPurple;
+            this.label_timePlayer2.Location = new System.Drawing.Point(1172, 521);
             this.label_timePlayer2.Name = "label_timePlayer2";
-            this.label_timePlayer2.Size = new System.Drawing.Size(47, 23);
+            this.label_timePlayer2.Size = new System.Drawing.Size(47, 36);
             this.label_timePlayer2.TabIndex = 17;
             this.label_timePlayer2.Text = "10";
+            // 
+            // KetNoiLAN_Btn
+            // 
+            this.KetNoiLAN_Btn.CheckedState.Parent = this.KetNoiLAN_Btn;
+            this.KetNoiLAN_Btn.CustomImages.Parent = this.KetNoiLAN_Btn;
+            this.KetNoiLAN_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.KetNoiLAN_Btn.ForeColor = System.Drawing.Color.White;
+            this.KetNoiLAN_Btn.HoverState.Parent = this.KetNoiLAN_Btn;
+            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(583, 695);
+            this.KetNoiLAN_Btn.Name = "KetNoiLAN_Btn";
+            this.KetNoiLAN_Btn.ShadowDecoration.Parent = this.KetNoiLAN_Btn;
+            this.KetNoiLAN_Btn.Size = new System.Drawing.Size(180, 45);
+            this.KetNoiLAN_Btn.TabIndex = 18;
+            this.KetNoiLAN_Btn.Text = "LAN";
+            this.KetNoiLAN_Btn.Click += new System.EventHandler(this.KetNoiLAN_Btn_Click);
             // 
             // FormPVP
             // 
@@ -302,6 +322,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1365, 761);
+            this.Controls.Add(this.KetNoiLAN_Btn);
             this.Controls.Add(this.label_timePlayer2);
             this.Controls.Add(this.label_timePlayer1);
             this.Controls.Add(this.label_GameTime);
@@ -322,6 +343,7 @@
             this.Name = "FormPVP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
+            this.Shown += new System.EventHandler(this.FormPVP_Shown);
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thanos1)).EndInit();
@@ -352,6 +374,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel label_GameTime;
         public System.Windows.Forms.Label label_timePlayer1;
         public System.Windows.Forms.Label label_timePlayer2;
+        private Guna.UI2.WinForms.Guna2Button KetNoiLAN_Btn;
     }
 }
 

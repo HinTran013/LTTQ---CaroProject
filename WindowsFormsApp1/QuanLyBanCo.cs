@@ -19,6 +19,8 @@ namespace WindowsFormsApp1
         private Panel BanCo;
         private QuanLyTime timeG;
         private FormPVP FormMain;
+        private bool MarkOrNot;
+        private Random DanhDauRandom;
 
         private List<Player> player;
         public List<Player> Player
@@ -52,6 +54,8 @@ namespace WindowsFormsApp1
 
         public QuanLyBanCo(Panel BanCo,QuanLyTime timeG,FormPVP FormMain)
         {
+            MarkOrNot = false;
+            DanhDauRandom = new Random();
 
             this.BanCo = BanCo;
             this.timeG = timeG;
@@ -135,6 +139,7 @@ namespace WindowsFormsApp1
             if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
 
             Marking(btn);
+            MarkOrNot = true;
             ChangeTimeCounter();
 
             //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
@@ -154,22 +159,47 @@ namespace WindowsFormsApp1
         {
             if (currentPlayer == 0)
             {
+                MarkOrNot = false;
                 FormMain.timer_Player1.Stop();
                 timeG.Time1 = Constant.timePlayer1;
                 FormMain.label_timePlayer1.Text = timeG.Time1.ToString();
+
                 currentPlayer = 1;
 
                 FormMain.timer_Player2.Start();
             }
             else if (currentPlayer == 1)
             {
+                MarkOrNot = false;
                 FormMain.timer_Player2.Stop();
                 timeG.Time2 = Constant.timePlayer2;
                 FormMain.label_timePlayer2.Text = timeG.Time2.ToString();
+
                 currentPlayer = 0;
 
                 FormMain.timer_Player1.Start();
             }
+        }
+
+        public void HamDanhRandom()
+        {
+            int VitriHang = DanhDauRandom.Next(0, 15);
+            int VitriCot = DanhDauRandom.Next(0, 16);
+
+            if(Matrix[VitriHang][VitriCot].BackgroundImage == null)
+            {
+                Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
+                if (IsEndGame(Matrix[VitriHang][VitriCot]))
+                {
+                    EndGame();
+                }
+                return;
+            }
+            else
+            {
+                HamDanhRandom();
+            }
+
         }
 
         public void EndGame()
@@ -194,8 +224,6 @@ namespace WindowsFormsApp1
         //Hàm dùng để lấy tọa độ của button
         public Point GetChessPoint(Button btn)
         {
-           
-
             int HangNgang = Convert.ToInt32(btn.Tag); //Hàng ngang của nút được lấy ra từ tag của nó được khởi tạo trong hàm VeBanCo()
             int HangDoc = Matrix[HangNgang].IndexOf(btn); //Hàng dọc của nút được lấy ra từ idex của list button nằm ở hàng ngang
 
@@ -348,7 +376,5 @@ namespace WindowsFormsApp1
         }
         //--------------------------------------------
         #endregion
-
-
     }
 }
