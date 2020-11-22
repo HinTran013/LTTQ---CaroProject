@@ -183,8 +183,8 @@ namespace WindowsFormsApp1
 
         public void HamDanhRandom()
         {
-            int VitriHang = DanhDauRandom.Next(0, 15);
-            int VitriCot = DanhDauRandom.Next(0, 16);
+            int VitriHang = DanhDauRandom.Next(0, Constant.ChieuCaoBanCo);
+            int VitriCot = DanhDauRandom.Next(0, Constant.ChieuRongBanCo-1);
 
             if(Matrix[VitriHang][VitriCot].BackgroundImage == null)
             {
