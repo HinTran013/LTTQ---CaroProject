@@ -106,6 +106,8 @@ namespace WindowsFormsApp1
         public void VeBanCo()
         {
             BanCo.Enabled = true;
+            BanCo.Controls.Clear();
+            CurrentPlayer = 0;
 
             //Khởi tạo đối tượng matrix
             Matrix = new List<List<Button>>();

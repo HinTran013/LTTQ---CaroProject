@@ -32,12 +32,15 @@ namespace WindowsFormsApp1
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
 
-            BanCo.VeBanCo();
+            NewGame();
+            
             label_GameTime.Text = timeG.Minute.ToString() + ":0" + timeG.Sec.ToString();
             timer_Game.Start();
 
             timer_Player1.Start();
         }
+
+        #region Methods
 
         void EndGame()
         {
@@ -55,6 +58,29 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        void NewGame()
+        {
+            timer_Game.Stop();
+            timer_Player1.Stop();
+            timer_Player2.Stop();
+
+            BanCo.VeBanCo();
+
+            timeG.Sec = 0;
+            timeG.Minute = 0;
+            timeG.Time1 = 10;
+            timeG.Time2 = 10;
+
+            label_GameTime.Text = "0:00";
+            label_timePlayer1.Text = "10";
+            label_timePlayer2.Text = "10";
+
+            timer_Game.Start();
+            timer_Player1.Start();
+        }
+
+        
 
         private void BanCo_PlayerMarked(object sender, EventArgs e)
         {
@@ -195,5 +221,19 @@ namespace WindowsFormsApp1
 
             Listen();
         }
+
+        
+
+        private void NewGame_Btn_Click(object sender, EventArgs e)
+        {
+            NewGame();
+        }
+
+        private void FormPVP_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát !!!", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+                e.Cancel = true;
+        }
+        #endregion
     }
 }

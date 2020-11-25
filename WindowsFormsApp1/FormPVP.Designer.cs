@@ -50,6 +50,8 @@
             this.label_timePlayer1 = new System.Windows.Forms.Label();
             this.label_timePlayer2 = new System.Windows.Forms.Label();
             this.KetNoiLAN_Btn = new Guna.UI2.WinForms.Guna2Button();
+            this.NewGame_Btn = new Guna.UI2.WinForms.Guna2Button();
+            this.Quit_Btn = new Guna.UI2.WinForms.Guna2ControlBox();
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thanos1)).BeginInit();
@@ -306,13 +308,40 @@
             this.KetNoiLAN_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.KetNoiLAN_Btn.ForeColor = System.Drawing.Color.White;
             this.KetNoiLAN_Btn.HoverState.Parent = this.KetNoiLAN_Btn;
-            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(583, 695);
+            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(499, 695);
             this.KetNoiLAN_Btn.Name = "KetNoiLAN_Btn";
             this.KetNoiLAN_Btn.ShadowDecoration.Parent = this.KetNoiLAN_Btn;
             this.KetNoiLAN_Btn.Size = new System.Drawing.Size(180, 45);
             this.KetNoiLAN_Btn.TabIndex = 18;
             this.KetNoiLAN_Btn.Text = "LAN";
             this.KetNoiLAN_Btn.Click += new System.EventHandler(this.KetNoiLAN_Btn_Click);
+            // 
+            // NewGame_Btn
+            // 
+            this.NewGame_Btn.CheckedState.Parent = this.NewGame_Btn;
+            this.NewGame_Btn.CustomImages.Parent = this.NewGame_Btn;
+            this.NewGame_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NewGame_Btn.ForeColor = System.Drawing.Color.White;
+            this.NewGame_Btn.HoverState.Parent = this.NewGame_Btn;
+            this.NewGame_Btn.Location = new System.Drawing.Point(685, 695);
+            this.NewGame_Btn.Name = "NewGame_Btn";
+            this.NewGame_Btn.ShadowDecoration.Parent = this.NewGame_Btn;
+            this.NewGame_Btn.Size = new System.Drawing.Size(180, 45);
+            this.NewGame_Btn.TabIndex = 19;
+            this.NewGame_Btn.Text = "New Game";
+            this.NewGame_Btn.Click += new System.EventHandler(this.NewGame_Btn_Click);
+            // 
+            // Quit_Btn
+            // 
+            this.Quit_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Quit_Btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.Quit_Btn.HoverState.Parent = this.Quit_Btn;
+            this.Quit_Btn.IconColor = System.Drawing.Color.White;
+            this.Quit_Btn.Location = new System.Drawing.Point(1308, 12);
+            this.Quit_Btn.Name = "Quit_Btn";
+            this.Quit_Btn.ShadowDecoration.Parent = this.Quit_Btn;
+            this.Quit_Btn.Size = new System.Drawing.Size(45, 29);
+            this.Quit_Btn.TabIndex = 20;
             // 
             // FormPVP
             // 
@@ -322,6 +351,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1365, 761);
+            this.Controls.Add(this.Quit_Btn);
+            this.Controls.Add(this.NewGame_Btn);
             this.Controls.Add(this.KetNoiLAN_Btn);
             this.Controls.Add(this.label_timePlayer2);
             this.Controls.Add(this.label_timePlayer1);
@@ -343,6 +374,7 @@
             this.Name = "FormPVP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPVP_FormClosing);
             this.Shown += new System.EventHandler(this.FormPVP_Shown);
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
@@ -375,6 +407,8 @@
         public System.Windows.Forms.Label label_timePlayer1;
         public System.Windows.Forms.Label label_timePlayer2;
         private Guna.UI2.WinForms.Guna2Button KetNoiLAN_Btn;
+        private Guna.UI2.WinForms.Guna2Button NewGame_Btn;
+        private Guna.UI2.WinForms.Guna2ControlBox Quit_Btn;
     }
 }
 
