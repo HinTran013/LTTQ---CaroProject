@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             set { message = value; }
         }
 
-        public SocketData(int command, string message, Point? point = null)
+        public SocketData(int command, string message = null, Point? point = null)
         {
             this.Command = command;
             this.Point = point;

@@ -48,6 +48,32 @@ namespace WindowsFormsApp1
         //Dùng để truy xuất tới nút nhấn trên bàn cờ để xử lý thắng thua
         private List<List<Button>> Matrix;
 
+        private event EventHandler playerMarked;
+        public event EventHandler PlayerMarked
+        {
+            add
+            {
+                playerMarked += value;
+            }
+            remove
+            {
+                playerMarked -= value;
+            }
+        }
+
+        private event EventHandler endedGame;
+        public event EventHandler EndedGame
+        {
+            add
+            {
+                endedGame += value;
+            }
+            remove
+            {
+                endedGame -= value;
+            }
+        }
+
         #endregion
 
         #region Initialize
@@ -79,6 +105,8 @@ namespace WindowsFormsApp1
 
         public void VeBanCo()
         {
+            BanCo.Enabled = true;
+
             //Khởi tạo đối tượng matrix
             Matrix = new List<List<Button>>();
 
@@ -140,7 +168,10 @@ namespace WindowsFormsApp1
 
             Marking(btn);
             MarkOrNot = true;
-            ChangeTimeCounter();
+            
+
+            if (playerMarked != null)
+                playerMarked(this, new EventArgs());
 
             //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
             if (IsEndGame(btn))
@@ -164,7 +195,7 @@ namespace WindowsFormsApp1
                 timeG.Time1 = Constant.timePlayer1;
                 FormMain.label_timePlayer1.Text = timeG.Time1.ToString();
 
-                currentPlayer = 1;
+                ChangeCurrentPlayer();
 
                 FormMain.timer_Player2.Start();
             }
@@ -175,10 +206,19 @@ namespace WindowsFormsApp1
                 timeG.Time2 = Constant.timePlayer2;
                 FormMain.label_timePlayer2.Text = timeG.Time2.ToString();
 
-                currentPlayer = 0;
+                ChangeCurrentPlayer();
 
                 FormMain.timer_Player1.Start();
             }
+        }
+
+        void ChangeCurrentPlayer()
+        {
+            if (currentPlayer == 0)
+                currentPlayer = 1;
+            else
+            if (currentPlayer == 1)
+                currentPlayer = 0;
         }
 
         public void HamDanhRandom()
@@ -204,14 +244,8 @@ namespace WindowsFormsApp1
 
         public void EndGame()
         {
-            if(currentPlayer == 0)
-            {
-                MessageBox.Show(Player[1].Name + " win!");
-            }
-            else
-            {
-                MessageBox.Show(Player[0].Name + " win!");
-            }
+            if (endedGame != null)
+                endedGame(this, new EventArgs());
         }
 
         public bool IsEndGame(Button btn)

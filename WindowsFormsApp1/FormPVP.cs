@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         SocketManager socket;
         
         #endregion
+
         public FormPVP()
         {
             InitializeComponent();
@@ -28,6 +29,9 @@ namespace WindowsFormsApp1
             timeG = new QuanLyTime();
             BanCo = new QuanLyBanCo(BanCo_pnl,timeG,this);
 
+            BanCo.EndedGame += BanCo_EndedGame;
+            BanCo.PlayerMarked += BanCo_PlayerMarked;
+
             BanCo.VeBanCo();
             label_GameTime.Text = timeG.Minute.ToString() + ":0" + timeG.Sec.ToString();
             timer_Game.Start();
@@ -35,7 +39,33 @@ namespace WindowsFormsApp1
             timer_Player1.Start();
         }
 
-        
+        void EndGame()
+        {
+            timer_Game.Stop();
+            timer_Player1.Stop();
+            timer_Player2.Stop();
+            BanCo_pnl.Enabled = false;
+            if (BanCo.CurrentPlayer == 0)
+            {
+                MessageBox.Show(BanCo.Player[1].Name + " win!");
+            }
+            else
+            {
+                MessageBox.Show(BanCo.Player[0].Name + " win!");
+            }
+
+        }
+
+        private void BanCo_PlayerMarked(object sender, EventArgs e)
+        {
+            BanCo.ChangeTimeCounter();
+        }
+
+        private void BanCo_EndedGame(object sender, EventArgs e)
+        {
+            EndGame();
+        }
+
         private void timer_Game_Tick(object sender, EventArgs e)
         {
             if(timeG.Sec >= 0 && timeG.Sec < 59)
@@ -128,6 +158,7 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception e)
                 {
+
                 }
             });
             listenThread.IsBackground = true;
