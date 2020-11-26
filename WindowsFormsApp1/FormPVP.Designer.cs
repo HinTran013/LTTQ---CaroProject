@@ -51,7 +51,7 @@
             this.label_timePlayer2 = new System.Windows.Forms.Label();
             this.KetNoiLAN_Btn = new Guna.UI2.WinForms.Guna2Button();
             this.NewGame_Btn = new Guna.UI2.WinForms.Guna2Button();
-            this.Quit_Btn = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.Exit_Button = new Guna.UI2.WinForms.Guna2Button();
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thanos1)).BeginInit();
@@ -62,10 +62,10 @@
             // 
             this.BanCo_pnl.BackColor = System.Drawing.SystemColors.Control;
             this.BanCo_pnl.Controls.Add(this.guna2PictureBox4);
-            this.BanCo_pnl.Location = new System.Drawing.Point(362, 88);
+            this.BanCo_pnl.Location = new System.Drawing.Point(327, 52);
             this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BanCo_pnl.Name = "BanCo_pnl";
-            this.BanCo_pnl.Size = new System.Drawing.Size(641, 600);
+            this.BanCo_pnl.Size = new System.Drawing.Size(760, 679);
             this.BanCo_pnl.TabIndex = 0;
             // 
             // guna2PictureBox4
@@ -90,7 +90,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1409, 9);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1457, 9);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
@@ -116,7 +116,7 @@
             this.textBox_PlayerName1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBox_PlayerName1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox_PlayerName1.HoverState.Parent = this.textBox_PlayerName1;
-            this.textBox_PlayerName1.Location = new System.Drawing.Point(55, 412);
+            this.textBox_PlayerName1.Location = new System.Drawing.Point(67, 412);
             this.textBox_PlayerName1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_PlayerName1.Name = "textBox_PlayerName1";
             this.textBox_PlayerName1.PasswordChar = '\0';
@@ -141,7 +141,7 @@
             this.textBox_PlayerName2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBox_PlayerName2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox_PlayerName2.HoverState.Parent = this.textBox_PlayerName2;
-            this.textBox_PlayerName2.Location = new System.Drawing.Point(1079, 412);
+            this.textBox_PlayerName2.Location = new System.Drawing.Point(1094, 412);
             this.textBox_PlayerName2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_PlayerName2.Name = "textBox_PlayerName2";
             this.textBox_PlayerName2.PasswordChar = '\0';
@@ -157,7 +157,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Lucida Handwriting", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Crimson;
             this.guna2HtmlLabel1.IsSelectionEnabled = false;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(55, 521);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(67, 520);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(86, 35);
@@ -170,7 +170,7 @@
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Lucida Handwriting", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.MediumPurple;
             this.guna2HtmlLabel2.IsSelectionEnabled = false;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(1079, 521);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(1207, 516);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(86, 35);
@@ -181,7 +181,7 @@
             // 
             this.thanos1.BackColor = System.Drawing.Color.Transparent;
             this.thanos1.Image = ((System.Drawing.Image)(resources.GetObject("thanos1.Image")));
-            this.thanos1.Location = new System.Drawing.Point(1045, 137);
+            this.thanos1.Location = new System.Drawing.Point(1094, 137);
             this.thanos1.Margin = new System.Windows.Forms.Padding(4);
             this.thanos1.Name = "thanos1";
             this.thanos1.ShadowDecoration.Parent = this.thanos1;
@@ -195,7 +195,7 @@
             this.ironman1.BackColor = System.Drawing.Color.Transparent;
             this.ironman1.FillColor = System.Drawing.Color.Transparent;
             this.ironman1.Image = ((System.Drawing.Image)(resources.GetObject("ironman1.Image")));
-            this.ironman1.Location = new System.Drawing.Point(35, 137);
+            this.ironman1.Location = new System.Drawing.Point(13, 137);
             this.ironman1.Margin = new System.Windows.Forms.Padding(4);
             this.ironman1.Name = "ironman1";
             this.ironman1.ShadowDecoration.Parent = this.ironman1;
@@ -219,7 +219,7 @@
             this.textBox_PlayerIP1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBox_PlayerIP1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox_PlayerIP1.HoverState.Parent = this.textBox_PlayerIP1;
-            this.textBox_PlayerIP1.Location = new System.Drawing.Point(55, 470);
+            this.textBox_PlayerIP1.Location = new System.Drawing.Point(67, 464);
             this.textBox_PlayerIP1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_PlayerIP1.Name = "textBox_PlayerIP1";
             this.textBox_PlayerIP1.PasswordChar = '\0';
@@ -244,7 +244,7 @@
             this.textBox_PlayerIP2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBox_PlayerIP2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox_PlayerIP2.HoverState.Parent = this.textBox_PlayerIP2;
-            this.textBox_PlayerIP2.Location = new System.Drawing.Point(1079, 470);
+            this.textBox_PlayerIP2.Location = new System.Drawing.Point(1094, 464);
             this.textBox_PlayerIP2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_PlayerIP2.Name = "textBox_PlayerIP2";
             this.textBox_PlayerIP2.PasswordChar = '\0';
@@ -273,7 +273,7 @@
             // 
             this.label_GameTime.BackColor = System.Drawing.Color.Transparent;
             this.label_GameTime.Font = new System.Drawing.Font("Segoe UI Emoji", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GameTime.Location = new System.Drawing.Point(651, 48);
+            this.label_GameTime.Location = new System.Drawing.Point(651, 12);
             this.label_GameTime.Name = "label_GameTime";
             this.label_GameTime.Size = new System.Drawing.Size(48, 33);
             this.label_GameTime.TabIndex = 15;
@@ -284,7 +284,7 @@
             this.label_timePlayer1.BackColor = System.Drawing.Color.Transparent;
             this.label_timePlayer1.Font = new System.Drawing.Font("Lucida Handwriting", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_timePlayer1.ForeColor = System.Drawing.Color.Crimson;
-            this.label_timePlayer1.Location = new System.Drawing.Point(148, 529);
+            this.label_timePlayer1.Location = new System.Drawing.Point(160, 524);
             this.label_timePlayer1.Name = "label_timePlayer1";
             this.label_timePlayer1.Size = new System.Drawing.Size(47, 27);
             this.label_timePlayer1.TabIndex = 16;
@@ -295,7 +295,7 @@
             this.label_timePlayer2.BackColor = System.Drawing.Color.Transparent;
             this.label_timePlayer2.Font = new System.Drawing.Font("Lucida Handwriting", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_timePlayer2.ForeColor = System.Drawing.Color.MediumPurple;
-            this.label_timePlayer2.Location = new System.Drawing.Point(1172, 521);
+            this.label_timePlayer2.Location = new System.Drawing.Point(1300, 519);
             this.label_timePlayer2.Name = "label_timePlayer2";
             this.label_timePlayer2.Size = new System.Drawing.Size(47, 36);
             this.label_timePlayer2.TabIndex = 17;
@@ -308,7 +308,7 @@
             this.KetNoiLAN_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.KetNoiLAN_Btn.ForeColor = System.Drawing.Color.White;
             this.KetNoiLAN_Btn.HoverState.Parent = this.KetNoiLAN_Btn;
-            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(499, 695);
+            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(537, 785);
             this.KetNoiLAN_Btn.Name = "KetNoiLAN_Btn";
             this.KetNoiLAN_Btn.ShadowDecoration.Parent = this.KetNoiLAN_Btn;
             this.KetNoiLAN_Btn.Size = new System.Drawing.Size(180, 45);
@@ -323,7 +323,7 @@
             this.NewGame_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NewGame_Btn.ForeColor = System.Drawing.Color.White;
             this.NewGame_Btn.HoverState.Parent = this.NewGame_Btn;
-            this.NewGame_Btn.Location = new System.Drawing.Point(685, 695);
+            this.NewGame_Btn.Location = new System.Drawing.Point(723, 785);
             this.NewGame_Btn.Name = "NewGame_Btn";
             this.NewGame_Btn.ShadowDecoration.Parent = this.NewGame_Btn;
             this.NewGame_Btn.Size = new System.Drawing.Size(180, 45);
@@ -331,17 +331,20 @@
             this.NewGame_Btn.Text = "New Game";
             this.NewGame_Btn.Click += new System.EventHandler(this.NewGame_Btn_Click);
             // 
-            // Quit_Btn
+            // Exit_Button
             // 
-            this.Quit_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Quit_Btn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.Quit_Btn.HoverState.Parent = this.Quit_Btn;
-            this.Quit_Btn.IconColor = System.Drawing.Color.White;
-            this.Quit_Btn.Location = new System.Drawing.Point(1308, 12);
-            this.Quit_Btn.Name = "Quit_Btn";
-            this.Quit_Btn.ShadowDecoration.Parent = this.Quit_Btn;
-            this.Quit_Btn.Size = new System.Drawing.Size(45, 29);
-            this.Quit_Btn.TabIndex = 20;
+            this.Exit_Button.CheckedState.Parent = this.Exit_Button;
+            this.Exit_Button.CustomImages.Parent = this.Exit_Button;
+            this.Exit_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Exit_Button.ForeColor = System.Drawing.Color.White;
+            this.Exit_Button.HoverState.Parent = this.Exit_Button;
+            this.Exit_Button.Location = new System.Drawing.Point(1362, 12);
+            this.Exit_Button.Name = "Exit_Button";
+            this.Exit_Button.ShadowDecoration.Parent = this.Exit_Button;
+            this.Exit_Button.Size = new System.Drawing.Size(39, 33);
+            this.Exit_Button.TabIndex = 20;
+            this.Exit_Button.Text = "X";
+            this.Exit_Button.Click += new System.EventHandler(this.Exit_Button_Click);
             // 
             // FormPVP
             // 
@@ -350,8 +353,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1365, 761);
-            this.Controls.Add(this.Quit_Btn);
+            this.ClientSize = new System.Drawing.Size(1413, 829);
+            this.Controls.Add(this.Exit_Button);
             this.Controls.Add(this.NewGame_Btn);
             this.Controls.Add(this.KetNoiLAN_Btn);
             this.Controls.Add(this.label_timePlayer2);
@@ -374,7 +377,6 @@
             this.Name = "FormPVP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPVP_FormClosing);
             this.Shown += new System.EventHandler(this.FormPVP_Shown);
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
@@ -408,7 +410,7 @@
         public System.Windows.Forms.Label label_timePlayer2;
         private Guna.UI2.WinForms.Guna2Button KetNoiLAN_Btn;
         private Guna.UI2.WinForms.Guna2Button NewGame_Btn;
-        private Guna.UI2.WinForms.Guna2ControlBox Quit_Btn;
+        private Guna.UI2.WinForms.Guna2Button Exit_Button;
     }
 }
 

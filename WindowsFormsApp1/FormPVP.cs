@@ -24,6 +24,10 @@ namespace WindowsFormsApp1
         public FormPVP()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
+
+            NewGame_Btn.Enabled = false;
+
             socket = new SocketManager();
 
             timeG = new QuanLyTime();
@@ -31,16 +35,39 @@ namespace WindowsFormsApp1
 
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
+            BanCo.EndedGameRandom += BanCo_EndedGameRandom;
 
             NewGame();
             
-            label_GameTime.Text = timeG.Minute.ToString() + ":0" + timeG.Sec.ToString();
-            timer_Game.Start();
+            //label_GameTime.Text = timeG.Minute.ToString() + ":0" + timeG.Sec.ToString();
+            //timer_Game.Start();
 
-            timer_Player1.Start();
+            //timer_Player1.Start();
+        }
+
+        private void BanCo_EndedGameRandom(object sender, EventArgs e)
+        {
+            EndGameRandom();
         }
 
         #region Methods
+
+        void EndGameRandom()
+        {
+            timer_Game.Stop();
+            timer_Player1.Stop();
+            timer_Player2.Stop();
+            BanCo_pnl.Enabled = false;
+            if (BanCo.CurrentPlayer == 0)
+            {
+                MessageBox.Show(BanCo.Player[0].Name + " win!");
+            }
+            else
+            {
+                MessageBox.Show(BanCo.Player[1].Name + " win!");
+            }
+            NewGame_Btn.Enabled = true;
+        }
 
         void EndGame()
         {
@@ -56,11 +83,12 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(BanCo.Player[0].Name + " win!");
             }
-
+            NewGame_Btn.Enabled = true;
         }
 
         void NewGame()
         {
+            NewGame_Btn.Enabled = false;
             timer_Game.Stop();
             timer_Player1.Stop();
             timer_Player2.Stop();
@@ -82,9 +110,13 @@ namespace WindowsFormsApp1
 
         
 
-        private void BanCo_PlayerMarked(object sender, EventArgs e)
+        private void BanCo_PlayerMarked(object sender, ButtonClickEvent e)
         {
             BanCo.ChangeTimeCounter();
+            BanCo_pnl.Enabled = false;
+            socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "" , e.ClickedPoint));
+
+            Listen();
         }
 
         private void BanCo_EndedGame(object sender, EventArgs e)
@@ -124,7 +156,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                BanCo.HamDanhRandom();
+                BanCo.HamDanhRandom(); 
                 BanCo.ChangeTimeCounter();
             }
             
@@ -151,13 +183,13 @@ namespace WindowsFormsApp1
             if (!socket.ConnectServer())
             {
                 socket.isServer = true;
-               // pnlChessBoard.Enabled = true;
+                BanCo_pnl.Enabled = true;
                 socket.CreateServer();
             }
             else
             {
                 socket.isServer = false;
-                //pnlChessBoard.Enabled = false;
+                BanCo_pnl.Enabled = false;
                 Listen();
             }
         }
@@ -203,10 +235,10 @@ namespace WindowsFormsApp1
                 case (int)SocketCommand.SEND_POINT:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                     //   prcbCoolDown.Value = 0;
-                      //  pnlChessBoard.Enabled = true;
-                      //  tmCoolDown.Start();
-                     //   ChessBoard.OtherPlayerMark(data.Point);
+                        label_timePlayer1.Text = Constant.timePlayer1.ToString();
+                        BanCo_pnl.Enabled = true;
+                        timer_Player1.Start();
+                        BanCo.OtherPlayerMark(data.Point);
                     }));
                     break;
                 case (int)SocketCommand.UNDO:
@@ -229,11 +261,15 @@ namespace WindowsFormsApp1
             NewGame();
         }
 
-        private void FormPVP_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn thoát !!!", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-                e.Cancel = true;
-        }
+
+
+
         #endregion
+
+        private void Exit_Button_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                this.Dispose(true);
+        }
     }
 }

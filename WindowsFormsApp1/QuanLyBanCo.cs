@@ -48,8 +48,8 @@ namespace WindowsFormsApp1
         //Dùng để truy xuất tới nút nhấn trên bàn cờ để xử lý thắng thua
         private List<List<Button>> Matrix;
 
-        private event EventHandler playerMarked;
-        public event EventHandler PlayerMarked
+        private event EventHandler<ButtonClickEvent> playerMarked;
+        public event EventHandler<ButtonClickEvent> PlayerMarked
         {
             add
             {
@@ -74,6 +74,19 @@ namespace WindowsFormsApp1
             }
         }
 
+        private event EventHandler endedGameRandom;
+        public event EventHandler EndedGameRandom
+        {
+            add
+            {
+                endedGameRandom += value;
+            }
+            remove
+            {
+                endedGameRandom -= value;
+            }
+        }
+
         #endregion
 
         #region Initialize
@@ -94,9 +107,6 @@ namespace WindowsFormsApp1
             this.Player.Add(new Player("PLAYER 1", Resources.red_x_transparent_png_3));
 
             this.Player.Add(new Player("PLAYER 2", Resources.n1530354));
-
-            //Khoi tao ca 2 player va dat player 1 la player choi truoc.
-            CurrentPlayer = 0;
         }
 
         #endregion
@@ -107,6 +117,7 @@ namespace WindowsFormsApp1
         {
             BanCo.Enabled = true;
             BanCo.Controls.Clear();
+            //Khoi tao ca 2 player va dat player 1 la player choi truoc.
             CurrentPlayer = 0;
 
             //Khởi tạo đối tượng matrix
@@ -170,10 +181,9 @@ namespace WindowsFormsApp1
 
             Marking(btn);
             MarkOrNot = true;
-            
 
             if (playerMarked != null)
-                playerMarked(this, new EventArgs());
+                playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
 
             //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
             if (IsEndGame(btn))
@@ -181,6 +191,26 @@ namespace WindowsFormsApp1
                 EndGame(); //Nếu end game rồi thì chạy hàm endgame
             }
         }
+
+        public void OtherPlayerMark(Point point)
+        {
+            Button btn = Matrix[point.Y][point.X];
+            //Fix loi dau X khi truy cap Resource
+
+            if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
+
+            
+
+            Marking(btn);
+            MarkOrNot = true;
+
+            //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
+            if (IsEndGame(btn))
+            {
+                EndGame(); //Nếu end game rồi thì chạy hàm endgame
+            }
+        }
+
         private void Marking(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Mark;
@@ -214,7 +244,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        void ChangeCurrentPlayer()
+        public void ChangeCurrentPlayer()
         {
             if (currentPlayer == 0)
                 currentPlayer = 1;
@@ -233,7 +263,8 @@ namespace WindowsFormsApp1
                 Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
                 if (IsEndGame(Matrix[VitriHang][VitriCot]))
                 {
-                    EndGame();
+                    EndGameRandom();
+                    return;
                 }
                 return;
             }
@@ -242,6 +273,12 @@ namespace WindowsFormsApp1
                 HamDanhRandom();
             }
 
+        }
+
+        public void EndGameRandom()
+        {
+            if (endedGameRandom != null)
+                endedGameRandom(this, new EventArgs());
         }
 
         public void EndGame()
@@ -254,7 +291,7 @@ namespace WindowsFormsApp1
         {
             if (IsEndGameHangNgang(btn) || IsEndGameHangDoc(btn) || IsEndGameDuongCheoChinh(btn) || IsEndGameDuongCheoPhu(btn))
                 return true;
-            return false;
+            else return false;
         }
 
         //Hàm dùng để lấy tọa độ của button
@@ -410,7 +447,26 @@ namespace WindowsFormsApp1
 
             return countTop + countBottom == 5;
         }
+
+        
         //--------------------------------------------
         #endregion
+    }
+
+    //Dành cho LAN 
+    public class ButtonClickEvent : EventArgs
+    {
+        private Point clickedPoint;
+
+        public Point ClickedPoint
+        {
+            get { return clickedPoint; }
+            set { clickedPoint = value; }
+        }
+
+        public ButtonClickEvent(Point point)
+        {
+            this.ClickedPoint = point;
+        }
     }
 }

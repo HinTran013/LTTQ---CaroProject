@@ -18,9 +18,9 @@ namespace WindowsFormsApp1
             set { command = value; }
         }
 
-        private Point? point;
+        private Point point;
 
-        public Point? Point
+        public Point Point
         {
             get { return point; }
             set { point = value; }
@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             set { message = value; }
         }
 
-        public SocketData(int command, string message = null, Point? point = null)
+        public SocketData(int command, string message, Point point)
         {
             this.Command = command;
             this.Point = point;
