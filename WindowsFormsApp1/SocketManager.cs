@@ -24,14 +24,13 @@ namespace WindowsFormsApp1
             Server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             Server.Bind(iep);
-            Server.Listen(10); //Listen Client trong 10s
+            Server.Listen(10);
 
-            // Tạo luồng riêng, không ăn tài nguyên của luồng chính
             Thread acceptClient = new Thread(() =>
             {
                 Client = Server.Accept();
             });
-            acceptClient.IsBackground = true; //Chương trình tắt ngang thì thread tự tắt theo
+            acceptClient.IsBackground = true;
             acceptClient.Start();
         }
 

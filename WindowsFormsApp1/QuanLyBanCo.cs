@@ -61,6 +61,19 @@ namespace WindowsFormsApp1
             }
         }
 
+        private event EventHandler<ButtonClickEvent> randomMarked;
+        public event EventHandler<ButtonClickEvent> RandomMarked
+        {
+            add
+            {
+                randomMarked += value;
+            }
+            remove
+            {
+                randomMarked -= value;
+            }
+        }
+
         private event EventHandler endedGame;
         public event EventHandler EndedGame
         {
@@ -199,16 +212,39 @@ namespace WindowsFormsApp1
 
             if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
 
-            
-
             Marking(btn);
             MarkOrNot = true;
+
+            ChangeCurrentPlayer();
 
             //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
             if (IsEndGame(btn))
             {
                 EndGame(); //Nếu end game rồi thì chạy hàm endgame
             }
+        }
+
+        public Point HamDanhRandom()
+        {
+            int VitriHang = DanhDauRandom.Next(0, Constant.ChieuCaoBanCo);
+            int VitriCot = DanhDauRandom.Next(0, Constant.ChieuRongBanCo - 1);
+            Point point;
+            if (Matrix[VitriHang][VitriCot].BackgroundImage == null)
+            {
+                point = new Point(VitriCot, VitriHang);
+                Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
+                if (IsEndGame(Matrix[VitriHang][VitriCot]))
+                {
+                    EndGameRandom();
+                    return point;
+                }
+                return point;
+            }
+            else
+            {
+                HamDanhRandom();
+            }
+            return point = new Point(0,0);
         }
 
         private void Marking(Button btn)
@@ -253,27 +289,7 @@ namespace WindowsFormsApp1
                 currentPlayer = 0;
         }
 
-        public void HamDanhRandom()
-        {
-            int VitriHang = DanhDauRandom.Next(0, Constant.ChieuCaoBanCo);
-            int VitriCot = DanhDauRandom.Next(0, Constant.ChieuRongBanCo-1);
-
-            if(Matrix[VitriHang][VitriCot].BackgroundImage == null)
-            {
-                Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
-                if (IsEndGame(Matrix[VitriHang][VitriCot]))
-                {
-                    EndGameRandom();
-                    return;
-                }
-                return;
-            }
-            else
-            {
-                HamDanhRandom();
-            }
-
-        }
+        
 
         public void EndGameRandom()
         {

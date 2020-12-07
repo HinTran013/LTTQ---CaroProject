@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
         NEW_GAME,
         UNDO,
         END_GAME,
-        QUIT
+        QUIT,
+        SEND_RANDOMPOINT
     }
 }
