@@ -15,6 +15,6 @@ namespace WindowsFormsApp1
         public static int ChieuCaoBanCo = 17;
 
         public static int timePlayer1 = 10;
-        public static int timePlayer2 = 10;
+        
     }
 }

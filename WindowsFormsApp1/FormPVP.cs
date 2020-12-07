@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
             socket = new SocketManager();
 
             timeG = new QuanLyTime();
-            BanCo = new QuanLyBanCo(BanCo_pnl,timeG,this);
+            BanCo = new QuanLyBanCo(BanCo_pnl,timeG,this, PlayerMark_pictureBox);
 
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
         #region Event
         private void BanCo_RandomMarked(object sender, ButtonClickEvent e)
         {
-            BanCo.ChangeTimeCounter();
+            
             BanCo_pnl.Enabled = false;
             socket.Send(new SocketData((int)SocketCommand.SEND_RANDOMPOINT, "", e.ClickedPoint));
 
@@ -68,10 +68,16 @@ namespace WindowsFormsApp1
 
         private void BanCo_PlayerMarked(object sender, ButtonClickEvent e)
         {
-            BanCo.ChangeTimeCounter();
+            timer_Player1.Start();
+            timer_Game.Start();
+            timeG.Time1 = 10;
+            label_timePlayer1.Text = "10";
+            
             BanCo_pnl.Enabled = false;
-            socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
+            
 
+            socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
+            
             Listen();
         }
 
@@ -114,23 +120,10 @@ namespace WindowsFormsApp1
             else
             {
                 BanCo.HamDanhRandom();
-                BanCo.ChangeTimeCounter();
+                BanCo.ChangeCurrentPlayer();
+                timeG.Time1 = Constant.timePlayer1;
             }
 
-        }
-
-        private void timer_Player2_Tick(object sender, EventArgs e)
-        {
-            if (timeG.Time2 > 0)
-            {
-                timeG.Time2--;
-                label_timePlayer2.Text = timeG.Time2.ToString();
-            }
-            else
-            {
-                BanCo.HamDanhRandom();
-                BanCo.ChangeTimeCounter();
-            }
         }
 
         private void KetNoiLAN_Btn_Click(object sender, EventArgs e)
@@ -191,7 +184,7 @@ namespace WindowsFormsApp1
         {
             timer_Game.Stop();
             timer_Player1.Stop();
-            timer_Player2.Stop();
+            
             BanCo_pnl.Enabled = false;
             if (BanCo.CurrentPlayer == 0)
             {
@@ -208,7 +201,6 @@ namespace WindowsFormsApp1
         {
             timer_Game.Stop();
             timer_Player1.Stop();
-            timer_Player2.Stop();
             BanCo_pnl.Enabled = false;
             if (BanCo.CurrentPlayer == 0)
             {
@@ -226,22 +218,22 @@ namespace WindowsFormsApp1
             NewGame_Btn.Enabled = false;
             timer_Game.Stop();
             timer_Player1.Stop();
-            timer_Player2.Stop();
 
             BanCo.VeBanCo();
 
             timeG.Sec = 0;
             timeG.Minute = 0;
             timeG.Time1 = 10;
-            timeG.Time2 = 10;
+            
 
             label_GameTime.Text = "0:00";
             label_timePlayer1.Text = "10";
-            label_timePlayer2.Text = "10";
 
-            timer_Game.Start();
-            timer_Player1.Start();
+            //timer_Game.Start();
+            //timer_Player1.Start();
         }
+
+        
 
         void Listen()
         {
@@ -281,7 +273,10 @@ namespace WindowsFormsApp1
                     {
                         label_timePlayer1.Text = Constant.timePlayer1.ToString();
                         BanCo_pnl.Enabled = true;
+                        timeG.Time1 = 10;
+                        label_timePlayer1.Text = "10";
                         timer_Player1.Start();
+                        timer_Game.Start();
                         BanCo.OtherPlayerMark(data.Point);
                     }));
                     break;
@@ -293,7 +288,6 @@ namespace WindowsFormsApp1
                 case (int)SocketCommand.QUIT:
                     timer_Game.Stop();
                     timer_Player1.Stop();
-                    timer_Player2.Stop();
                     MessageBox.Show("Người chơi đã thoát!!");
                     break;
                 case (int)SocketCommand.SEND_RANDOMPOINT:

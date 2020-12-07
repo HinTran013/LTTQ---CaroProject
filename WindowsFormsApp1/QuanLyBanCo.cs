@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     {
         #region Properties
         
-        private Panel BanCo;
+        public Panel BanCo;
         private QuanLyTime timeG;
         private FormPVP FormMain;
         private bool MarkOrNot;
@@ -42,6 +42,14 @@ namespace WindowsFormsApp1
         {
             get { return playerName; }
             set { playerName = value; }
+        }
+
+        private PictureBox playerMark;
+
+        public PictureBox PlayerMark
+        {
+            get { return playerMark; }
+            set { playerMark = value; }
         }
 
         //Lưu trữ 1 list mà trong đó mỗi phần tử của list cũng là 1 list các button
@@ -104,7 +112,7 @@ namespace WindowsFormsApp1
 
         #region Initialize
 
-        public QuanLyBanCo(Panel BanCo,QuanLyTime timeG,FormPVP FormMain)
+        public QuanLyBanCo(Panel BanCo,QuanLyTime timeG,FormPVP FormMain, PictureBox mark)
         {
             MarkOrNot = false;
             DanhDauRandom = new Random();
@@ -112,7 +120,7 @@ namespace WindowsFormsApp1
             this.BanCo = BanCo;
             this.timeG = timeG;
             this.FormMain = FormMain;
-
+            this.PlayerMark = mark;
             this.PlayerName = playerName;
 
             this.Player = new List<Player>();
@@ -195,6 +203,9 @@ namespace WindowsFormsApp1
             Marking(btn);
             MarkOrNot = true;
 
+            ChangeCurrentPlayer();
+            //ChangePlayer();
+
             if (playerMarked != null)
                 playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
 
@@ -217,6 +228,8 @@ namespace WindowsFormsApp1
 
             ChangeCurrentPlayer();
 
+            //ChangePlayer();
+
             //Hàm kiểm tra rằng cho chơi đã kết thúc hay chưa
             if (IsEndGame(btn))
             {
@@ -224,27 +237,27 @@ namespace WindowsFormsApp1
             }
         }
 
-        public Point HamDanhRandom()
+        public void HamDanhRandom()
         {
             int VitriHang = DanhDauRandom.Next(0, Constant.ChieuCaoBanCo);
             int VitriCot = DanhDauRandom.Next(0, Constant.ChieuRongBanCo - 1);
-            Point point;
+            
             if (Matrix[VitriHang][VitriCot].BackgroundImage == null)
             {
-                point = new Point(VitriCot, VitriHang);
+                
                 Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
                 if (IsEndGame(Matrix[VitriHang][VitriCot]))
                 {
                     EndGameRandom();
-                    return point;
+                    
                 }
-                return point;
+                
             }
             else
             {
                 HamDanhRandom();
             }
-            return point = new Point(0,0);
+            
         }
 
         private void Marking(Button btn)
@@ -254,31 +267,6 @@ namespace WindowsFormsApp1
 
         //Phải cho QuanLyBanCo nhận tham số FormMain để có access tới các control trong đó
         //Public các control cần truy cập
-        public void ChangeTimeCounter()
-        {
-            if (currentPlayer == 0)
-            {
-                MarkOrNot = false;
-                FormMain.timer_Player1.Stop();
-                timeG.Time1 = Constant.timePlayer1;
-                FormMain.label_timePlayer1.Text = timeG.Time1.ToString();
-
-                ChangeCurrentPlayer();
-
-                FormMain.timer_Player2.Start();
-            }
-            else if (currentPlayer == 1)
-            {
-                MarkOrNot = false;
-                FormMain.timer_Player2.Stop();
-                timeG.Time2 = Constant.timePlayer2;
-                FormMain.label_timePlayer2.Text = timeG.Time2.ToString();
-
-                ChangeCurrentPlayer();
-
-                FormMain.timer_Player1.Start();
-            }
-        }
 
         public void ChangeCurrentPlayer()
         {
@@ -289,7 +277,12 @@ namespace WindowsFormsApp1
                 currentPlayer = 0;
         }
 
-        
+        //private void ChangePlayer()
+        //{
+        //    PlayerName.Text = Player[CurrentPlayer].Name;
+            
+        //    PlayerMark.Image = Player[CurrentPlayer].Mark;
+        //}
 
         public void EndGameRandom()
         {
