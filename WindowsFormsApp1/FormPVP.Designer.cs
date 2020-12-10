@@ -100,7 +100,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Lucida Handwriting", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Crimson;
             this.guna2HtmlLabel1.IsSelectionEnabled = false;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(13, 498);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(13, 427);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(86, 35);
@@ -121,7 +121,7 @@
             // 
             this.label_GameTime.BackColor = System.Drawing.Color.Transparent;
             this.label_GameTime.Font = new System.Drawing.Font("Segoe UI Emoji", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GameTime.Location = new System.Drawing.Point(651, 12);
+            this.label_GameTime.Location = new System.Drawing.Point(683, 12);
             this.label_GameTime.Name = "label_GameTime";
             this.label_GameTime.Size = new System.Drawing.Size(48, 33);
             this.label_GameTime.TabIndex = 15;
@@ -132,9 +132,9 @@
             this.label_timePlayer1.BackColor = System.Drawing.Color.Transparent;
             this.label_timePlayer1.Font = new System.Drawing.Font("Lucida Handwriting", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_timePlayer1.ForeColor = System.Drawing.Color.Crimson;
-            this.label_timePlayer1.Location = new System.Drawing.Point(792, 18);
+            this.label_timePlayer1.Location = new System.Drawing.Point(106, 427);
             this.label_timePlayer1.Name = "label_timePlayer1";
-            this.label_timePlayer1.Size = new System.Drawing.Size(47, 27);
+            this.label_timePlayer1.Size = new System.Drawing.Size(47, 35);
             this.label_timePlayer1.TabIndex = 16;
             this.label_timePlayer1.Text = "10";
             // 

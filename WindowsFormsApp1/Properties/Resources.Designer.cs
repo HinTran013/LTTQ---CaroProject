@@ -73,6 +73,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ironnhammat {
+            get {
+                object obj = ResourceManager.GetObject("ironnhammat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap myTurn {
             get {
                 object obj = ResourceManager.GetObject("myTurn", resourceCulture);
@@ -96,6 +106,16 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap red_x_transparent_png_3 {
             get {
                 object obj = ResourceManager.GetObject("red-x-transparent-png-3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thanosnhammat {
+            get {
+                object obj = ResourceManager.GetObject("thanosnhammat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
