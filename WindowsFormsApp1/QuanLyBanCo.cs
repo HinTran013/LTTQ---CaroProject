@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Properties;
+using Guna.UI2.WinForms;
 
 namespace WindowsFormsApp1
 {
@@ -38,16 +39,16 @@ namespace WindowsFormsApp1
             set { currentPlayer = value; }
         }
 
-        private TextBox playerName;
-        public TextBox PlayerName
+        private Guna2TextBox playerName;
+        public Guna2TextBox PlayerName
         {
             get { return playerName; }
             set { playerName = value; }
         }
 
-        private PictureBox playerMark;
+        private Guna2PictureBox playerMark;
 
-        public PictureBox PlayerMark
+        public Guna2PictureBox PlayerMark
         {
             get { return playerMark; }
             set { playerMark = value; }
@@ -113,7 +114,7 @@ namespace WindowsFormsApp1
 
         #region Initialize
 
-        public QuanLyBanCo(Panel BanCo, QuanLyTime timeG, FormPVP FormMain, PictureBox mark, TextBox playerName)
+        public QuanLyBanCo(Panel BanCo, QuanLyTime timeG, FormPVP FormMain, Guna2PictureBox mark, Guna2TextBox playerName)
         {
             MarkOrNot = false;
             DanhDauRandom = new Random();
