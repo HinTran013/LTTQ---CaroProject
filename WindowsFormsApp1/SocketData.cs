@@ -50,6 +50,6 @@ namespace WindowsFormsApp1
         UNDO,
         END_GAME,
         QUIT,
-        SEND_RANDOMPOINT
+        HAVE_CLIENT
     }
 }

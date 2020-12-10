@@ -31,12 +31,12 @@ namespace WindowsFormsApp1
             socket = new SocketManager();
 
             timeG = new QuanLyTime();
-            BanCo = new QuanLyBanCo(BanCo_pnl,timeG,this, PlayerMark_pictureBox);
+            BanCo = new QuanLyBanCo(BanCo_pnl,timeG,this, PlayerMark_pictureBox, textBox_PlayerName1);
 
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
             BanCo.EndedGameRandom += BanCo_EndedGameRandom;
-            BanCo.RandomMarked += BanCo_RandomMarked;
+            BanCo.Timestop += BanCo_Timestop;
 
             NewGame();
 
@@ -48,18 +48,18 @@ namespace WindowsFormsApp1
             BanCo_pnl.Enabled = false;
         }
 
+        private void BanCo_Timestop(object sender, EventArgs e)
+        {
+            timer_Player1.Stop();
+            timer_Game.Stop();
+            timeG.Time1 = 10;
+            label_timePlayer1.Text = "10";
+            label_GameTime.Text = "0:00";
+        }
+
 
 
         #region Event
-        private void BanCo_RandomMarked(object sender, ButtonClickEvent e)
-        {
-            
-            BanCo_pnl.Enabled = false;
-            socket.Send(new SocketData((int)SocketCommand.SEND_RANDOMPOINT, "", e.ClickedPoint));
-
-            Listen();
-        }
-
         private void BanCo_EndedGameRandom(object sender, EventArgs e)
         {
             EndGameRandom();
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
             label_timePlayer1.Text = "10";
             
             BanCo_pnl.Enabled = false;
-            
+            BanCo.IsRandomTurn = false;
 
             socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
             
@@ -119,8 +119,11 @@ namespace WindowsFormsApp1
             }
             else
             {
-                BanCo.HamDanhRandom();
-                BanCo.ChangeCurrentPlayer();
+                if (BanCo.IsRandomTurn == true)
+                {
+                    BanCo.HamDanhRandom();
+                    BanCo.IsRandomTurn = false;
+                }
                 timeG.Time1 = Constant.timePlayer1;
             }
 
@@ -134,18 +137,20 @@ namespace WindowsFormsApp1
             {
                 socket.isServer = true;
                 BanCo_pnl.Enabled = true;
+                
                 socket.CreateServer();
             }
             else
             {
                 socket.isServer = false;
                 BanCo_pnl.Enabled = false;
+                
                 Listen();
             }
-
-            //BanCo_pnl.Enabled = true;
             KetNoiLAN_Btn.Enabled = false;
         }
+
+        
 
         private void FormPVP_Shown(object sender, EventArgs e)
         {
@@ -169,6 +174,7 @@ namespace WindowsFormsApp1
             if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Dispose(true);
+                //Environment.Exit(Environment.ExitCode);
                 try
                 {
                     socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
@@ -271,6 +277,7 @@ namespace WindowsFormsApp1
                 case (int)SocketCommand.SEND_POINT:
                     this.Invoke((MethodInvoker)(() =>
                     {
+                        BanCo.IsRandomTurn = true;
                         label_timePlayer1.Text = Constant.timePlayer1.ToString();
                         BanCo_pnl.Enabled = true;
                         timeG.Time1 = 10;
@@ -290,13 +297,10 @@ namespace WindowsFormsApp1
                     timer_Player1.Stop();
                     MessageBox.Show("Người chơi đã thoát!!");
                     break;
-                case (int)SocketCommand.SEND_RANDOMPOINT:
+                case (int)SocketCommand.HAVE_CLIENT:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        label_timePlayer1.Text = Constant.timePlayer1.ToString();
                         BanCo_pnl.Enabled = true;
-                        timer_Player1.Start();
-                        BanCo.HamDanhRandom();
                     }));
                     break;
                 default:
