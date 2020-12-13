@@ -57,12 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChatApp.Designer.cs">
-      <DependentUpon>ChatApp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Constant.cs" />
     <Compile Include="FormPVP.cs">
       <SubType>Form</SubType>
@@ -89,9 +83,6 @@
     <Compile Include="QuanLyTime.cs" />
     <Compile Include="SocketData.cs" />
     <Compile Include="SocketManager.cs" />
-    <EmbeddedResource Include="ChatApp.resx">
-      <DependentUpon>ChatApp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPVP.resx">
       <DependentUpon>FormPVP.cs</DependentUpon>
     </EmbeddedResource>

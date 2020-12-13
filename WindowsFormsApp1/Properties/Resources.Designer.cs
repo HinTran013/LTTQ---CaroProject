@@ -61,12 +61,11 @@ namespace WindowsFormsApp1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.Drawing.Bitmap caroimage {
+        internal static System.IO.UnmanagedMemoryStream Avengers_theme__online_audio_converter_com_ {
             get {
-                object obj = ResourceManager.GetObject("caroimage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetStream("Avengers_theme__online_audio_converter_com_", resourceCulture);
             }
         }
         
@@ -116,16 +115,6 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap thanosnhammat {
             get {
                 object obj = ResourceManager.GetObject("thanosnhammat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap YourTurn {
-            get {
-                object obj = ResourceManager.GetObject("YourTurn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

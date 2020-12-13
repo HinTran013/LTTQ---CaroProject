@@ -46,6 +46,11 @@
             this.textBox_PlayerIP1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.textBox_PlayerName1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.PlayerMark_pictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ChatTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.SendTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.sendButton = new Guna.UI2.WinForms.Guna2Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerMark_pictureBox)).BeginInit();
@@ -83,7 +88,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1235, 9);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1620, 9);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
@@ -145,7 +150,7 @@
             this.KetNoiLAN_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.KetNoiLAN_Btn.ForeColor = System.Drawing.Color.White;
             this.KetNoiLAN_Btn.HoverState.Parent = this.KetNoiLAN_Btn;
-            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(519, 738);
+            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(12, 465);
             this.KetNoiLAN_Btn.Name = "KetNoiLAN_Btn";
             this.KetNoiLAN_Btn.ShadowDecoration.Parent = this.KetNoiLAN_Btn;
             this.KetNoiLAN_Btn.Size = new System.Drawing.Size(180, 45);
@@ -160,7 +165,7 @@
             this.NewGame_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NewGame_Btn.ForeColor = System.Drawing.Color.White;
             this.NewGame_Btn.HoverState.Parent = this.NewGame_Btn;
-            this.NewGame_Btn.Location = new System.Drawing.Point(705, 738);
+            this.NewGame_Btn.Location = new System.Drawing.Point(13, 520);
             this.NewGame_Btn.Name = "NewGame_Btn";
             this.NewGame_Btn.ShadowDecoration.Parent = this.NewGame_Btn;
             this.NewGame_Btn.Size = new System.Drawing.Size(180, 45);
@@ -175,7 +180,7 @@
             this.Exit_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Exit_Button.ForeColor = System.Drawing.Color.White;
             this.Exit_Button.HoverState.Parent = this.Exit_Button;
-            this.Exit_Button.Location = new System.Drawing.Point(1140, 12);
+            this.Exit_Button.Location = new System.Drawing.Point(1525, 12);
             this.Exit_Button.Name = "Exit_Button";
             this.Exit_Button.ShadowDecoration.Parent = this.Exit_Button;
             this.Exit_Button.Size = new System.Drawing.Size(39, 33);
@@ -237,14 +242,85 @@
             // 
             this.PlayerMark_pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.PlayerMark_pictureBox.FillColor = System.Drawing.Color.Transparent;
-            this.PlayerMark_pictureBox.Location = new System.Drawing.Point(13, 52);
+            this.PlayerMark_pictureBox.Location = new System.Drawing.Point(12, 83);
             this.PlayerMark_pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.PlayerMark_pictureBox.Name = "PlayerMark_pictureBox";
             this.PlayerMark_pictureBox.ShadowDecoration.Parent = this.PlayerMark_pictureBox;
-            this.PlayerMark_pictureBox.Size = new System.Drawing.Size(307, 267);
+            this.PlayerMark_pictureBox.Size = new System.Drawing.Size(254, 236);
             this.PlayerMark_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PlayerMark_pictureBox.TabIndex = 5;
             this.PlayerMark_pictureBox.TabStop = false;
+            // 
+            // ChatTextBox
+            // 
+            this.ChatTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ChatTextBox.DefaultText = "";
+            this.ChatTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ChatTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ChatTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ChatTextBox.DisabledState.Parent = this.ChatTextBox;
+            this.ChatTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ChatTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ChatTextBox.FocusedState.Parent = this.ChatTextBox;
+            this.ChatTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ChatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ChatTextBox.HoverState.Parent = this.ChatTextBox;
+            this.ChatTextBox.Location = new System.Drawing.Point(1093, 52);
+            this.ChatTextBox.Multiline = true;
+            this.ChatTextBox.Name = "ChatTextBox";
+            this.ChatTextBox.PasswordChar = '\0';
+            this.ChatTextBox.PlaceholderText = "";
+            this.ChatTextBox.SelectedText = "";
+            this.ChatTextBox.ShadowDecoration.Parent = this.ChatTextBox;
+            this.ChatTextBox.Size = new System.Drawing.Size(471, 679);
+            this.ChatTextBox.TabIndex = 21;
+            // 
+            // SendTextBox
+            // 
+            this.SendTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SendTextBox.DefaultText = "";
+            this.SendTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SendTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SendTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SendTextBox.DisabledState.Parent = this.SendTextBox;
+            this.SendTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SendTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SendTextBox.FocusedState.Parent = this.SendTextBox;
+            this.SendTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SendTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SendTextBox.HoverState.Parent = this.SendTextBox;
+            this.SendTextBox.Location = new System.Drawing.Point(1093, 737);
+            this.SendTextBox.Name = "SendTextBox";
+            this.SendTextBox.PasswordChar = '\0';
+            this.SendTextBox.PlaceholderText = "";
+            this.SendTextBox.SelectedText = "";
+            this.SendTextBox.ShadowDecoration.Parent = this.SendTextBox;
+            this.SendTextBox.Size = new System.Drawing.Size(385, 36);
+            this.SendTextBox.TabIndex = 22;
+            
+            // 
+            // sendButton
+            // 
+            this.sendButton.CheckedState.Parent = this.sendButton;
+            this.sendButton.CustomImages.Parent = this.sendButton;
+            this.sendButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.sendButton.ForeColor = System.Drawing.Color.White;
+            this.sendButton.HoverState.Parent = this.sendButton;
+            this.sendButton.Location = new System.Drawing.Point(1484, 737);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.ShadowDecoration.Parent = this.sendButton;
+            this.sendButton.Size = new System.Drawing.Size(80, 36);
+            this.sendButton.TabIndex = 23;
+            this.sendButton.Text = "Send";
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             // 
             // FormPVP
             // 
@@ -253,7 +329,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1191, 829);
+            this.ClientSize = new System.Drawing.Size(1576, 789);
+            this.Controls.Add(this.sendButton);
+            this.Controls.Add(this.SendTextBox);
+            this.Controls.Add(this.ChatTextBox);
             this.Controls.Add(this.Exit_Button);
             this.Controls.Add(this.NewGame_Btn);
             this.Controls.Add(this.KetNoiLAN_Btn);
@@ -299,6 +378,11 @@
         private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerIP1;
         private Guna.UI2.WinForms.Guna2TextBox textBox_PlayerName1;
         private Guna.UI2.WinForms.Guna2PictureBox PlayerMark_pictureBox;
+        private Guna.UI2.WinForms.Guna2TextBox ChatTextBox;
+        private Guna.UI2.WinForms.Guna2Button sendButton;
+        private Guna.UI2.WinForms.Guna2TextBox SendTextBox;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 

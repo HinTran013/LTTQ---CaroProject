@@ -9,6 +9,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.IO;
+using System.Media;
+using System.Resources;
+using WindowsFormsApp1.Properties;
 
 namespace WindowsFormsApp1
 {
@@ -18,13 +24,25 @@ namespace WindowsFormsApp1
         QuanLyBanCo BanCo;
         QuanLyTime timeG;
         SocketManager socket;
-        
+
+        //---FOR CHATTING---
+        private TcpClient client;
+        public StreamReader STR;
+        public StreamWriter STW;
+        public string recieve;
+        public String TextToSend;
+        //------------------
+
         #endregion
 
         public FormPVP()
         {
             InitializeComponent();
+
+
             Control.CheckForIllegalCrossThreadCalls = false;
+
+            this.AcceptButton = sendButton;
 
             NewGame_Btn.Enabled = false;
 
@@ -139,6 +157,25 @@ namespace WindowsFormsApp1
                 BanCo_pnl.Enabled = true;
                 
                 socket.CreateServer();
+
+                //--FOR CHATTING--
+                Thread listenThread = new Thread(() =>
+                {
+                    TcpListener listener = new TcpListener(IPAddress.Any, 6969);
+                    listener.Start();
+                    client = listener.AcceptTcpClient();
+                    STR = new StreamReader(client.GetStream());
+                    STW = new StreamWriter(client.GetStream());
+                    STW.AutoFlush = true;
+
+                    backgroundWorker1.RunWorkerAsync();
+                    backgroundWorker2.WorkerSupportsCancellation = true;
+
+                    ChatTextBox.AppendText("Client was connected" + "\r\n");
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+                //----------------
             }
             else
             {
@@ -146,11 +183,99 @@ namespace WindowsFormsApp1
                 BanCo_pnl.Enabled = false;
                 
                 Listen();
+
+                //--FOR CHATTING--
+                Thread listenThread = new Thread(() =>
+                {
+                    client = new TcpClient();
+                    IPEndPoint IpEnd = new IPEndPoint(IPAddress.Parse(textBox_PlayerIP1.Text), 6969);
+
+                    try
+                    {
+                        client.Connect(IpEnd);
+
+                        if (client.Connected)
+                        {
+                            ChatTextBox.AppendText("Connected to server" + "\r\n");
+                            STW = new StreamWriter(client.GetStream());
+                            STR = new StreamReader(client.GetStream());
+                            STW.AutoFlush = true;
+                            backgroundWorker1.RunWorkerAsync();
+                            backgroundWorker2.WorkerSupportsCancellation = true;
+
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Người chơi host đã thoát!!", "THÔNG BÁO");
+                    }
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+                
+                //----------------
             }
+
             KetNoiLAN_Btn.Enabled = false;
         }
 
-        
+        //--FOR CHATTING--
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (client.Connected)
+            {
+                try
+                {
+                    recieve = STR.ReadLine();
+                    this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
+                    {
+                        ChatTextBox.AppendText("Friend: " + recieve + "\r\n");
+                    }));
+                    recieve = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                if (client.Connected)
+                {
+                    STW.WriteLine(TextToSend);
+                    this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
+                    {
+                        ChatTextBox.AppendText("You: " + TextToSend + "\r\n");
+                    }));
+                }
+                else
+                {
+                    MessageBox.Show("Sending failed");
+                }
+                backgroundWorker2.CancelAsync();
+            }
+            catch
+            {
+                MessageBox.Show("Chưa có người chơi nào được kết nối", "THÔNG BÁO");
+            }
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            if (SendTextBox.Text != "")
+            {
+                TextToSend = SendTextBox.Text;
+                backgroundWorker2.RunWorkerAsync();
+            }
+            SendTextBox.Text = "";
+        }
+        //----------------
+
+
 
         private void FormPVP_Shown(object sender, EventArgs e)
         {
@@ -159,7 +284,7 @@ namespace WindowsFormsApp1
             if (string.IsNullOrEmpty(textBox_PlayerIP1.Text))
             {
                 textBox_PlayerIP1.Text = socket.GetLocalIPv4(NetworkInterfaceType.Ethernet);
-            }
+            }    
         }
 
         private void NewGame_Btn_Click(object sender, EventArgs e)
