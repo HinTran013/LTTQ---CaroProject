@@ -32,5 +32,7 @@ namespace WindowsFormsApp1
             f3.ShowDialog();
             this.Show();
         }
+
+        
     }
 }

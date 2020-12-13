@@ -16,13 +16,6 @@ namespace WindowsFormsApp1
             set { time1 = value; }
         }
 
-        private int time2;
-        public int Time2
-        {
-            get { return time2; }
-            set { time2 = value; }
-        }
-
         private int minute;
         public int Minute
         {
@@ -39,8 +32,7 @@ namespace WindowsFormsApp1
         public QuanLyTime()
         {
             time1 = Constant.timePlayer1;
-            time2 = Constant.timePlayer2;
-
+            
             minute = 0;
             sec = 0;
         }
