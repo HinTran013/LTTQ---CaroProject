@@ -33,6 +33,12 @@ namespace WindowsFormsApp1
             this.Show();
         }
 
-        
+        private void PVC(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormPVC f4 = new FormPVC();
+            f4.ShowDialog();
+            this.Show();
+        }
     }
 }
