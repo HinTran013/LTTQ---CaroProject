@@ -72,7 +72,6 @@
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.Size = new System.Drawing.Size(33, 31);
             this.guna2ControlBox1.TabIndex = 7;
-            
             // 
             // guna2CirclePictureBox1
             // 
@@ -135,6 +134,7 @@
             this.guna2GradientButton2.Size = new System.Drawing.Size(389, 55);
             this.guna2GradientButton2.TabIndex = 12;
             this.guna2GradientButton2.Text = "P vs C";
+            this.guna2GradientButton2.Click += new System.EventHandler(this.PVC);
             // 
             // guna2GradientButton3
             // 
