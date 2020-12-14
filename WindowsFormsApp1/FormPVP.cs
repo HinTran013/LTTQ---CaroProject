@@ -272,7 +272,7 @@ namespace WindowsFormsApp1
                 backgroundWorker2.RunWorkerAsync();
             }
             SendTextBox.Text = "";
-        }
+        }  
         //----------------
 
 
