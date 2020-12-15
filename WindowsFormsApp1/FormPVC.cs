@@ -12,12 +12,30 @@ namespace WindowsFormsApp1
 {
     public partial class FormPVC : Form
     {
+        #region InitChess
+        public class Chess
+        {
+            public Button btn;
+            public int X;
+            public int Y;
+            public Chess()
+            {
+                btn = new Button();
+            }
+            public Chess(Button btn, int x, int y)
+            {
+                btn = new Button();
+                this.btn = btn;
+                X = x;
+                Y = y;
+            }
+        }
+        #endregion
+
         QuanLyBanCoPVC BanCo;
         QuanLyTime timeG;
 
         private static int columns, rows;
-
-        public static bool vsComputer;
         public int[,] vtMap;
         public Stack<Chess> chesses;
         public Chess chess;
@@ -27,20 +45,61 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             timeG = new QuanLyTime();
-            BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this);
+            BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this,playerName_TextBox);
+            playerName_TextBox.Text = BanCo.Player[0].Name;
 
-            BanCo.VeBanCo();
+            BanCo.EndedGame += BanCo_EndedGame;
+            BanCo.PlayerMarked += BanCo_PlayerMarked;
+            BanCo.EndedGameRandom += BanCo_EndedGameRandom;
 
             columns = Constant.ChieuRongBanCo;
             rows = Constant.ChieuCaoBanCo;
 
-            vsComputer = true;
-            BanCo.CurrentPlayer = 0;
-
             vtMap = new int[rows + 2, columns + 2];
             chesses = new Stack<Chess>();
+
+            BanCo.VeBanCo();
+
+            BanCo.CurrentPlayer = 0;
         }
 
+        private void BanCo_PlayerMarked(object sender, ButtonClickEvent e)
+        {
+            timer_Player.Start();
+            timer_Game.Start();
+            timeG.Time1 = 10;
+            timerPlayer_Label.Text = "10";
+
+        }
+
+        private void BanCo_EndedGameRandom(object sender, EventArgs e)
+        {
+            EndGame();
+        }
+
+        private void BanCo_EndedGame(object sender, EventArgs e)
+        {
+            EndGame();
+        }
+
+        void EndGame()
+        {
+            timer_Game.Stop();
+            timer_Player.Stop();
+
+            BanCo_pnl.Enabled = false;
+            BanCo.ChangeCurrentPlayer();
+            if (BanCo.CurrentPlayer == 0)
+            {
+                MessageBox.Show(BanCo.Player[1].Name + " win!");
+            }
+            else
+            {
+                MessageBox.Show(BanCo.Player[0].Name + " win!");
+            }
+        }
+
+        #region AI
         private int[] Attack = new int[7] { 0, 9, 54, 162, 1458, 13112, 118008 };
         private int[] Defense = new int[7] { 0, 3, 27, 99, 729, 6561, 59049 };
 
@@ -48,11 +107,11 @@ namespace WindowsFormsApp1
         {
             BanCo.Marking(BanCo.Matrix[x][y]);
             vtMap[x, y] = 2;
-            if (BanCo.IsEndGame(BanCo.Matrix[x][y])) BanCo.EndGame();
+            if (BanCo.IsEndGame(BanCo.Matrix[x][y])) EndGame();
 
             BanCo.ChangeCurrentPlayer();
 
-            chess = new Chess(BanCo.Matrix[x+1][y], x, y);
+            chess = new Chess(BanCo.Matrix[x + 1][y], x, y);
             chesses.Push(chess);
         }
 
@@ -98,7 +157,7 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sc = 1;
             i = x; j = y - 1;
-            while (vtMap[i, j] == 2 && j >= 0)
+            while (vtMap[i, j] == 2 && j >= 1)
             {
                 row++;
                 j--;
@@ -112,7 +171,7 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sr = 1;
             i = x - 1; j = y - 1;
-            while (vtMap[i, j] == 2 && i >= 0 && j >= 0)
+            while (vtMap[i, j] == 2 && i >= 0 && j >= 1)
             {
                 mdiagonal++;
                 i--;
@@ -136,7 +195,7 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) se_ = 1;
             i = x + 1; j = y - 1;
-            while (vtMap[i, j] == 2 && i <= rows && j >= 0)
+            while (vtMap[i, j] == 2 && i <= rows && j >= 1)
             {
                 ediagonal++;
                 i++;
@@ -169,7 +228,7 @@ namespace WindowsFormsApp1
 
         private long EnemyChesses(int x, int y)
         {
-            int i = x-1, j = y;
+            int i = x - 1, j = y;
             int sc_ = 0, sc = 0, sr_ = 0, sr = 0, sm_ = 0, sm = 0, se_ = 0, se = 0;
             int column = 0, row = 0, mdiagonal = 0, ediagonal = 0;
             //
@@ -254,23 +313,68 @@ namespace WindowsFormsApp1
 
             return Sum;
         }
+        #endregion
 
-        public class Chess
+        private void newGame_Button_Click(object sender, EventArgs e)
         {
-            public Button btn;
-            public int X;
-            public int Y;
-            public Chess()
+            timer_Game.Stop();
+            timer_Player.Stop();
+
+            BanCo.VeBanCo();
+
+            timeG.Sec = 0;
+            timeG.Minute = 0;
+            timeG.Time1 = 10;
+
+
+            timerGame_Label.Text = "0:00";
+            timerPlayer_Label.Text = timeG.Time1.ToString();
+        }
+
+        private void timer_Game_Tick(object sender, EventArgs e)
+        {
+            if (timeG.Sec >= 0 && timeG.Sec < 59)
             {
-                btn = new Button();
+                if (timeG.Sec < 9)
+                {
+                    timeG.Sec++;
+                    timerGame_Label.Text = timeG.Minute.ToString() + ":0" + timeG.Sec.ToString();
+                }
+                else
+                {
+                    timeG.Sec++;
+                    timerGame_Label.Text = timeG.Minute.ToString() + ":" + timeG.Sec.ToString();
+                }
             }
-            public Chess(Button btn, int x, int y)
+            else
             {
-                btn = new Button();
-                this.btn = btn;
-                X = x;
-                Y = y;
+                timeG.Sec = 0;
+                timeG.Minute++;
+                timerGame_Label.Text = timeG.Minute.ToString() + ":0" + timeG.Sec.ToString();
             }
         }
+
+        private void timer_Player_Tick(object sender, EventArgs e)
+        {
+            if(timeG.Time1 > 0)
+            {
+                timeG.Time1--;
+                timerPlayer_Label.Text = timeG.Time1.ToString();
+            }
+            else
+            { 
+                BanCo.HamDanhRandom();
+                timeG.Time1 = Constant.timePlayer1;
+            }
+        }
+
+        private void quit_Button_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                this.Dispose();
+            }
+        }
+        
     }
 }

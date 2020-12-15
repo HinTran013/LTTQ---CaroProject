@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Properties;
+using Guna.UI2.WinForms;
+using System.Resources;
 
 namespace WindowsFormsApp1
 {
@@ -18,6 +20,8 @@ namespace WindowsFormsApp1
         private Panel BanCo;
         private QuanLyTime timeG;
         private FormPVC Formpvc;
+
+        private Random DanhDauRandom;
 
         private List<Player> player;
         public List<Player> Player
@@ -34,11 +38,50 @@ namespace WindowsFormsApp1
             set { currentPlayer = value; }
         }
 
-        private TextBox playerName;
-        public TextBox PlayerName
+        private Guna2TextBox playerName;
+        public Guna2TextBox PlayerName
         {
             get { return playerName; }
             set { playerName = value; }
+        }
+
+        private event EventHandler<ButtonClickEvent> playerMarked;
+        public event EventHandler<ButtonClickEvent> PlayerMarked
+        {
+            add
+            {
+                playerMarked += value;
+            }
+            remove
+            {
+                playerMarked -= value;
+            }
+        }
+
+        private event EventHandler endedGame;
+        public event EventHandler EndedGame
+        {
+            add
+            {
+                endedGame += value;
+            }
+            remove
+            {
+                endedGame -= value;
+            }
+        }
+
+        private event EventHandler endedGameRandom;
+        public event EventHandler EndedGameRandom
+        {
+            add
+            {
+                endedGameRandom += value;
+            }
+            remove
+            {
+                endedGameRandom -= value;
+            }
         }
 
         //Lưu trữ 1 list mà trong đó mỗi phần tử của list cũng là 1 list các button
@@ -48,16 +91,17 @@ namespace WindowsFormsApp1
         #endregion
 
         #region Initialize
-
-        public QuanLyBanCoPVC(Panel BanCo, QuanLyTime timeG, FormPVC Formpvc)
+        
+        public QuanLyBanCoPVC(Panel BanCo, QuanLyTime timeG, FormPVC Formpvc,Guna2TextBox playerName)
         {
+            DanhDauRandom = new Random();
 
             this.BanCo = BanCo;
             this.timeG = timeG;
             this.Formpvc = Formpvc; ;
-
+            
             this.PlayerName = playerName;
-
+            
             this.Player = new List<Player>();
 
             this.Player.Add(new Player("PLAYER", Resources.red_x_transparent_png_3));
@@ -72,8 +116,24 @@ namespace WindowsFormsApp1
 
         #region Methods
 
+        private void ResetvtMap()
+        {
+            for(int x = 0;x< Constant.ChieuCaoBanCo+2;x++)
+            {
+                for(int y=0;y<Constant.ChieuRongBanCo+2;y++)
+                {
+                    Formpvc.vtMap[x, y] = 0;
+                }
+            }
+        }
+
         public void VeBanCo()
         {
+            BanCo.Enabled = true;
+            BanCo.Controls.Clear();
+            ResetvtMap();
+
+            CurrentPlayer = 0;
             //Khởi tạo đối tượng matrix
             Matrix = new List<List<Button>>();
 
@@ -133,52 +193,79 @@ namespace WindowsFormsApp1
 
             if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
 
-                Marking(btn);
-                if (IsEndGame(btn))
-                {
-                    EndGame(); //Nếu end game rồi thì chạy hàm endgame
-                }
+            Marking(btn);
 
-                int x = btn.Top / Constant.edgeChess, y = btn.Left / Constant.edgeChess;
-                if (Formpvc.vtMap[x, y] != 0) return;
+            if (IsEndGame(btn))
+            {
+                EndGame(); //Nếu end game rồi thì chạy hàm endgame
+            }
 
-                Formpvc.vtMap[x, y] = 1;
+            if (playerMarked != null)
+                playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
 
-                ChangeCurrentPlayer();
-                Formpvc.CptFindChess();
-
-                Formpvc.chess = new FormPVC.Chess(btn, x, y);
-                Formpvc.chesses.Push(Formpvc.chess);
-            
+            AI_Marking(btn);
         }
+
+        private void AI_Marking(Button btn)
+        {
+            int x = btn.Top / Constant.edgeChess, y = btn.Left / Constant.edgeChess;
+            if (Formpvc.vtMap[x, y] != 0) return;
+
+            Formpvc.vtMap[x, y] = 1;
+
+            ChangeCurrentPlayer();
+            Formpvc.CptFindChess();
+
+            Formpvc.chess = new FormPVC.Chess(btn, x, y);
+            Formpvc.chesses.Push(Formpvc.chess);
+        }
+
         public void Marking(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Mark;
         }
 
-        //Phải cho QuanLyBanCo nhận tham số FormMain để có access tới các control trong đó
-        //Public các control cần truy cập
-        
-
         public void ChangeCurrentPlayer()
         {
-            if (currentPlayer == 0)
-                currentPlayer = 1;
+            if (currentPlayer == 0) currentPlayer = 1;
+            else currentPlayer = 0;
+        }
+
+        public void HamDanhRandom()
+        {
+            int VitriHang = DanhDauRandom.Next(0, Constant.ChieuCaoBanCo);
+            int VitriCot = DanhDauRandom.Next(0, Constant.ChieuRongBanCo - 1);
+
+            if (Matrix[VitriHang][VitriCot].BackgroundImage == null && Formpvc.vtMap[VitriHang,VitriCot] == 0)
+            {
+                Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
+
+                AI_Marking(Matrix[VitriHang][VitriCot]);
+
+                if (playerMarked != null)
+                    playerMarked(this, new ButtonClickEvent(GetChessPoint(Matrix[VitriHang][VitriCot])));
+
+                if (IsEndGame(Matrix[VitriHang][VitriCot]))
+                {
+                    EndGameRandom();
+                }
+                return;
+            }
             else
-            if (currentPlayer == 1)
-                currentPlayer = 0;
+            {
+                HamDanhRandom();
+            }
+        }
+        public void EndGameRandom()
+        {
+            if (endedGameRandom != null)
+                endedGameRandom(this, new EventArgs());
         }
 
         public void EndGame()
         {
-            if (currentPlayer == 1)
-            {
-                MessageBox.Show(Player[1].Name + " win!");
-            }
-            else
-            {
-                MessageBox.Show(Player[0].Name + " win!");
-            }
+            if (endedGame != null)
+                endedGame(this, new EventArgs());
         }
 
         public bool IsEndGame(Button btn)
