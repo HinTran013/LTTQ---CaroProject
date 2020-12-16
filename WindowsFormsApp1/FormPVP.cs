@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
         //------------------
 
         #endregion
-
+        
         public FormPVP()
         {
             InitializeComponent();

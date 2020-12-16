@@ -45,8 +45,8 @@ namespace WindowsFormsApp1
             set { playerName = value; }
         }
 
-        private event EventHandler<ButtonClickEvent> playerMarked;
-        public event EventHandler<ButtonClickEvent> PlayerMarked
+        private event EventHandler playerMarked;
+        public event EventHandler PlayerMarked
         {
             add
             {
@@ -159,7 +159,7 @@ namespace WindowsFormsApp1
                     //tag này cho biết rằng button đang được lưu ở hàng thứ i
                     btn.Tag = i.ToString();
 
-                    btn.BackColor = System.Drawing.Color.FromArgb(235, 235, 224);
+                    btn.BackColor = System.Drawing.Color.AliceBlue;
                     //kich thuoc cua anh qua lon' nen phai chinh kich co cua anh cho vua` voi button
                     btn.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -194,14 +194,13 @@ namespace WindowsFormsApp1
             if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
 
             Marking(btn);
+            if (playerMarked != null)
+                playerMarked(this, new EventArgs());
 
             if (IsEndGame(btn))
             {
                 EndGame(); //Nếu end game rồi thì chạy hàm endgame
             }
-
-            if (playerMarked != null)
-                playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
 
             AI_Marking(btn);
         }
@@ -239,15 +238,14 @@ namespace WindowsFormsApp1
             if (Matrix[VitriHang][VitriCot].BackgroundImage == null && Formpvc.vtMap[VitriHang,VitriCot] == 0)
             {
                 Matrix[VitriHang][VitriCot].BackgroundImage = player[currentPlayer].Mark;
+                if (playerMarked != null)
+                    playerMarked(this, new EventArgs());
 
                 AI_Marking(Matrix[VitriHang][VitriCot]);
-
-                if (playerMarked != null)
-                    playerMarked(this, new ButtonClickEvent(GetChessPoint(Matrix[VitriHang][VitriCot])));
-
+                
                 if (IsEndGame(Matrix[VitriHang][VitriCot]))
                 {
-                    EndGameRandom();
+                    EndGame();
                 }
                 return;
             }
