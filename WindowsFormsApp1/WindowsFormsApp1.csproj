@@ -57,7 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterManager.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="FormChooseCharacter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseCharacter.Designer.cs">
+      <DependentUpon>FormChooseCharacter.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPVC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +97,9 @@
     <Compile Include="QuanLyTime.cs" />
     <Compile Include="SocketData.cs" />
     <Compile Include="SocketManager.cs" />
+    <EmbeddedResource Include="FormChooseCharacter.resx">
+      <DependentUpon>FormChooseCharacter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPVC.resx">
       <DependentUpon>FormPVC.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +160,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\thanosnhammat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
