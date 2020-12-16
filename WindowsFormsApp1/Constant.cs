@@ -17,5 +17,10 @@ namespace WindowsFormsApp1
         public static int timePlayer1 = 10;
 
         public static int edgeChess = ChieuCaoConCo;
+
+        public static int ChieuCaoBanChon = 4;
+        public static int ChieuRongBanChon = 6;
+
+        public static int BanChonEdge = 100;
     }
 }
