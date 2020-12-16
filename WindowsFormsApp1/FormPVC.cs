@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             timeG = new QuanLyTime();
             BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this,playerName_TextBox);
             playerName_TextBox.Text = BanCo.Player[0].Name;
-
+            
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
             BanCo.EndedGameRandom += BanCo_EndedGameRandom;
@@ -63,21 +63,20 @@ namespace WindowsFormsApp1
             BanCo.CurrentPlayer = 0;
         }
 
-        private void BanCo_PlayerMarked(object sender, ButtonClickEvent e)
+        private void BanCo_PlayerMarked(object sender, EventArgs e)
         {
             timer_Player.Start();
             timer_Game.Start();
-            timeG.Time1 = 10;
-            timerPlayer_Label.Text = "10";
-
+            timeG.Time1 = Constant.timePlayer1;
+            timerPlayer_Label.Text = Constant.timePlayer1.ToString();
         }
 
-        private void BanCo_EndedGameRandom(object sender, EventArgs e)
+        public void BanCo_EndedGameRandom(object sender, EventArgs e)
         {
             EndGame();
         }
 
-        private void BanCo_EndedGame(object sender, EventArgs e)
+        public void BanCo_EndedGame(object sender, EventArgs e)
         {
             EndGame();
         }
@@ -157,7 +156,7 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sc = 1;
             i = x; j = y - 1;
-            while (vtMap[i, j] == 2 && j >= 1)
+            while (vtMap[i, j] == 2 && j >= 0)
             {
                 row++;
                 j--;
@@ -171,7 +170,7 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sr = 1;
             i = x - 1; j = y - 1;
-            while (vtMap[i, j] == 2 && i >= 0 && j >= 1)
+            while (vtMap[i, j] == 2 && i >= 0 && j >= 0)
             {
                 mdiagonal++;
                 i--;
@@ -195,7 +194,7 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) se_ = 1;
             i = x + 1; j = y - 1;
-            while (vtMap[i, j] == 2 && i <= rows && j >= 1)
+            while (vtMap[i, j] == 2 && i <= rows && j >= 0)
             {
                 ediagonal++;
                 i++;
