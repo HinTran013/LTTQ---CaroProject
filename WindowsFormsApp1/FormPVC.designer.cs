@@ -48,7 +48,7 @@
             // 
             // BanCo_pnl
             // 
-            this.BanCo_pnl.BackColor = System.Drawing.SystemColors.Control;
+            this.BanCo_pnl.BackColor = System.Drawing.Color.White;
             this.BanCo_pnl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BanCo_pnl.Controls.Add(this.guna2PictureBox4);
             this.BanCo_pnl.Location = new System.Drawing.Point(352, 90);
@@ -216,8 +216,8 @@
         private Guna.UI2.WinForms.Guna2Button quit_Button;
         private Guna.UI2.WinForms.Guna2HtmlLabel timerPlayer_Label;
         private System.Windows.Forms.Timer timer_Player;
-        private System.Windows.Forms.Timer timer_Game;
         private Guna.UI2.WinForms.Guna2HtmlLabel timerGame_Label;
         private Guna.UI2.WinForms.Guna2TextBox playerName_TextBox;
+        public System.Windows.Forms.Timer timer_Game;
     }
 }

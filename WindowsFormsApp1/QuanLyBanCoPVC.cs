@@ -159,7 +159,9 @@ namespace WindowsFormsApp1
                     //tag này cho biết rằng button đang được lưu ở hàng thứ i
                     btn.Tag = i.ToString();
 
-                    btn.BackColor = System.Drawing.Color.AliceBlue;
+                    btn.BackColor = System.Drawing.Color.Snow;
+                    btn.MouseHover += Btn_MouseHover;
+                    btn.MouseLeave += Btn_MouseLeave;
                     //kich thuoc cua anh qua lon' nen phai chinh kich co cua anh cho vua` voi button
                     btn.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -185,6 +187,19 @@ namespace WindowsFormsApp1
             this.BanCo.Show();
         }
 
+        private void Btn_MouseLeave(object sender, EventArgs e)
+        {
+            if (Formpvc.timer_Game.Enabled) return;
+            Button btn = sender as Button;
+            btn.BackColor = Color.Snow;
+        }
+
+        private void Btn_MouseHover(object sender, EventArgs e)
+        {
+            if (Formpvc.timer_Game.Enabled) return;
+            Button btn = sender as Button;
+            btn.BackColor = Color.AliceBlue;
+        }
 
         private void Btn_Click(object sender, EventArgs e)
         {
