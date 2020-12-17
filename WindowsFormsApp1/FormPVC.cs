@@ -45,8 +45,9 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             timeG = new QuanLyTime();
-            BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this,playerName_TextBox);
+            BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this,playerName_TextBox,pictureBox1);
             playerName_TextBox.Text = BanCo.Player[0].Name;
+            pictureBox1.Image = BanCo.Player[0].Mark;
             
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;

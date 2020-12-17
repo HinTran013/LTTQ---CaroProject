@@ -92,21 +92,24 @@ namespace WindowsFormsApp1
 
         #region Initialize
         
-        public QuanLyBanCoPVC(Panel BanCo, QuanLyTime timeG, FormPVC Formpvc,Guna2TextBox playerName)
+        public QuanLyBanCoPVC(Panel BanCo, QuanLyTime timeG, FormPVC Formpvc,Guna2TextBox playerName,PictureBox playerPic)
         {
+            FormChooseCharacter choose = new FormChooseCharacter();
+            choose.ShowDialog();
+
             DanhDauRandom = new Random();
 
             this.BanCo = BanCo;
             this.timeG = timeG;
             this.Formpvc = Formpvc; ;
             
-            this.PlayerName = playerName;
-            
             this.Player = new List<Player>();
 
-            this.Player.Add(new Player("PLAYER", Resources.red_x_transparent_png_3));
+            this.PlayerName = playerName;
 
-            this.Player.Add(new Player("AI", Resources.n1530354));
+            this.Player.Add(new Player(FormChooseCharacter.plName, FormChooseCharacter.plPic));
+           
+            this.Player.Add(new Player("Computer", Resources.n1530354));
 
             //Khoi tao ca 2 player va dat player 1 la player choi truoc.
             CurrentPlayer = 0;

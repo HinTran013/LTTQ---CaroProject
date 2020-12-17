@@ -25,6 +25,12 @@ namespace WindowsFormsApp1
         Bitmap[] BackGroundImages;
         Guna2Panel BanChon;
         Guna2TextBox Name;
+        private Button selectedBtn;
+        public Button SelectedBtn
+        {
+            get { return selectedBtn; }
+            set { selectedBtn = value; }
+        }
 
         public CharacterManager(Guna2TextBox name, Guna2Panel banchon)
         {
@@ -98,7 +104,7 @@ namespace WindowsFormsApp1
 
                     //Tao event khi nhan' vao button
                     btn.Click += Btn_Click;
-
+                    
                     //thêm các button vào panel
                     BanChon.Controls.Add(btn);
 
@@ -120,7 +126,9 @@ namespace WindowsFormsApp1
 
         private void Btn_Click(object sender, EventArgs e)
         {
-
+            Button btn = sender as Button;
+            selectedBtn = btn;
+            
         }
     }
 }
