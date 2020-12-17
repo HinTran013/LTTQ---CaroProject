@@ -31,6 +31,7 @@
             this.BanChon_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Name_TextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Name_Label = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.OK_Button = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // BanChon_Panel
@@ -73,11 +74,28 @@
             this.Name_Label.TabIndex = 2;
             this.Name_Label.Text = "Your Name:";
             // 
+            // OK_Button
+            // 
+            this.OK_Button.CheckedState.Parent = this.OK_Button;
+            this.OK_Button.CustomImages.Parent = this.OK_Button;
+            this.OK_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OK_Button.ForeColor = System.Drawing.Color.White;
+            this.OK_Button.HoverState.Parent = this.OK_Button;
+            this.OK_Button.Location = new System.Drawing.Point(388, 420);
+            this.OK_Button.Name = "OK_Button";
+            this.OK_Button.ShadowDecoration.Parent = this.OK_Button;
+            this.OK_Button.Size = new System.Drawing.Size(142, 45);
+            this.OK_Button.TabIndex = 3;
+            this.OK_Button.Text = "OK";
+            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
+            this.OK_Button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OK_Button_KeyDown);
+            // 
             // FormChooseCharacter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 468);
+            this.Controls.Add(this.OK_Button);
             this.Controls.Add(this.Name_Label);
             this.Controls.Add(this.Name_TextBox);
             this.Controls.Add(this.BanChon_Panel);
@@ -93,5 +111,6 @@
         private Guna.UI2.WinForms.Guna2Panel BanChon_Panel;
         private Guna.UI2.WinForms.Guna2TextBox Name_TextBox;
         private Guna.UI2.WinForms.Guna2HtmlLabel Name_Label;
+        private Guna.UI2.WinForms.Guna2Button OK_Button;
     }
 }
