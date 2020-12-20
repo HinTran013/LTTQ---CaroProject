@@ -25,15 +25,27 @@ namespace WindowsFormsApp1
 
         private void OK_Button_Click(object sender, EventArgs e)
         {
-            plName = Name_TextBox.Text;
-            plPic = banchon.SelectedBtn.BackgroundImage;
-            this.Close();
+            if (Name_TextBox.Text == "" || banchon.SelectedBtn == null)
+            {
+                MessageBox.Show("Hãy nhập tên và chọn hình.");
+            }
+            else
+            {
+                plName = Name_TextBox.Text;
+                plPic = banchon.SelectedBtn.BackgroundImage;
+                this.Close();
+            }
         }
 
         private void OK_Button_KeyDown(object sender, KeyEventArgs e)
         {
             //Chưa hoàn thiện
-            if (e.KeyCode == Keys.Enter) OK_Button_Click(new Button(), new EventArgs()); 
+            if (e.KeyCode == Keys.Enter)
+            {
+                plName = Name_TextBox.Text;
+                plPic = banchon.SelectedBtn.BackgroundImage;
+                this.Close();
+            }
         }
     }
 }

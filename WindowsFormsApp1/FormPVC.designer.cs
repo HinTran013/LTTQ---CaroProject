@@ -157,6 +157,7 @@
             // 
             // playerName_TextBox
             // 
+            this.playerName_TextBox.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.playerName_TextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.playerName_TextBox.DefaultText = "";
             this.playerName_TextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -173,6 +174,7 @@
             this.playerName_TextBox.Name = "playerName_TextBox";
             this.playerName_TextBox.PasswordChar = '\0';
             this.playerName_TextBox.PlaceholderText = "";
+            this.playerName_TextBox.ReadOnly = true;
             this.playerName_TextBox.SelectedText = "";
             this.playerName_TextBox.ShadowDecoration.Parent = this.playerName_TextBox;
             this.playerName_TextBox.Size = new System.Drawing.Size(200, 36);
