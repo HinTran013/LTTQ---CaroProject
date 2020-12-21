@@ -128,7 +128,6 @@ namespace WindowsFormsApp1
         {
             Button btn = sender as Button;
             selectedBtn = btn;
-            
         }
     }
 }

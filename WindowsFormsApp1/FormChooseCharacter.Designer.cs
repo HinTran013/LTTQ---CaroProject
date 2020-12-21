@@ -64,6 +64,7 @@
             this.Name_TextBox.ShadowDecoration.Parent = this.Name_TextBox;
             this.Name_TextBox.Size = new System.Drawing.Size(200, 36);
             this.Name_TextBox.TabIndex = 1;
+            this.Name_TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Name_TextBox_KeyDown);
             // 
             // Name_Label
             // 
@@ -88,7 +89,6 @@
             this.OK_Button.TabIndex = 3;
             this.OK_Button.Text = "OK";
             this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
-            this.OK_Button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OK_Button_KeyDown);
             // 
             // FormChooseCharacter
             // 
