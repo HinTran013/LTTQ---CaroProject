@@ -41,7 +41,6 @@
             this.timer_Game = new System.Windows.Forms.Timer(this.components);
             this.timerGame_Label = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.playerName_TextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -181,17 +180,6 @@
             this.playerName_TextBox.Size = new System.Drawing.Size(200, 36);
             this.playerName_TextBox.TabIndex = 28;
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1199, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 81);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FormPVC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,7 +187,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1365, 835);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.playerName_TextBox);
             this.Controls.Add(this.timerGame_Label);
             this.Controls.Add(this.timerPlayer_Label);
@@ -235,6 +222,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel timerGame_Label;
         private Guna.UI2.WinForms.Guna2TextBox playerName_TextBox;
         public System.Windows.Forms.Timer timer_Game;
-        private System.Windows.Forms.Button button1;
     }
 }
