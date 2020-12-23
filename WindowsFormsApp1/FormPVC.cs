@@ -317,18 +317,21 @@ namespace WindowsFormsApp1
 
         private void newGame_Button_Click(object sender, EventArgs e)
         {
-            timer_Game.Stop();
-            timer_Player.Stop();
+            if (MessageBox.Show("Bạn có tạo game mới ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                timer_Game.Stop();
+                timer_Player.Stop();
 
-            BanCo.VeBanCo();
+                BanCo.VeBanCo();
 
-            timeG.Sec = 0;
-            timeG.Minute = 0;
-            timeG.Time1 = 10;
+                timeG.Sec = 0;
+                timeG.Minute = 0;
+                timeG.Time1 = 10;
 
 
-            timerGame_Label.Text = "0:00";
-            timerPlayer_Label.Text = timeG.Time1.ToString();
+                timerGame_Label.Text = "0:00";
+                timerPlayer_Label.Text = timeG.Time1.ToString();
+            }
         }
 
         private void timer_Game_Tick(object sender, EventArgs e)
