@@ -54,7 +54,7 @@
             this.BanCo_pnl.Location = new System.Drawing.Point(352, 90);
             this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BanCo_pnl.Name = "BanCo_pnl";
-            this.BanCo_pnl.Size = new System.Drawing.Size(760, 679);
+            this.BanCo_pnl.Size = new System.Drawing.Size(760, 681);
             this.BanCo_pnl.TabIndex = 1;
             // 
             // guna2PictureBox4
@@ -157,6 +157,7 @@
             // 
             // playerName_TextBox
             // 
+            this.playerName_TextBox.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.playerName_TextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.playerName_TextBox.DefaultText = "";
             this.playerName_TextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -173,6 +174,7 @@
             this.playerName_TextBox.Name = "playerName_TextBox";
             this.playerName_TextBox.PasswordChar = '\0';
             this.playerName_TextBox.PlaceholderText = "";
+            this.playerName_TextBox.ReadOnly = true;
             this.playerName_TextBox.SelectedText = "";
             this.playerName_TextBox.ShadowDecoration.Parent = this.playerName_TextBox;
             this.playerName_TextBox.Size = new System.Drawing.Size(200, 36);
@@ -197,6 +199,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPVC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPVC";
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
