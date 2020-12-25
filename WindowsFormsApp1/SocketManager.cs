@@ -119,12 +119,25 @@ namespace WindowsFormsApp1
 
         private bool SendData(Socket target, byte[] data)
         {
-                return target.Send(data) == 1 ? true : false;
+            return target.Send(data) == 1 ? true : false;
         }
 
         private bool ReceiveData(Socket target, byte[] data)
         {
             return target.Receive(data) == 1 ? true : false;
+        }
+
+        public void Close()
+        {
+            try
+            {
+                Client.Close();
+                Server.Close();
+            }
+            catch
+            {
+
+            }
         }
         #endregion
     }

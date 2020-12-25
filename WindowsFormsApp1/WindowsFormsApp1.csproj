@@ -62,6 +62,12 @@
     <Compile Include="FormChooseCharacter.Designer.cs">
       <DependentUpon>FormChooseCharacter.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChooseCharactorLAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseCharactorLAN.Designer.cs">
+      <DependentUpon>FormChooseCharactorLAN.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPVC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     <Compile Include="SocketManager.cs" />
     <EmbeddedResource Include="FormChooseCharacter.resx">
       <DependentUpon>FormChooseCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseCharactorLAN.resx">
+      <DependentUpon>FormChooseCharactorLAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPVC.resx">
       <DependentUpon>FormPVC.cs</DependentUpon>
@@ -220,6 +229,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\role21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Blazer_rail_2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="btn_click_sound.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Intro_Screen.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
