@@ -128,9 +128,9 @@ namespace WindowsFormsApp1
 
             this.Player = new List<Player>();
 
-            this.Player.Add(new Player("PLAYER 1", Resources.ironnhammat));
+            this.Player.Add(new Player("PLAYER 1", Resources.red_x_transparent_png_3));
 
-            this.Player.Add(new Player("PLAYER 2", Resources.thanosnhammat));
+            this.Player.Add(new Player("PLAYER 2", Resources.n1530354));
         }
 
         #endregion

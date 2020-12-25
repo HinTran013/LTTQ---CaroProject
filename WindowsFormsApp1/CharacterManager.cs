@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
         Bitmap[] BackGroundImages;
         Guna2Panel BanChon;
         Guna2TextBox Name;
+
         private Button selectedBtn;
         public Button SelectedBtn
         {
@@ -128,7 +129,6 @@ namespace WindowsFormsApp1
         {
             Button btn = sender as Button;
             selectedBtn = btn;
-            
         }
     }
 }
