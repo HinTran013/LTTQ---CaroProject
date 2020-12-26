@@ -434,5 +434,10 @@ namespace WindowsFormsApp1
             Listen();
         }
         #endregion
+
+        private void label_timePlayer1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
