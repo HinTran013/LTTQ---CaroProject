@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace WindowsFormsApp1
 {
@@ -39,6 +40,7 @@ namespace WindowsFormsApp1
         public int[,] vtMap;
         public Stack<Chess> chesses;
         public Chess chess;
+        GameSound gameSound = new GameSound();
 
         public FormPVC()
         {
@@ -377,6 +379,9 @@ namespace WindowsFormsApp1
             {
                 this.Dispose();
             }
+
+            gameSound.StopGamePlaySound();
+            gameSound.PlayMenuSound();
         }
         
     }

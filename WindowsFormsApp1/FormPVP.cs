@@ -24,8 +24,8 @@ namespace WindowsFormsApp1
         QuanLyBanCo BanCo;
         QuanLyTime timeG;
         SocketManager socket;
-        public FormChooseCharactorLAN Charactor;
-        SoundPlayer PVPBackgroundMusic = new SoundPlayer();
+
+        GameSound gameSound = new GameSound();
 
         //---FOR CHATTING---
         private TcpClient client;
@@ -41,8 +41,8 @@ namespace WindowsFormsApp1
         public FormPVP()
         {
             InitializeComponent();
-            PVPBackgroundMusic.SoundLocation = @".\Blazer_rail_2.wav";
-            Charactor = new FormChooseCharactorLAN();
+            
+            
 
             Control.CheckForIllegalCrossThreadCalls = false;
 
@@ -162,6 +162,8 @@ namespace WindowsFormsApp1
 
                 socket.CreateServer();
 
+                //Listen();
+
                 //--FOR CHATTING--
                 Thread listenThread = new Thread(() =>
                 {
@@ -185,7 +187,7 @@ namespace WindowsFormsApp1
             {
                 socket.isServer = false;
                 BanCo_pnl.Enabled = false;
-
+                
                 Listen();
 
                 //--FOR CHATTING--
@@ -217,6 +219,7 @@ namespace WindowsFormsApp1
                 listenThread.IsBackground = true;
                 listenThread.Start();
 
+                
                 //----------------
             }
 
@@ -312,8 +315,8 @@ namespace WindowsFormsApp1
 
                 try
                 {
-                    STW.Close();
-                    STR.Close();
+                    //STW.Close();
+                    //STR.Close();
                     listener.Stop();
                     client.Close();
                     socket.Close();
@@ -322,7 +325,8 @@ namespace WindowsFormsApp1
                 {
                     
                 }
-                
+                gameSound.StopGamePlaySound();
+                gameSound.PlayMenuSound();
                 this.Close();
             }
         }
@@ -443,6 +447,7 @@ namespace WindowsFormsApp1
                     label_timePlayer1.Text = "10";
                     timeG.Time1 = 10;
                     NewGame_Btn.Enabled = true;
+
                     try
                     {
                         STW.Close();
@@ -450,21 +455,22 @@ namespace WindowsFormsApp1
                         listener.Stop();
                         client.Close();
                         socket.Close();
-
                     }
                     catch
                     {
                         
                     }
                     ChatTextBox.Text = "";
-                    ChatTextBox.Text = "Đối phương đã thoát khỏi kênh chat";
+                    ChatTextBox.Text = "Đối phương đã thoát!!!";
                     MessageBox.Show("Người chơi đối phương đã thoát!!", "THÔNG BÁO");
+                    gameSound.StopGamePlaySound();
+                    gameSound.PlayMenuSound();
                     this.Close();
                     break;
                 case (int)SocketCommand.HAVE_CLIENT:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        BanCo_pnl.Enabled = true;
+                        MessageBox.Show("Co client ket noi");
                     }));
                     break;
                 default:
@@ -476,7 +482,7 @@ namespace WindowsFormsApp1
 
         private void FormPVP_Load(object sender, EventArgs e)
         {
-            PVPBackgroundMusic.PlayLooping();
+            gameSound.PlayGameSound();
         }
     }
 }

@@ -103,6 +103,7 @@
             this.Name = "FormChooseCharacter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChooseCharacter";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

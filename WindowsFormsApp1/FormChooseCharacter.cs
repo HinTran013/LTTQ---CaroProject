@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using WindowsFormsApp1.Properties;
+
 namespace WindowsFormsApp1
 {
     public partial class FormChooseCharacter : Form
@@ -16,6 +17,8 @@ namespace WindowsFormsApp1
         CharacterManager banchon;
         public static string plName;
         public static Image plPic;
+        
+
         public FormChooseCharacter()
         {
             InitializeComponent();
@@ -54,5 +57,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        
     }
 }
