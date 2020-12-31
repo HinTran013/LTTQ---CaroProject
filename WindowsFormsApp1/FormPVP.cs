@@ -236,7 +236,7 @@ namespace WindowsFormsApp1
                     recieve = STR.ReadLine();
                     this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        ChatTextBox.AppendText("Friend: " + recieve + "\r\n");
+                        ChatTextBox.AppendText("Friend (" + DateTime.Now.ToString() + "): " + recieve + "\r\n");
                     }));
                     recieve = "";
                 }
@@ -256,12 +256,12 @@ namespace WindowsFormsApp1
                     STW.WriteLine(TextToSend);
                     this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        ChatTextBox.AppendText("You: " + TextToSend + "\r\n");
+                        ChatTextBox.AppendText("You (" + DateTime.Now.ToString() + "): " + TextToSend + "\r\n");
                     }));
                 }
                 else
                 {
-                    MessageBox.Show("Không thể gửi tin nhắn");
+                    MessageBox.Show("Không có người chơi nào trong phòng chat", "THÔNG BÁO");
                 }
                 backgroundWorker2.CancelAsync();
             }
