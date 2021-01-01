@@ -237,8 +237,6 @@ namespace WindowsFormsApp1
             ChangeCurrentPlayer();
             Formpvc.CptFindChess();
 
-            Formpvc.chess = new FormPVC.Chess(btn, x, y);
-            Formpvc.chesses.Push(Formpvc.chess);
         }
 
         public void Marking(Button btn)
