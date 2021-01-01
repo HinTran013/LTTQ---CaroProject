@@ -52,20 +52,19 @@
             this.BanCo_pnl.BackColor = System.Drawing.Color.White;
             this.BanCo_pnl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BanCo_pnl.Controls.Add(this.guna2PictureBox4);
-            this.BanCo_pnl.Location = new System.Drawing.Point(352, 90);
-            this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BanCo_pnl.Location = new System.Drawing.Point(264, 73);
+            this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BanCo_pnl.Name = "BanCo_pnl";
-            this.BanCo_pnl.Size = new System.Drawing.Size(760, 679);
+            this.BanCo_pnl.Size = new System.Drawing.Size(570, 552);
             this.BanCo_pnl.TabIndex = 1;
             // 
             // guna2PictureBox4
             // 
             this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(1044, 182);
-            this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2PictureBox4.Location = new System.Drawing.Point(783, 148);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
             this.guna2PictureBox4.ShadowDecoration.Parent = this.guna2PictureBox4;
-            this.guna2PictureBox4.Size = new System.Drawing.Size(307, 267);
+            this.guna2PictureBox4.Size = new System.Drawing.Size(230, 217);
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox4.TabIndex = 20;
             this.guna2PictureBox4.TabStop = false;
@@ -75,63 +74,72 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 148);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 120);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(336, 284);
+            this.pictureBox1.Size = new System.Drawing.Size(252, 249);
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Magneto", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Magneto", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(32, 484);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(52, 422);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(94, 38);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(86, 34);
             this.guna2HtmlLabel1.TabIndex = 22;
             this.guna2HtmlLabel1.Text = "Time:";
             // 
             // newGame_Button
             // 
+            this.newGame_Button.BackColor = System.Drawing.Color.Transparent;
+            this.newGame_Button.BorderRadius = 20;
             this.newGame_Button.CheckedState.Parent = this.newGame_Button;
             this.newGame_Button.CustomImages.Parent = this.newGame_Button;
-            this.newGame_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.newGame_Button.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.newGame_Button.Font = new System.Drawing.Font("Segoe Print", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newGame_Button.ForeColor = System.Drawing.Color.White;
             this.newGame_Button.HoverState.Parent = this.newGame_Button;
-            this.newGame_Button.Location = new System.Drawing.Point(32, 546);
+            this.newGame_Button.Location = new System.Drawing.Point(52, 517);
+            this.newGame_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.newGame_Button.Name = "newGame_Button";
             this.newGame_Button.ShadowDecoration.Parent = this.newGame_Button;
-            this.newGame_Button.Size = new System.Drawing.Size(180, 45);
+            this.newGame_Button.Size = new System.Drawing.Size(150, 37);
             this.newGame_Button.TabIndex = 23;
             this.newGame_Button.Text = "New Game";
+            this.newGame_Button.UseTransparentBackground = true;
             this.newGame_Button.Click += new System.EventHandler(this.newGame_Button_Click);
             // 
             // quit_Button
             // 
+            this.quit_Button.BackColor = System.Drawing.Color.Transparent;
+            this.quit_Button.BorderRadius = 20;
             this.quit_Button.CheckedState.Parent = this.quit_Button;
             this.quit_Button.CustomImages.Parent = this.quit_Button;
-            this.quit_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.quit_Button.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.quit_Button.Font = new System.Drawing.Font("Segoe Print", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quit_Button.ForeColor = System.Drawing.Color.White;
             this.quit_Button.HoverState.Parent = this.quit_Button;
-            this.quit_Button.Location = new System.Drawing.Point(32, 603);
+            this.quit_Button.Location = new System.Drawing.Point(52, 570);
+            this.quit_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.quit_Button.Name = "quit_Button";
             this.quit_Button.ShadowDecoration.Parent = this.quit_Button;
-            this.quit_Button.Size = new System.Drawing.Size(180, 45);
+            this.quit_Button.Size = new System.Drawing.Size(150, 37);
             this.quit_Button.TabIndex = 24;
             this.quit_Button.Text = "Quit";
+            this.quit_Button.UseTransparentBackground = true;
             this.quit_Button.Click += new System.EventHandler(this.quit_Button_Click);
             // 
             // timerPlayer_Label
             // 
             this.timerPlayer_Label.BackColor = System.Drawing.Color.Transparent;
-            this.timerPlayer_Label.Font = new System.Drawing.Font("Perpetua", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerPlayer_Label.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.timerPlayer_Label.Location = new System.Drawing.Point(133, 484);
+            this.timerPlayer_Label.Font = new System.Drawing.Font("Magneto", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerPlayer_Label.ForeColor = System.Drawing.Color.Black;
+            this.timerPlayer_Label.Location = new System.Drawing.Point(143, 426);
+            this.timerPlayer_Label.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.timerPlayer_Label.Name = "timerPlayer_Label";
-            this.timerPlayer_Label.Size = new System.Drawing.Size(37, 44);
+            this.timerPlayer_Label.Size = new System.Drawing.Size(33, 30);
             this.timerPlayer_Label.TabIndex = 26;
             this.timerPlayer_Label.Text = "10";
             // 
@@ -148,11 +156,12 @@
             // timerGame_Label
             // 
             this.timerGame_Label.BackColor = System.Drawing.Color.Transparent;
-            this.timerGame_Label.Font = new System.Drawing.Font("Perpetua", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerGame_Label.ForeColor = System.Drawing.Color.Blue;
-            this.timerGame_Label.Location = new System.Drawing.Point(639, 30);
+            this.timerGame_Label.Font = new System.Drawing.Font("Ravie", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerGame_Label.ForeColor = System.Drawing.Color.Maroon;
+            this.timerGame_Label.Location = new System.Drawing.Point(494, 11);
+            this.timerGame_Label.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.timerGame_Label.Name = "timerGame_Label";
-            this.timerGame_Label.Size = new System.Drawing.Size(64, 44);
+            this.timerGame_Label.Size = new System.Drawing.Size(100, 50);
             this.timerGame_Label.TabIndex = 27;
             this.timerGame_Label.Text = "0:00";
             // 
@@ -170,13 +179,14 @@
             this.playerName_TextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.playerName_TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.playerName_TextBox.HoverState.Parent = this.playerName_TextBox;
-            this.playerName_TextBox.Location = new System.Drawing.Point(32, 439);
+            this.playerName_TextBox.Location = new System.Drawing.Point(52, 388);
+            this.playerName_TextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.playerName_TextBox.Name = "playerName_TextBox";
             this.playerName_TextBox.PasswordChar = '\0';
             this.playerName_TextBox.PlaceholderText = "";
             this.playerName_TextBox.SelectedText = "";
             this.playerName_TextBox.ShadowDecoration.Parent = this.playerName_TextBox;
-            this.playerName_TextBox.Size = new System.Drawing.Size(200, 36);
+            this.playerName_TextBox.Size = new System.Drawing.Size(150, 29);
             this.playerName_TextBox.TabIndex = 28;
             // 
             // button1
@@ -194,12 +204,11 @@
             // 
             // FormPVC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1365, 835);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1024, 640);
             this.Controls.Add(this.playerName_TextBox);
             this.Controls.Add(this.timerGame_Label);
             this.Controls.Add(this.timerPlayer_Label);
@@ -210,7 +219,6 @@
             this.Controls.Add(this.BanCo_pnl);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPVC";
             this.Text = "FormPVC";
             this.BanCo_pnl.ResumeLayout(false);
