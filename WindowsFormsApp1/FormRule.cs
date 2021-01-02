@@ -17,17 +17,39 @@ namespace WindowsFormsApp1
         public FormRule()
         {
             InitializeComponent();
+            
         }
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
-            //gameSound.StopMenuSound();
-            
+            gameSound.StopMenuSound();
+            gameSound.PlayMenuSound();
             this.Hide();
         }
 
         private void FormRule_Load(object sender, EventArgs e)
         {
-            //gameSound.PlayMenuSound();
+            gameSound.PlayGameSound();
+        }
+
+        private void Sound_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.StopGamePlaySound();
+
+            Sound_Button.Visible = false;
+            
+            
+
+            Mute_Button.Visible = true;
+        }
+
+        private void Mute_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.PlayGameSound();
+
+            Mute_Button.Visible = false;
+            
+
+            Sound_Button.Visible = true;
         }
     }
 }

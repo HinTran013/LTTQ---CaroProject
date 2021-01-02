@@ -484,5 +484,22 @@ namespace WindowsFormsApp1
         {
             gameSound.PlayGameSound();
         }
+
+        private void Mute_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.PlayGameSound();
+
+            Mute_Button.Visible = false;
+            Sound_Button.Visible = true;
+        }
+
+        private void Sound_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.StopGamePlaySound();
+
+
+            Sound_Button.Visible = false;
+            Mute_Button.Visible = true;
+        }
     }
 }

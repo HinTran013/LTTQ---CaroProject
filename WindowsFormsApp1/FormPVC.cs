@@ -349,6 +349,23 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void Sound_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.StopGamePlaySound();
+
+
+            Sound_Button.Visible = false;
+            Mute_Button.Visible = true;
+        }
+
+        private void Mute_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.PlayGameSound();
+
+            Mute_Button.Visible = false;
+            Sound_Button.Visible = true;
+        }
+
         private void quit_Button_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
