@@ -195,14 +195,12 @@ namespace WindowsFormsApp1
 
         private void Btn_MouseEnter(object sender, EventArgs e)
         {
-            if (Formpvc.timer_Game.Enabled) return;
             Button btn = sender as Button;
             btn.BackColor = Color.AliceBlue;
         }
 
         private void Btn_MouseLeave(object sender, EventArgs e)
         {
-            if (Formpvc.timer_Game.Enabled) return;
             Button btn = sender as Button;
             btn.BackColor = Color.FromArgb(235, 235, 224);
         }
@@ -238,8 +236,6 @@ namespace WindowsFormsApp1
             ChangeCurrentPlayer();
             Formpvc.CptFindChess();
 
-            Formpvc.chess = new FormPVC.Chess(btn, x, y);
-            Formpvc.chesses.Push(Formpvc.chess);
         }
 
         public void Marking(Button btn)
