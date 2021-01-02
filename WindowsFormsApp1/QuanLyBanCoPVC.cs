@@ -194,14 +194,12 @@ namespace WindowsFormsApp1
 
         private void Btn_MouseEnter(object sender, EventArgs e)
         {
-            if (Formpvc.timer_Game.Enabled) return;
             Button btn = sender as Button;
             btn.BackColor = Color.AliceBlue;
         }
 
         private void Btn_MouseLeave(object sender, EventArgs e)
         {
-            if (Formpvc.timer_Game.Enabled) return;
             Button btn = sender as Button;
             btn.BackColor = Color.FromArgb(235, 235, 224);
         }

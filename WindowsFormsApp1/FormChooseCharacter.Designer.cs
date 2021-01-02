@@ -56,7 +56,7 @@
             this.Name_TextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name_TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Name_TextBox.HoverState.Parent = this.Name_TextBox;
-            this.Name_TextBox.Location = new System.Drawing.Point(108, 420);
+            this.Name_TextBox.Location = new System.Drawing.Point(115, 420);
             this.Name_TextBox.Name = "Name_TextBox";
             this.Name_TextBox.PasswordChar = '\0';
             this.Name_TextBox.PlaceholderText = "";
@@ -71,9 +71,9 @@
             this.Name_Label.BackColor = System.Drawing.Color.Transparent;
             this.Name_Label.Location = new System.Drawing.Point(28, 429);
             this.Name_Label.Name = "Name_Label";
-            this.Name_Label.Size = new System.Drawing.Size(74, 18);
+            this.Name_Label.Size = new System.Drawing.Size(81, 18);
             this.Name_Label.TabIndex = 2;
-            this.Name_Label.Text = "Your Name:";
+            this.Name_Label.Text = "Tên của bạn: ";
             // 
             // OK_Button
             // 
@@ -101,7 +101,7 @@
             this.Controls.Add(this.Name_TextBox);
             this.Controls.Add(this.BanChon_Panel);
             this.Name = "FormChooseCharacter";
-            this.Text = "FormChooseCharacter";
+            this.Text = "Chọn nhân vật";
             this.ResumeLayout(false);
             this.PerformLayout();
 
