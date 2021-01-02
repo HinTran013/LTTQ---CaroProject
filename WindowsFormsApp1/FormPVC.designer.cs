@@ -149,7 +149,7 @@
             this.timerGame_Label.BackColor = System.Drawing.Color.Transparent;
             this.timerGame_Label.Font = new System.Drawing.Font("Perpetua", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerGame_Label.ForeColor = System.Drawing.Color.Blue;
-            this.timerGame_Label.Location = new System.Drawing.Point(639, 30);
+            this.timerGame_Label.Location = new System.Drawing.Point(700, 39);
             this.timerGame_Label.Name = "timerGame_Label";
             this.timerGame_Label.Size = new System.Drawing.Size(64, 44);
             this.timerGame_Label.TabIndex = 27;
@@ -201,6 +201,7 @@
             this.Name = "FormPVC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPVC";
+            
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

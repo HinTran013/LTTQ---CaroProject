@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace WindowsFormsApp1
 {
@@ -17,6 +18,10 @@ namespace WindowsFormsApp1
 
         private static int columns, rows;
         public int[,] vtMap;
+
+
+        GameSound gameSound = new GameSound();
+
         public FormPVC()
         {
             InitializeComponent();
@@ -350,6 +355,9 @@ namespace WindowsFormsApp1
             {
                 this.Dispose();
             }
+
+            gameSound.StopGamePlaySound();
+            gameSound.PlayMenuSound();
         }
         
     }

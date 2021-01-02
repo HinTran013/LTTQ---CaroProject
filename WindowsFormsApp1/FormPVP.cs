@@ -25,20 +25,24 @@ namespace WindowsFormsApp1
         QuanLyTime timeG;
         SocketManager socket;
 
+        GameSound gameSound = new GameSound();
+
         //---FOR CHATTING---
         private TcpClient client;
         public StreamReader STR;
         public StreamWriter STW;
         public string recieve;
         public String TextToSend;
+        TcpListener listener;
         //------------------
 
         #endregion
-        
+
         public FormPVP()
         {
             InitializeComponent();
-
+            
+            
 
             Control.CheckForIllegalCrossThreadCalls = false;
 
@@ -49,7 +53,7 @@ namespace WindowsFormsApp1
             socket = new SocketManager();
 
             timeG = new QuanLyTime();
-            BanCo = new QuanLyBanCo(BanCo_pnl,timeG,this, PlayerMark_pictureBox, textBox_PlayerName1);
+            BanCo = new QuanLyBanCo(BanCo_pnl,timeG, this, PlayerMark_pictureBox, textBox_PlayerName1);
 
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
@@ -155,13 +159,15 @@ namespace WindowsFormsApp1
             {
                 socket.isServer = true;
                 BanCo_pnl.Enabled = true;
-                
+
                 socket.CreateServer();
+
+                //Listen();
 
                 //--FOR CHATTING--
                 Thread listenThread = new Thread(() =>
                 {
-                    TcpListener listener = new TcpListener(IPAddress.Any, 6969);
+                    listener = new TcpListener(IPAddress.Any, 6969);
                     listener.Start();
                     client = listener.AcceptTcpClient();
                     STR = new StreamReader(client.GetStream());
@@ -212,6 +218,7 @@ namespace WindowsFormsApp1
                 });
                 listenThread.IsBackground = true;
                 listenThread.Start();
+
                 
                 //----------------
             }
@@ -229,13 +236,13 @@ namespace WindowsFormsApp1
                     recieve = STR.ReadLine();
                     this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        ChatTextBox.AppendText("Friend: " + recieve + "\r\n");
+                        ChatTextBox.AppendText("Friend (" + DateTime.Now.ToString() + "): " + recieve + "\r\n");
                     }));
                     recieve = "";
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    
                 }
             }
         }
@@ -249,12 +256,12 @@ namespace WindowsFormsApp1
                     STW.WriteLine(TextToSend);
                     this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        ChatTextBox.AppendText("You: " + TextToSend + "\r\n");
+                        ChatTextBox.AppendText("You (" + DateTime.Now.ToString() + "): " + TextToSend + "\r\n");
                     }));
                 }
                 else
                 {
-                    MessageBox.Show("Sending failed");
+                    MessageBox.Show("Không có người chơi nào trong phòng chat", "THÔNG BÁO");
                 }
                 backgroundWorker2.CancelAsync();
             }
@@ -298,13 +305,29 @@ namespace WindowsFormsApp1
         {
             if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                this.Dispose(true);
+                //System.Windows.Forms.Application.ExitThread();
                 //Environment.Exit(Environment.ExitCode);
                 try
                 {
                     socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
                 }
                 catch { }
+
+                try
+                {
+                    //STW.Close();
+                    //STR.Close();
+                    listener.Stop();
+                    client.Close();
+                    socket.Close();
+                }
+                catch
+                {
+                    
+                }
+                gameSound.StopGamePlaySound();
+                gameSound.PlayMenuSound();
+                this.Close();
             }
         }
         #endregion
@@ -420,12 +443,34 @@ namespace WindowsFormsApp1
                 case (int)SocketCommand.QUIT:
                     timer_Game.Stop();
                     timer_Player1.Stop();
-                    MessageBox.Show("Người chơi đã thoát!!");
+                    label_GameTime.Text = "0:00";
+                    label_timePlayer1.Text = "10";
+                    timeG.Time1 = 10;
+                    NewGame_Btn.Enabled = true;
+
+                    try
+                    {
+                        STW.Close();
+                        STR.Close();
+                        listener.Stop();
+                        client.Close();
+                        socket.Close();
+                    }
+                    catch
+                    {
+                        
+                    }
+                    ChatTextBox.Text = "";
+                    ChatTextBox.Text = "Đối phương đã thoát!!!";
+                    MessageBox.Show("Người chơi đối phương đã thoát!!", "THÔNG BÁO");
+                    gameSound.StopGamePlaySound();
+                    gameSound.PlayMenuSound();
+                    this.Close();
                     break;
                 case (int)SocketCommand.HAVE_CLIENT:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        BanCo_pnl.Enabled = true;
+                        MessageBox.Show("Co client ket noi");
                     }));
                     break;
                 default:
@@ -434,5 +479,10 @@ namespace WindowsFormsApp1
             Listen();
         }
         #endregion
+
+        private void FormPVP_Load(object sender, EventArgs e)
+        {
+            gameSound.PlayGameSound();
+        }
     }
 }

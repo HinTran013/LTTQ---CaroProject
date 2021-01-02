@@ -101,7 +101,11 @@
             this.Controls.Add(this.Name_TextBox);
             this.Controls.Add(this.BanChon_Panel);
             this.Name = "FormChooseCharacter";
+
             this.Text = "Chọn nhân vật";
+
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+ 
             this.ResumeLayout(false);
             this.PerformLayout();
 

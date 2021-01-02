@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Properties;
 using Guna.UI2.WinForms;
 using System.Resources;
+using System.Media;
 
 namespace WindowsFormsApp1
 {
@@ -20,7 +21,7 @@ namespace WindowsFormsApp1
         private Panel BanCo;
         private QuanLyTime timeG;
         private FormPVC Formpvc;
-
+        private GameSound gameSound = new GameSound();
         private Random DanhDauRandom;
 
         private List<Player> player;

@@ -297,7 +297,6 @@
             this.SendTextBox.ShadowDecoration.Parent = this.SendTextBox;
             this.SendTextBox.Size = new System.Drawing.Size(385, 36);
             this.SendTextBox.TabIndex = 22;
-            
             // 
             // sendButton
             // 
@@ -351,6 +350,7 @@
             this.Name = "FormPVP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
+            this.Load += new System.EventHandler(this.FormPVP_Load);
             this.Shown += new System.EventHandler(this.FormPVP_Shown);
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
