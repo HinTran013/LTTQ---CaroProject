@@ -33,6 +33,8 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.Mute_Button = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.Sound_Button = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.SuspendLayout();
             // 
             // guna2HtmlLabel1
@@ -94,6 +96,40 @@
             this.guna2CircleButton1.TabIndex = 3;
             this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click);
             // 
+            // Mute_Button
+            // 
+            this.Mute_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Mute_Button.CheckedState.Parent = this.Mute_Button;
+            this.Mute_Button.CustomImages.Parent = this.Mute_Button;
+            this.Mute_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Mute_Button.ForeColor = System.Drawing.Color.White;
+            this.Mute_Button.HoverState.Parent = this.Mute_Button;
+            this.Mute_Button.Image = global::WindowsFormsApp1.Properties.Resources.mute;
+            this.Mute_Button.Location = new System.Drawing.Point(1314, 711);
+            this.Mute_Button.Name = "Mute_Button";
+            this.Mute_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Mute_Button.ShadowDecoration.Parent = this.Mute_Button;
+            this.Mute_Button.Size = new System.Drawing.Size(39, 38);
+            this.Mute_Button.TabIndex = 19;
+            this.Mute_Button.Click += new System.EventHandler(this.Mute_Button_Click);
+            // 
+            // Sound_Button
+            // 
+            this.Sound_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Sound_Button.CheckedState.Parent = this.Sound_Button;
+            this.Sound_Button.CustomImages.Parent = this.Sound_Button;
+            this.Sound_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sound_Button.ForeColor = System.Drawing.Color.White;
+            this.Sound_Button.HoverState.Parent = this.Sound_Button;
+            this.Sound_Button.Image = global::WindowsFormsApp1.Properties.Resources.volume;
+            this.Sound_Button.Location = new System.Drawing.Point(1314, 711);
+            this.Sound_Button.Name = "Sound_Button";
+            this.Sound_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Sound_Button.ShadowDecoration.Parent = this.Sound_Button;
+            this.Sound_Button.Size = new System.Drawing.Size(39, 38);
+            this.Sound_Button.TabIndex = 20;
+            this.Sound_Button.Click += new System.EventHandler(this.Sound_Button_Click);
+            // 
             // FormRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -103,6 +139,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1365, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.Sound_Button);
+            this.Controls.Add(this.Mute_Button);
             this.Controls.Add(this.guna2CircleButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2HtmlLabel2);
@@ -126,5 +164,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        public Guna.UI2.WinForms.Guna2GradientCircleButton Mute_Button;
+        public Guna.UI2.WinForms.Guna2GradientCircleButton Sound_Button;
     }
 }
