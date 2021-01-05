@@ -60,19 +60,20 @@
             // 
             this.BanCo_pnl.BackColor = System.Drawing.SystemColors.Control;
             this.BanCo_pnl.Controls.Add(this.guna2PictureBox4);
-            this.BanCo_pnl.Location = new System.Drawing.Point(245, 42);
-            this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.BanCo_pnl.Location = new System.Drawing.Point(327, 52);
+            this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BanCo_pnl.Name = "BanCo_pnl";
-            this.BanCo_pnl.Size = new System.Drawing.Size(561, 552);
+            this.BanCo_pnl.Size = new System.Drawing.Size(748, 679);
             this.BanCo_pnl.TabIndex = 0;
             // 
             // guna2PictureBox4
             // 
             this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(783, 148);
+            this.guna2PictureBox4.Location = new System.Drawing.Point(1044, 182);
+            this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
             this.guna2PictureBox4.ShadowDecoration.Parent = this.guna2PictureBox4;
-            this.guna2PictureBox4.Size = new System.Drawing.Size(230, 217);
+            this.guna2PictureBox4.Size = new System.Drawing.Size(307, 267);
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox4.TabIndex = 20;
             this.guna2PictureBox4.TabStop = false;
@@ -87,10 +88,11 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1215, 7);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1812, 9);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(60, 36);
             this.guna2ControlBox1.TabIndex = 4;
             // 
             // guna2BorderlessForm2
@@ -103,9 +105,10 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Lucida Handwriting", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Crimson;
             this.guna2HtmlLabel1.IsSelectionEnabled = false;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(66, 361);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(88, 444);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(71, 29);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(86, 35);
             this.guna2HtmlLabel1.TabIndex = 8;
             this.guna2HtmlLabel1.Text = "Time:";
             // 
@@ -123,10 +126,10 @@
             // 
             this.label_GameTime.BackColor = System.Drawing.Color.Transparent;
             this.label_GameTime.Font = new System.Drawing.Font("Segoe UI Emoji", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_GameTime.Location = new System.Drawing.Point(512, 10);
-            this.label_GameTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.label_GameTime.Location = new System.Drawing.Point(683, 12);
+            this.label_GameTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.label_GameTime.Name = "label_GameTime";
-            this.label_GameTime.Size = new System.Drawing.Size(41, 26);
+            this.label_GameTime.Size = new System.Drawing.Size(48, 33);
             this.label_GameTime.TabIndex = 15;
             this.label_GameTime.Text = "0:00";
             // 
@@ -135,10 +138,9 @@
             this.label_timePlayer1.BackColor = System.Drawing.Color.Transparent;
             this.label_timePlayer1.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_timePlayer1.ForeColor = System.Drawing.Color.Crimson;
-            this.label_timePlayer1.Location = new System.Drawing.Point(142, 362);
-            this.label_timePlayer1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_timePlayer1.Location = new System.Drawing.Point(189, 446);
             this.label_timePlayer1.Name = "label_timePlayer1";
-            this.label_timePlayer1.Size = new System.Drawing.Size(35, 28);
+            this.label_timePlayer1.Size = new System.Drawing.Size(47, 34);
             this.label_timePlayer1.TabIndex = 16;
             this.label_timePlayer1.Text = "10";
             this.label_timePlayer1.Click += new System.EventHandler(this.label_timePlayer1_Click);
@@ -153,11 +155,11 @@
             this.KetNoiLAN_Btn.Font = new System.Drawing.Font("Lucida Handwriting", 15.75F, System.Drawing.FontStyle.Bold);
             this.KetNoiLAN_Btn.ForeColor = System.Drawing.Color.White;
             this.KetNoiLAN_Btn.HoverState.Parent = this.KetNoiLAN_Btn;
-            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(52, 464);
-            this.KetNoiLAN_Btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.KetNoiLAN_Btn.Location = new System.Drawing.Point(69, 571);
+            this.KetNoiLAN_Btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KetNoiLAN_Btn.Name = "KetNoiLAN_Btn";
             this.KetNoiLAN_Btn.ShadowDecoration.Parent = this.KetNoiLAN_Btn;
-            this.KetNoiLAN_Btn.Size = new System.Drawing.Size(135, 37);
+            this.KetNoiLAN_Btn.Size = new System.Drawing.Size(180, 46);
             this.KetNoiLAN_Btn.TabIndex = 18;
             this.KetNoiLAN_Btn.Text = "LAN";
             this.KetNoiLAN_Btn.UseTransparentBackground = true;
@@ -173,11 +175,11 @@
             this.NewGame_Btn.Font = new System.Drawing.Font("Lucida Handwriting", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewGame_Btn.ForeColor = System.Drawing.Color.White;
             this.NewGame_Btn.HoverState.Parent = this.NewGame_Btn;
-            this.NewGame_Btn.Location = new System.Drawing.Point(33, 517);
-            this.NewGame_Btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NewGame_Btn.Location = new System.Drawing.Point(44, 636);
+            this.NewGame_Btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NewGame_Btn.Name = "NewGame_Btn";
             this.NewGame_Btn.ShadowDecoration.Parent = this.NewGame_Btn;
-            this.NewGame_Btn.Size = new System.Drawing.Size(176, 37);
+            this.NewGame_Btn.Size = new System.Drawing.Size(235, 46);
             this.NewGame_Btn.TabIndex = 19;
             this.NewGame_Btn.Text = "New Game";
             this.NewGame_Btn.UseTransparentBackground = true;
@@ -190,11 +192,11 @@
             this.Exit_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Exit_Button.ForeColor = System.Drawing.Color.White;
             this.Exit_Button.HoverState.Parent = this.Exit_Button;
-            this.Exit_Button.Location = new System.Drawing.Point(1144, 10);
-            this.Exit_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Exit_Button.Location = new System.Drawing.Point(1525, 12);
+            this.Exit_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Exit_Button.Name = "Exit_Button";
             this.Exit_Button.ShadowDecoration.Parent = this.Exit_Button;
-            this.Exit_Button.Size = new System.Drawing.Size(29, 27);
+            this.Exit_Button.Size = new System.Drawing.Size(39, 33);
             this.Exit_Button.TabIndex = 20;
             this.Exit_Button.Text = "X";
             this.Exit_Button.Click += new System.EventHandler(this.Exit_Button_Click);
@@ -214,13 +216,14 @@
             this.textBox_PlayerIP1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBox_PlayerIP1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox_PlayerIP1.HoverState.Parent = this.textBox_PlayerIP1;
-            this.textBox_PlayerIP1.Location = new System.Drawing.Point(33, 308);
+            this.textBox_PlayerIP1.Location = new System.Drawing.Point(44, 379);
+            this.textBox_PlayerIP1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_PlayerIP1.Name = "textBox_PlayerIP1";
             this.textBox_PlayerIP1.PasswordChar = '\0';
             this.textBox_PlayerIP1.PlaceholderText = "";
             this.textBox_PlayerIP1.SelectedText = "";
             this.textBox_PlayerIP1.ShadowDecoration.Parent = this.textBox_PlayerIP1;
-            this.textBox_PlayerIP1.Size = new System.Drawing.Size(190, 36);
+            this.textBox_PlayerIP1.Size = new System.Drawing.Size(253, 44);
             this.textBox_PlayerIP1.TabIndex = 11;
             // 
             // textBox_PlayerName1
@@ -238,23 +241,25 @@
             this.textBox_PlayerName1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBox_PlayerName1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.textBox_PlayerName1.HoverState.Parent = this.textBox_PlayerName1;
-            this.textBox_PlayerName1.Location = new System.Drawing.Point(33, 266);
+            this.textBox_PlayerName1.Location = new System.Drawing.Point(44, 327);
+            this.textBox_PlayerName1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_PlayerName1.Name = "textBox_PlayerName1";
             this.textBox_PlayerName1.PasswordChar = '\0';
             this.textBox_PlayerName1.PlaceholderText = "";
             this.textBox_PlayerName1.SelectedText = "";
             this.textBox_PlayerName1.ShadowDecoration.Parent = this.textBox_PlayerName1;
-            this.textBox_PlayerName1.Size = new System.Drawing.Size(190, 36);
+            this.textBox_PlayerName1.Size = new System.Drawing.Size(253, 44);
             this.textBox_PlayerName1.TabIndex = 6;
             // 
             // PlayerMark_pictureBox
             // 
             this.PlayerMark_pictureBox.BackColor = System.Drawing.Color.Transparent;
             this.PlayerMark_pictureBox.FillColor = System.Drawing.Color.Transparent;
-            this.PlayerMark_pictureBox.Location = new System.Drawing.Point(33, 68);
+            this.PlayerMark_pictureBox.Location = new System.Drawing.Point(44, 84);
+            this.PlayerMark_pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PlayerMark_pictureBox.Name = "PlayerMark_pictureBox";
             this.PlayerMark_pictureBox.ShadowDecoration.Parent = this.PlayerMark_pictureBox;
-            this.PlayerMark_pictureBox.Size = new System.Drawing.Size(190, 192);
+            this.PlayerMark_pictureBox.Size = new System.Drawing.Size(253, 236);
             this.PlayerMark_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PlayerMark_pictureBox.TabIndex = 5;
             this.PlayerMark_pictureBox.TabStop = false;
@@ -273,15 +278,15 @@
             this.ChatTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ChatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ChatTextBox.HoverState.Parent = this.ChatTextBox;
-            this.ChatTextBox.Location = new System.Drawing.Point(820, 42);
-            this.ChatTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChatTextBox.Location = new System.Drawing.Point(1093, 52);
+            this.ChatTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChatTextBox.Multiline = true;
             this.ChatTextBox.Name = "ChatTextBox";
             this.ChatTextBox.PasswordChar = '\0';
             this.ChatTextBox.PlaceholderText = "";
             this.ChatTextBox.SelectedText = "";
             this.ChatTextBox.ShadowDecoration.Parent = this.ChatTextBox;
-            this.ChatTextBox.Size = new System.Drawing.Size(353, 552);
+            this.ChatTextBox.Size = new System.Drawing.Size(471, 679);
             this.ChatTextBox.TabIndex = 21;
             // 
             // SendTextBox
@@ -298,14 +303,14 @@
             this.SendTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SendTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SendTextBox.HoverState.Parent = this.SendTextBox;
-            this.SendTextBox.Location = new System.Drawing.Point(820, 599);
-            this.SendTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SendTextBox.Location = new System.Drawing.Point(1093, 737);
+            this.SendTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SendTextBox.Name = "SendTextBox";
             this.SendTextBox.PasswordChar = '\0';
             this.SendTextBox.PlaceholderText = "";
             this.SendTextBox.SelectedText = "";
             this.SendTextBox.ShadowDecoration.Parent = this.SendTextBox;
-            this.SendTextBox.Size = new System.Drawing.Size(289, 29);
+            this.SendTextBox.Size = new System.Drawing.Size(385, 36);
             this.SendTextBox.TabIndex = 22;
             // 
             // sendButton
@@ -315,11 +320,11 @@
             this.sendButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sendButton.ForeColor = System.Drawing.Color.White;
             this.sendButton.HoverState.Parent = this.sendButton;
-            this.sendButton.Location = new System.Drawing.Point(1113, 599);
-            this.sendButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sendButton.Location = new System.Drawing.Point(1484, 737);
+            this.sendButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sendButton.Name = "sendButton";
             this.sendButton.ShadowDecoration.Parent = this.sendButton;
-            this.sendButton.Size = new System.Drawing.Size(60, 29);
+            this.sendButton.Size = new System.Drawing.Size(80, 36);
             this.sendButton.TabIndex = 23;
             this.sendButton.Text = "Send";
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
@@ -334,12 +339,12 @@
             // 
             // FormPVP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1040, 640);
+            this.ClientSize = new System.Drawing.Size(1579, 788);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.SendTextBox);
             this.Controls.Add(this.ChatTextBox);
@@ -357,7 +362,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormPVP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Caro";
