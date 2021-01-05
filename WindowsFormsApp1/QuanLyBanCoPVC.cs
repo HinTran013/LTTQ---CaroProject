@@ -163,11 +163,15 @@ namespace WindowsFormsApp1
                     //tag này cho biết rằng button đang được lưu ở hàng thứ i
                     btn.Tag = i.ToString();
 
+
                     btn.BackColor = Color.FromArgb(235, 235, 224);
                     btn.FlatStyle = FlatStyle.Flat;
                     btn.FlatAppearance.BorderColor = Color.Azure;
+
                     btn.MouseEnter += Btn_MouseEnter;
                     btn.MouseLeave += Btn_MouseLeave;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderColor = Color.FromArgb(141, 147, 171);
                     //kich thuoc cua anh qua lon' nen phai chinh kich co cua anh cho vua` voi button
                     btn.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -201,8 +205,10 @@ namespace WindowsFormsApp1
 
         private void Btn_MouseLeave(object sender, EventArgs e)
         {
+
             Button btn = sender as Button;
             btn.BackColor = Color.FromArgb(235, 235, 224);
+
         }
 
         private void Btn_Click(object sender, EventArgs e)
