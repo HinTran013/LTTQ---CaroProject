@@ -39,7 +39,7 @@
             this.BanChon_Panel.Location = new System.Drawing.Point(28, 12);
             this.BanChon_Panel.Name = "BanChon_Panel";
             this.BanChon_Panel.ShadowDecoration.Parent = this.BanChon_Panel;
-            this.BanChon_Panel.Size = new System.Drawing.Size(519, 402);
+            this.BanChon_Panel.Size = new System.Drawing.Size(499, 400);
             this.BanChon_Panel.TabIndex = 0;
             // 
             // Name_TextBox
@@ -56,7 +56,7 @@
             this.Name_TextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name_TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Name_TextBox.HoverState.Parent = this.Name_TextBox;
-            this.Name_TextBox.Location = new System.Drawing.Point(148, 424);
+            this.Name_TextBox.Location = new System.Drawing.Point(138, 429);
             this.Name_TextBox.Name = "Name_TextBox";
             this.Name_TextBox.PasswordChar = '\0';
             this.Name_TextBox.PlaceholderText = "";
@@ -84,7 +84,7 @@
             this.OK_Button.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OK_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.OK_Button.HoverState.Parent = this.OK_Button;
-            this.OK_Button.Location = new System.Drawing.Point(405, 420);
+            this.OK_Button.Location = new System.Drawing.Point(381, 420);
             this.OK_Button.Name = "OK_Button";
             this.OK_Button.ShadowDecoration.Parent = this.OK_Button;
             this.OK_Button.Size = new System.Drawing.Size(142, 45);
@@ -96,7 +96,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 472);
+            this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.depositphotos_9808899_stock_photo_silver_gray_background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(557, 472);
             this.ControlBox = false;
             this.Controls.Add(this.OK_Button);
             this.Controls.Add(this.Name_Label);

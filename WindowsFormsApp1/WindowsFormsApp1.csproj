@@ -229,7 +229,7 @@
     <Content Include="Intro_Screen.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\depositphotos_9808899-stock-photo-silver-gray-background.jpg" />
     <None Include="Resources\xo.png" />
     <None Include="Resources\ironman.png" />
     <None Include="Resources\Background.jpg" />
