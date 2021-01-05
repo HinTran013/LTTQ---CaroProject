@@ -43,7 +43,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Lucida Handwriting", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.DarkCyan;
             this.guna2HtmlLabel1.IsSelectionEnabled = false;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(197, 59);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(223, 32);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(750, 99);
@@ -68,7 +68,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Calligraphy", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(365, 239);
+            this.label1.Location = new System.Drawing.Point(328, 135);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(632, 364);
@@ -101,11 +101,13 @@
             this.Mute_Button.BackColor = System.Drawing.Color.Transparent;
             this.Mute_Button.CheckedState.Parent = this.Mute_Button;
             this.Mute_Button.CustomImages.Parent = this.Mute_Button;
+            this.Mute_Button.FillColor = System.Drawing.Color.LightBlue;
+            this.Mute_Button.FillColor2 = System.Drawing.Color.Bisque;
             this.Mute_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Mute_Button.ForeColor = System.Drawing.Color.White;
             this.Mute_Button.HoverState.Parent = this.Mute_Button;
             this.Mute_Button.Image = global::WindowsFormsApp1.Properties.Resources.mute;
-            this.Mute_Button.Location = new System.Drawing.Point(1314, 711);
+            this.Mute_Button.Location = new System.Drawing.Point(12, 545);
             this.Mute_Button.Name = "Mute_Button";
             this.Mute_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.Mute_Button.ShadowDecoration.Parent = this.Mute_Button;
@@ -118,11 +120,13 @@
             this.Sound_Button.BackColor = System.Drawing.Color.Transparent;
             this.Sound_Button.CheckedState.Parent = this.Sound_Button;
             this.Sound_Button.CustomImages.Parent = this.Sound_Button;
+            this.Sound_Button.FillColor = System.Drawing.Color.Bisque;
+            this.Sound_Button.FillColor2 = System.Drawing.Color.LightBlue;
             this.Sound_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Sound_Button.ForeColor = System.Drawing.Color.White;
             this.Sound_Button.HoverState.Parent = this.Sound_Button;
             this.Sound_Button.Image = global::WindowsFormsApp1.Properties.Resources.volume;
-            this.Sound_Button.Location = new System.Drawing.Point(1314, 711);
+            this.Sound_Button.Location = new System.Drawing.Point(12, 545);
             this.Sound_Button.Name = "Sound_Button";
             this.Sound_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.Sound_Button.ShadowDecoration.Parent = this.Sound_Button;
@@ -137,7 +141,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1365, 761);
+            this.ClientSize = new System.Drawing.Size(1135, 595);
             this.ControlBox = false;
             this.Controls.Add(this.Sound_Button);
             this.Controls.Add(this.Mute_Button);

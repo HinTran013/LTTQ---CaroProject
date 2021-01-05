@@ -178,6 +178,10 @@ namespace WindowsFormsApp1
                     //kich thuoc cua anh qua lon' nen phai chinh kich co cua anh cho vua` voi button
                     btn.BackgroundImageLayout = ImageLayout.Stretch;
 
+                    btn.BackColor = Color.FromArgb(235, 235, 224);
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderColor = Color.Azure;
+
                     //Tao event khi nhan' vao button
                     btn.Click += Btn_Click;
 
@@ -200,6 +204,19 @@ namespace WindowsFormsApp1
             this.BanCo.Show();
         }
 
+        private void Btn_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = Color.AliceBlue;
+        }
+
+        private void Btn_MouseLeave(object sender, EventArgs e)
+        {
+
+            Button btn = sender as Button;
+            btn.BackColor = Color.FromArgb(235, 235, 224);
+
+        }
 
         private void Btn_Click(object sender, EventArgs e)
         {

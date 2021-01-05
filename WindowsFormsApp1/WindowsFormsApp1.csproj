@@ -89,6 +89,11 @@
     <Compile Include="GameSound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyBanCo.cs" />
     <Compile Include="QuanLyBanCoPVC.cs" />
     <Compile Include="QuanLyPlayer.cs" />
@@ -112,14 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -229,6 +229,14 @@
     <Content Include="Intro_Screen.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\xo.png" />
+    <None Include="Resources\ironman.png" />
+    <None Include="Resources\Background.jpg" />
+    <None Include="Resources\124156481_378912773254787_6488434912956206920_n.png" />
+    <None Include="Resources\123846630_391836868679416_2596674009013370517_n.png" />
+    <None Include="Resources\123651760_1853920931428411_269137669007237559_n.png" />
+    <None Include="Resources\123549370_833091784193672_2177880601353732735_n.png" />
     <None Include="Resources\volume.png" />
     <None Include="Resources\mute.png" />
   </ItemGroup>

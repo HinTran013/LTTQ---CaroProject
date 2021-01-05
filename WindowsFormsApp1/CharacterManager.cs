@@ -125,9 +125,20 @@ namespace WindowsFormsApp1
             this.BanChon.Show();
         }
 
+        private void resetBtnColor()
+        {
+            for(int i = 0;i<Constant.ChieuCaoBanChon;i++)
+                for(int j = 0;j<Constant.ChieuRongBanChon;j++)
+                {
+                    Matrix[i][j].BackColor = Color.FromArgb(235, 235, 224);
+                }
+        }
+
         private void Btn_Click(object sender, EventArgs e)
         {
+            resetBtnColor();
             Button btn = sender as Button;
+            btn.BackColor = Color.AliceBlue;
             selectedBtn = btn;
         }
     }

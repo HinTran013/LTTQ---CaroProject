@@ -301,35 +301,7 @@ namespace WindowsFormsApp1
             BanCo_pnl.Enabled = true;
         }
 
-        private void Exit_Button_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                //System.Windows.Forms.Application.ExitThread();
-                //Environment.Exit(Environment.ExitCode);
-                try
-                {
-                    socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
-                }
-                catch { }
-
-                try
-                {
-                    //STW.Close();
-                    //STR.Close();
-                    listener.Stop();
-                    client.Close();
-                    socket.Close();
-                }
-                catch
-                {
-                    
-                }
-                gameSound.StopGamePlaySound();
-                gameSound.PlayMenuSound();
-                this.Close();
-            }
-        }
+       
         #endregion
 
         #region Methods
@@ -500,6 +472,36 @@ namespace WindowsFormsApp1
 
             Sound_Button.Visible = false;
             Mute_Button.Visible = true;
+        }
+
+        private void quitbtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                //System.Windows.Forms.Application.ExitThread();
+                //Environment.Exit(Environment.ExitCode);
+                try
+                {
+                    socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
+                }
+                catch { }
+
+                try
+                {
+                    //STW.Close();
+                    //STR.Close();
+                    listener.Stop();
+                    client.Close();
+                    socket.Close();
+                }
+                catch
+                {
+
+                }
+                gameSound.StopGamePlaySound();
+                gameSound.PlayMenuSound();
+                this.Close();
+            }
         }
     }
 }

@@ -56,33 +56,35 @@
             this.Name_TextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name_TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Name_TextBox.HoverState.Parent = this.Name_TextBox;
-            this.Name_TextBox.Location = new System.Drawing.Point(115, 420);
+            this.Name_TextBox.Location = new System.Drawing.Point(148, 424);
             this.Name_TextBox.Name = "Name_TextBox";
             this.Name_TextBox.PasswordChar = '\0';
             this.Name_TextBox.PlaceholderText = "";
             this.Name_TextBox.SelectedText = "";
             this.Name_TextBox.ShadowDecoration.Parent = this.Name_TextBox;
-            this.Name_TextBox.Size = new System.Drawing.Size(200, 36);
+            this.Name_TextBox.Size = new System.Drawing.Size(217, 36);
             this.Name_TextBox.TabIndex = 1;
             this.Name_TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Name_TextBox_KeyDown);
             // 
             // Name_Label
             // 
             this.Name_Label.BackColor = System.Drawing.Color.Transparent;
+            this.Name_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name_Label.Location = new System.Drawing.Point(28, 429);
             this.Name_Label.Name = "Name_Label";
-            this.Name_Label.Size = new System.Drawing.Size(81, 18);
+            this.Name_Label.Size = new System.Drawing.Size(104, 27);
             this.Name_Label.TabIndex = 2;
-            this.Name_Label.Text = "Tên của bạn: ";
+            this.Name_Label.Text = "Your name: ";
             // 
             // OK_Button
             // 
             this.OK_Button.CheckedState.Parent = this.OK_Button;
             this.OK_Button.CustomImages.Parent = this.OK_Button;
-            this.OK_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.OK_Button.ForeColor = System.Drawing.Color.White;
+            this.OK_Button.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.OK_Button.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OK_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.OK_Button.HoverState.Parent = this.OK_Button;
-            this.OK_Button.Location = new System.Drawing.Point(388, 420);
+            this.OK_Button.Location = new System.Drawing.Point(405, 420);
             this.OK_Button.Name = "OK_Button";
             this.OK_Button.ShadowDecoration.Parent = this.OK_Button;
             this.OK_Button.Size = new System.Drawing.Size(142, 45);
@@ -94,18 +96,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 468);
+            this.ClientSize = new System.Drawing.Size(569, 472);
             this.ControlBox = false;
             this.Controls.Add(this.OK_Button);
             this.Controls.Add(this.Name_Label);
             this.Controls.Add(this.Name_TextBox);
             this.Controls.Add(this.BanChon_Panel);
             this.Name = "FormChooseCharacter";
-
-            this.Text = "Chọn nhân vật";
-
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
- 
+            this.Text = "Choose your character";
             this.ResumeLayout(false);
             this.PerformLayout();
 
