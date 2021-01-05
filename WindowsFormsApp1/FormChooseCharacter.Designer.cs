@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChooseCharacter));
             this.BanChon_Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.Name_TextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.Name_Label = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -95,8 +96,9 @@
             // 
             // FormChooseCharacter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.depositphotos_9808899_stock_photo_silver_gray_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(557, 472);
@@ -106,6 +108,7 @@
             this.Controls.Add(this.Name_TextBox);
             this.Controls.Add(this.BanChon_Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(557, 472);
             this.MinimumSize = new System.Drawing.Size(557, 472);
             this.Name = "FormChooseCharacter";
