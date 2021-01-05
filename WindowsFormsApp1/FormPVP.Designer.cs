@@ -143,7 +143,7 @@
             this.label_timePlayer1.ForeColor = System.Drawing.Color.Crimson;
             this.label_timePlayer1.Location = new System.Drawing.Point(189, 446);
             this.label_timePlayer1.Name = "label_timePlayer1";
-            this.label_timePlayer1.Size = new System.Drawing.Size(47, 34);
+            this.label_timePlayer1.Size = new System.Drawing.Size(67, 34);
             this.label_timePlayer1.TabIndex = 16;
             this.label_timePlayer1.Text = "10";
             // 

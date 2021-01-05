@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
         private void BanCo_EndedGameRandom(object sender, EventArgs e)
         {
             EndGameRandom();
-            socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
+            
         }
 
         private void BanCo_PlayerMarked(object sender, ButtonClickEvent e)
@@ -106,7 +106,6 @@ namespace WindowsFormsApp1
         private void BanCo_EndedGame(object sender, EventArgs e)
         {
             EndGame();
-            socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
 
         private void timer_Game_Tick(object sender, EventArgs e)
@@ -410,7 +409,7 @@ namespace WindowsFormsApp1
                 case (int)SocketCommand.UNDO:
                     break;
                 case (int)SocketCommand.END_GAME:
-                    MessageBox.Show("Đã kết thúc game");
+                    
                     break;
                 case (int)SocketCommand.QUIT:
                     timer_Game.Stop();
