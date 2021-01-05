@@ -36,6 +36,7 @@
             // 
             // BanChon_Panel
             // 
+            this.BanChon_Panel.BackColor = System.Drawing.Color.Transparent;
             this.BanChon_Panel.Location = new System.Drawing.Point(28, 12);
             this.BanChon_Panel.Name = "BanChon_Panel";
             this.BanChon_Panel.ShadowDecoration.Parent = this.BanChon_Panel;
@@ -104,6 +105,9 @@
             this.Controls.Add(this.Name_Label);
             this.Controls.Add(this.Name_TextBox);
             this.Controls.Add(this.BanChon_Panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(557, 472);
+            this.MinimumSize = new System.Drawing.Size(557, 472);
             this.Name = "FormChooseCharacter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose your character";

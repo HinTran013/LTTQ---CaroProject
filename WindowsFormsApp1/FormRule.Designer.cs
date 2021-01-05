@@ -70,6 +70,8 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(328, 135);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.MaximumSize = new System.Drawing.Size(632, 364);
+            this.label1.MinimumSize = new System.Drawing.Size(632, 364);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(632, 364);
             this.label1.TabIndex = 2;
