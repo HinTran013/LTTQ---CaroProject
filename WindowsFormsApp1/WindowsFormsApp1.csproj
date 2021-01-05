@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>unnamed-1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI2, Version=2.0.1.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.2\lib\net40\Guna.UI2.dll</HintPath>
@@ -229,6 +232,8 @@
     <Content Include="Intro_Screen.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\robot.png" />
+    <Content Include="unnamed-1.ico" />
     <None Include="Resources\depositphotos_9808899-stock-photo-silver-gray-background.jpg" />
     <None Include="Resources\xo.png" />
     <None Include="Resources\ironman.png" />

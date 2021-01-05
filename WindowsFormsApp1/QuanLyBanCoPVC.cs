@@ -110,7 +110,7 @@ namespace WindowsFormsApp1
 
             this.Player.Add(new Player(FormChooseCharacter.plName, FormChooseCharacter.plPic));
            
-            this.Player.Add(new Player("Computer", Resources.n1530354));
+            this.Player.Add(new Player("Computer", Resources.robot));
 
             //Khoi tao ca 2 player va dat player 1 la player choi truoc.
             CurrentPlayer = 0;
