@@ -7,46 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace WindowsFormsApp1
 {
     public partial class FormPVC : Form
     {
-        #region InitChess
-        public class Chess
-        {
-            public Button btn;
-            public int X;
-            public int Y;
-            public Chess()
-            {
-                btn = new Button();
-            }
-            public Chess(Button btn, int x, int y)
-            {
-                btn = new Button();
-                this.btn = btn;
-                X = x;
-                Y = y;
-            }
-        }
-        #endregion
-
         QuanLyBanCoPVC BanCo;
         QuanLyTime timeG;
 
         private static int columns, rows;
         public int[,] vtMap;
-        public Stack<Chess> chesses;
-        public Chess chess;
+
+
+        GameSound gameSound = new GameSound();
 
         public FormPVC()
         {
             InitializeComponent();
 
             timeG = new QuanLyTime();
-            BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this,playerName_TextBox);
+            BanCo = new QuanLyBanCoPVC(BanCo_pnl, timeG, this,playerName_TextBox,pictureBox1);
             playerName_TextBox.Text = BanCo.Player[0].Name;
+            pictureBox1.Image = BanCo.Player[0].Mark;
             
             BanCo.EndedGame += BanCo_EndedGame;
             BanCo.PlayerMarked += BanCo_PlayerMarked;
@@ -56,7 +39,6 @@ namespace WindowsFormsApp1
             rows = Constant.ChieuCaoBanCo;
 
             vtMap = new int[rows + 2, columns + 2];
-            chesses = new Stack<Chess>();
 
             BanCo.VeBanCo();
 
@@ -109,18 +91,15 @@ namespace WindowsFormsApp1
             if (BanCo.IsEndGame(BanCo.Matrix[x][y])) EndGame();
 
             BanCo.ChangeCurrentPlayer();
-
-            chess = new Chess(BanCo.Matrix[x + 1][y], x, y);
-            chesses.Push(chess);
         }
 
         public void CptFindChess()
         {
             long max = 0;
             int imax = 1, jmax = 1;
-            for (int i = 1; i < rows; i++)
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 1; j < columns; j++)
+                for (int j = 0; j < columns; j++)
                     if (vtMap[i, j] == 0)
                     {
                         long temp = Caculate(i, j);
@@ -142,12 +121,12 @@ namespace WindowsFormsApp1
             int i = x - 1, j = y;
             int column = 0, row = 0, mdiagonal = 0, ediagonal = 0;
             int sc_ = 0, sc = 0, sr_ = 0, sr = 0, sm_ = 0, sm = 0, se_ = 0, se = 0;
-            while (vtMap[i, j] == 2 && i >= 0)
+            while (i >= 0 &&  vtMap[i, j] == 2)
             {
                 column++;
                 i--;
             }
-            if (vtMap[i, j] == 0) sc_ = 1;
+            if (i >= 0 && vtMap[i, j] == 0) sc_ = 1;
             i = x + 1;
             while (vtMap[i, j] == 2 && i <= rows)
             {
@@ -156,12 +135,12 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sc = 1;
             i = x; j = y - 1;
-            while (vtMap[i, j] == 2 && j >= 0)
+            while (j>=0 && vtMap[i, j] == 2)
             {
                 row++;
                 j--;
             }
-            if (vtMap[i, j] == 0) sr_ = 1;
+            if (j>=0 && vtMap[i, j] == 0) sr_ = 1;
             j = y + 1;
             while (vtMap[i, j] == 2 && j <= columns)
             {
@@ -170,13 +149,13 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sr = 1;
             i = x - 1; j = y - 1;
-            while (vtMap[i, j] == 2 && i >= 0 && j >= 0)
+            while (i >= 0 && j >= 0 && vtMap[i, j] == 2)
             {
                 mdiagonal++;
                 i--;
                 j--;
             }
-            if (vtMap[i, j] == 0) sm_ = 1;
+            if (i >= 0 && j >= 0 && vtMap[i, j] == 0) sm_ = 1;
             i = x + 1; j = y + 1;
             while (vtMap[i, j] == 2 && i <= rows && j <= columns)
             {
@@ -186,21 +165,21 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sm = 1;
             i = x - 1; j = y + 1;
-            while (vtMap[i, j] == 2 && i >= 0 && j <= columns)
+            while (i >= 0 && vtMap[i, j] == 2 && j <= columns)
             {
                 ediagonal++;
                 i--;
                 j++;
             }
-            if (vtMap[i, j] == 0) se_ = 1;
+            if (i>=0 && vtMap[i, j] == 0) se_ = 1;
             i = x + 1; j = y - 1;
-            while (vtMap[i, j] == 2 && i <= rows && j >= 0)
+            while (j>=0 && vtMap[i, j] == 2 && i <= rows)
             {
                 ediagonal++;
                 i++;
                 j--;
             }
-            if (vtMap[i, j] == 0) se = 1;
+            if (j>=0 && vtMap[i, j] == 0) se = 1;
 
             if (column == 4) column = 5;
             if (row == 4) row = 5;
@@ -231,12 +210,12 @@ namespace WindowsFormsApp1
             int sc_ = 0, sc = 0, sr_ = 0, sr = 0, sm_ = 0, sm = 0, se_ = 0, se = 0;
             int column = 0, row = 0, mdiagonal = 0, ediagonal = 0;
             //
-            while (vtMap[i, j] == 1 && i >= 1)
+            while (i>=1 && vtMap[i, j] == 1)
             {
                 column++;
                 i--;
             }
-            if (vtMap[i, j] == 0) sc_ = 1;
+            if (i >= 0 && vtMap[i, j] == 0) sc_ = 1;
             i = x + 1;
             while (vtMap[i, j] == 1 && i <= rows)
             {
@@ -246,12 +225,12 @@ namespace WindowsFormsApp1
             if (vtMap[i, j] == 0) sc = 1;
             i = x; j = y - 1;
             //
-            while (vtMap[i, j] == 1 && j >= 1)
+            while (j >= 1 && vtMap[i, j] == 1)
             {
                 row++;
                 j--;
             }
-            if (vtMap[i, j] == 0) sr_ = 1;
+            if (j>=0 && vtMap[i, j] == 0) sr_ = 1;
             j = y + 1;
             while (vtMap[i, j] == 1 && j <= columns)
             {
@@ -260,13 +239,13 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sr = 1;
             i = x - 1; j = y - 1;
-            while (vtMap[i, j] == 1 && i >= 1 && j >= 1)
+            while (i >= 1 && j >= 1 && vtMap[i, j] == 1)
             {
                 mdiagonal++;
                 i--;
                 j--;
             }
-            if (vtMap[i, j] == 0) sm_ = 1;
+            if (i >= 0 && j >= 0 && vtMap[i, j] == 0) sm_ = 1;
             i = x + 1; j = y + 1;
             while (vtMap[i, j] == 1 && i <= rows && j <= columns)
             {
@@ -276,21 +255,21 @@ namespace WindowsFormsApp1
             }
             if (vtMap[i, j] == 0) sm = 1;
             i = x - 1; j = y + 1;
-            while (vtMap[i, j] == 1 && i >= 1 && j <= columns)
+            while (i >= 1 && vtMap[i, j] == 1 && j <= columns)
             {
                 ediagonal++;
                 i--;
                 j++;
             }
-            if (vtMap[i, j] == 0) se_ = 1;
+            if (i>=0 && vtMap[i, j] == 0) se_ = 1;
             i = x + 1; j = y - 1;
-            while (vtMap[i, j] == 1 && i <= rows && j >= 1)
+            while (j >= 1 && vtMap[i, j] == 1 && i <= rows)
             {
                 ediagonal++;
                 i++;
                 j--;
             }
-            if (vtMap[i, j] == 0) se = 1;
+            if (j>=0 && vtMap[i, j] == 0) se = 1;
 
             if (column == 4) column = 5;
             if (row == 4) row = 5;
@@ -316,18 +295,21 @@ namespace WindowsFormsApp1
 
         private void newGame_Button_Click(object sender, EventArgs e)
         {
-            timer_Game.Stop();
-            timer_Player.Stop();
+            if (MessageBox.Show("Bạn có tạo game mới ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                timer_Game.Stop();
+                timer_Player.Stop();
 
-            BanCo.VeBanCo();
+                BanCo.VeBanCo();
 
-            timeG.Sec = 0;
-            timeG.Minute = 0;
-            timeG.Time1 = 10;
+                timeG.Sec = 0;
+                timeG.Minute = 0;
+                timeG.Time1 = 10;
 
 
-            timerGame_Label.Text = "0:00";
-            timerPlayer_Label.Text = timeG.Time1.ToString();
+                timerGame_Label.Text = "0:00";
+                timerPlayer_Label.Text = timeG.Time1.ToString();
+            }
         }
 
         private void timer_Game_Tick(object sender, EventArgs e)
@@ -367,12 +349,32 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void Sound_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.StopGamePlaySound();
+
+
+            Sound_Button.Visible = false;
+            Mute_Button.Visible = true;
+        }
+
+        private void Mute_Button_Click(object sender, EventArgs e)
+        {
+            gameSound.PlayGameSound();
+
+            Mute_Button.Visible = false;
+            Sound_Button.Visible = true;
+        }
+
         private void quit_Button_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 this.Dispose();
             }
+
+            gameSound.StopGamePlaySound();
+            gameSound.PlayMenuSound();
         }
         
     }

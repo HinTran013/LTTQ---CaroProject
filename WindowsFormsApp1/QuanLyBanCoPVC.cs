@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Properties;
 using Guna.UI2.WinForms;
 using System.Resources;
+using System.Media;
 
 namespace WindowsFormsApp1
 {
@@ -20,7 +21,7 @@ namespace WindowsFormsApp1
         private Panel BanCo;
         private QuanLyTime timeG;
         private FormPVC Formpvc;
-
+        private GameSound gameSound = new GameSound();
         private Random DanhDauRandom;
 
         private List<Player> player;
@@ -92,21 +93,24 @@ namespace WindowsFormsApp1
 
         #region Initialize
         
-        public QuanLyBanCoPVC(Panel BanCo, QuanLyTime timeG, FormPVC Formpvc,Guna2TextBox playerName)
+        public QuanLyBanCoPVC(Panel BanCo, QuanLyTime timeG, FormPVC Formpvc,Guna2TextBox playerName,PictureBox playerPic)
         {
+            FormChooseCharacter choose = new FormChooseCharacter();
+            choose.ShowDialog();
+
             DanhDauRandom = new Random();
 
             this.BanCo = BanCo;
             this.timeG = timeG;
             this.Formpvc = Formpvc; ;
             
-            this.PlayerName = playerName;
-            
             this.Player = new List<Player>();
 
-            this.Player.Add(new Player("PLAYER", Resources.red_x_transparent_png_3));
+            this.PlayerName = playerName;
 
-            this.Player.Add(new Player("AI", Resources.n1530354));
+            this.Player.Add(new Player(FormChooseCharacter.plName, FormChooseCharacter.plPic));
+           
+            this.Player.Add(new Player("Computer", Resources.n1530354));
 
             //Khoi tao ca 2 player va dat player 1 la player choi truoc.
             CurrentPlayer = 0;
@@ -159,7 +163,11 @@ namespace WindowsFormsApp1
                     //tag này cho biết rằng button đang được lưu ở hàng thứ i
                     btn.Tag = i.ToString();
 
-                    btn.BackColor = System.Drawing.Color.White;
+
+                    btn.BackColor = Color.FromArgb(235, 235, 224);
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderColor = Color.Azure;
+
                     btn.MouseEnter += Btn_MouseEnter;
                     btn.MouseLeave += Btn_MouseLeave;
                     btn.FlatStyle = FlatStyle.Flat;
@@ -191,21 +199,22 @@ namespace WindowsFormsApp1
 
         private void Btn_MouseEnter(object sender, EventArgs e)
         {
-            if (!Formpvc.timer_Game.Enabled) return;
             Button btn = sender as Button;
             btn.BackColor = Color.AliceBlue;
         }
 
         private void Btn_MouseLeave(object sender, EventArgs e)
         {
-            if (!Formpvc.timer_Game.Enabled) return;
+
             Button btn = sender as Button;
-            btn.BackColor = Color.White;
+            btn.BackColor = Color.FromArgb(235, 235, 224);
+
         }
 
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
+            bool end = false;
             //Fix loi dau X khi truy cap Resource
 
             if (btn.BackgroundImage != null) return; //Tranh viec mot button co roi ma van danh lai thi se doi thanh O;
@@ -217,9 +226,10 @@ namespace WindowsFormsApp1
             if (IsEndGame(btn))
             {
                 EndGame(); //Nếu end game rồi thì chạy hàm endgame
+                end = true;
             }
 
-            AI_Marking(btn);
+            if(!end) AI_Marking(btn);
         }
 
         private void AI_Marking(Button btn)
@@ -232,8 +242,6 @@ namespace WindowsFormsApp1
             ChangeCurrentPlayer();
             Formpvc.CptFindChess();
 
-            Formpvc.chess = new FormPVC.Chess(btn, x, y);
-            Formpvc.chesses.Push(Formpvc.chess);
         }
 
         public void Marking(Button btn)

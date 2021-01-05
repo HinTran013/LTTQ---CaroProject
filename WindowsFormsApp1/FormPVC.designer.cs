@@ -41,7 +41,11 @@
             this.timer_Game = new System.Windows.Forms.Timer(this.components);
             this.timerGame_Label = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.playerName_TextBox = new Guna.UI2.WinForms.Guna2TextBox();
+
             this.button1 = new System.Windows.Forms.Button();
+            this.Mute_Button = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.Sound_Button = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+          
             this.BanCo_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,7 +59,9 @@
             this.BanCo_pnl.Location = new System.Drawing.Point(264, 73);
             this.BanCo_pnl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BanCo_pnl.Name = "BanCo_pnl";
-            this.BanCo_pnl.Size = new System.Drawing.Size(570, 552);
+
+            this.BanCo_pnl.Size = new System.Drawing.Size(760, 681);
+
             this.BanCo_pnl.TabIndex = 1;
             // 
             // guna2PictureBox4
@@ -156,10 +162,12 @@
             // timerGame_Label
             // 
             this.timerGame_Label.BackColor = System.Drawing.Color.Transparent;
+
             this.timerGame_Label.Font = new System.Drawing.Font("Ravie", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerGame_Label.ForeColor = System.Drawing.Color.Maroon;
             this.timerGame_Label.Location = new System.Drawing.Point(494, 11);
             this.timerGame_Label.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.timerGame_Label.Name = "timerGame_Label";
             this.timerGame_Label.Size = new System.Drawing.Size(100, 50);
             this.timerGame_Label.TabIndex = 27;
@@ -167,6 +175,7 @@
             // 
             // playerName_TextBox
             // 
+            this.playerName_TextBox.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.playerName_TextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.playerName_TextBox.DefaultText = "";
             this.playerName_TextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -184,6 +193,7 @@
             this.playerName_TextBox.Name = "playerName_TextBox";
             this.playerName_TextBox.PasswordChar = '\0';
             this.playerName_TextBox.PlaceholderText = "";
+            this.playerName_TextBox.ReadOnly = true;
             this.playerName_TextBox.SelectedText = "";
             this.playerName_TextBox.ShadowDecoration.Parent = this.playerName_TextBox;
             this.playerName_TextBox.Size = new System.Drawing.Size(150, 29);
@@ -201,6 +211,40 @@
             this.button1.TabIndex = 29;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
+
+            // Mute_Button
+            // 
+            this.Mute_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Mute_Button.CheckedState.Parent = this.Mute_Button;
+            this.Mute_Button.CustomImages.Parent = this.Mute_Button;
+            this.Mute_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Mute_Button.ForeColor = System.Drawing.Color.White;
+            this.Mute_Button.HoverState.Parent = this.Mute_Button;
+            this.Mute_Button.Image = global::WindowsFormsApp1.Properties.Resources.mute;
+            this.Mute_Button.Location = new System.Drawing.Point(1314, 785);
+            this.Mute_Button.Name = "Mute_Button";
+            this.Mute_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Mute_Button.ShadowDecoration.Parent = this.Mute_Button;
+            this.Mute_Button.Size = new System.Drawing.Size(39, 38);
+            this.Mute_Button.TabIndex = 29;
+            this.Mute_Button.Click += new System.EventHandler(this.Mute_Button_Click);
+            // 
+            // Sound_Button
+            // 
+            this.Sound_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Sound_Button.CheckedState.Parent = this.Sound_Button;
+            this.Sound_Button.CustomImages.Parent = this.Sound_Button;
+            this.Sound_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sound_Button.ForeColor = System.Drawing.Color.White;
+            this.Sound_Button.HoverState.Parent = this.Sound_Button;
+            this.Sound_Button.Image = global::WindowsFormsApp1.Properties.Resources.volume;
+            this.Sound_Button.Location = new System.Drawing.Point(1314, 785);
+            this.Sound_Button.Name = "Sound_Button";
+            this.Sound_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Sound_Button.ShadowDecoration.Parent = this.Sound_Button;
+            this.Sound_Button.Size = new System.Drawing.Size(39, 38);
+            this.Sound_Button.TabIndex = 30;
+            this.Sound_Button.Click += new System.EventHandler(this.Sound_Button_Click);
             // 
             // FormPVC
             // 
@@ -208,7 +252,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1024, 640);
+
+            this.ClientSize = new System.Drawing.Size(1365, 835);
+            this.Controls.Add(this.Sound_Button);
+            this.Controls.Add(this.Mute_Button);
+
             this.Controls.Add(this.playerName_TextBox);
             this.Controls.Add(this.timerGame_Label);
             this.Controls.Add(this.timerPlayer_Label);
@@ -220,6 +268,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPVC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPVC";
             this.BanCo_pnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
@@ -242,6 +291,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel timerGame_Label;
         private Guna.UI2.WinForms.Guna2TextBox playerName_TextBox;
         public System.Windows.Forms.Timer timer_Game;
+
         private System.Windows.Forms.Button button1;
+
+        public Guna.UI2.WinForms.Guna2GradientCircleButton Mute_Button;
+        public Guna.UI2.WinForms.Guna2GradientCircleButton Sound_Button;
     }
 }

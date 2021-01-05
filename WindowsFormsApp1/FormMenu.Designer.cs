@@ -36,9 +36,9 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton5 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.Mute_Button = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.Sound_Button = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +102,7 @@
             this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
             this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
             this.guna2GradientButton1.ImageSize = new System.Drawing.Size(60, 60);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(868, 321);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(856, 375);
             this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
@@ -127,7 +127,7 @@
             this.guna2GradientButton2.ImageOffset = new System.Drawing.Point(0, -3);
             this.guna2GradientButton2.ImageSize = new System.Drawing.Size(45, 45);
             this.guna2GradientButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2GradientButton2.Location = new System.Drawing.Point(72, 321);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(124, 375);
             this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.ShadowDecoration.Parent = this.guna2GradientButton2;
@@ -135,27 +135,6 @@
             this.guna2GradientButton2.TabIndex = 12;
             this.guna2GradientButton2.Text = "P vs C";
             this.guna2GradientButton2.Click += new System.EventHandler(this.PVC);
-            // 
-            // guna2GradientButton3
-            // 
-            this.guna2GradientButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton3.BorderRadius = 20;
-            this.guna2GradientButton3.CheckedState.Parent = this.guna2GradientButton3;
-            this.guna2GradientButton3.CustomImages.Parent = this.guna2GradientButton3;
-            this.guna2GradientButton3.FillColor = System.Drawing.Color.SeaGreen;
-            this.guna2GradientButton3.FillColor2 = System.Drawing.Color.DarkSeaGreen;
-            this.guna2GradientButton3.Font = new System.Drawing.Font("Kristen ITC", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton3.HoverState.Parent = this.guna2GradientButton3;
-            this.guna2GradientButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton3.Image")));
-            this.guna2GradientButton3.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2GradientButton3.Location = new System.Drawing.Point(751, 494);
-            this.guna2GradientButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2GradientButton3.Name = "guna2GradientButton3";
-            this.guna2GradientButton3.ShadowDecoration.Parent = this.guna2GradientButton3;
-            this.guna2GradientButton3.Size = new System.Drawing.Size(389, 55);
-            this.guna2GradientButton3.TabIndex = 13;
-            this.guna2GradientButton3.Text = "Leaderboard";
             // 
             // guna2GradientButton4
             // 
@@ -170,7 +149,7 @@
             this.guna2GradientButton4.HoverState.Parent = this.guna2GradientButton4;
             this.guna2GradientButton4.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton4.Image")));
             this.guna2GradientButton4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton4.Location = new System.Drawing.Point(465, 655);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(491, 551);
             this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.ShadowDecoration.Parent = this.guna2GradientButton4;
@@ -179,24 +158,39 @@
             this.guna2GradientButton4.Text = "Rules";
             this.guna2GradientButton4.Click += new System.EventHandler(this.Rules);
             // 
-            // guna2GradientButton5
+            // Mute_Button
             // 
-            this.guna2GradientButton5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton5.BorderRadius = 20;
-            this.guna2GradientButton5.CheckedState.Parent = this.guna2GradientButton5;
-            this.guna2GradientButton5.CustomImages.Parent = this.guna2GradientButton5;
-            this.guna2GradientButton5.FillColor = System.Drawing.Color.PaleVioletRed;
-            this.guna2GradientButton5.FillColor2 = System.Drawing.Color.Pink;
-            this.guna2GradientButton5.Font = new System.Drawing.Font("Kristen ITC", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton5.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton5.HoverState.Parent = this.guna2GradientButton5;
-            this.guna2GradientButton5.Location = new System.Drawing.Point(188, 494);
-            this.guna2GradientButton5.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2GradientButton5.Name = "guna2GradientButton5";
-            this.guna2GradientButton5.ShadowDecoration.Parent = this.guna2GradientButton5;
-            this.guna2GradientButton5.Size = new System.Drawing.Size(389, 55);
-            this.guna2GradientButton5.TabIndex = 15;
-            this.guna2GradientButton5.Text = "Previous Matches";
+            this.Mute_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Mute_Button.CheckedState.Parent = this.Mute_Button;
+            this.Mute_Button.CustomImages.Parent = this.Mute_Button;
+            this.Mute_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Mute_Button.ForeColor = System.Drawing.Color.White;
+            this.Mute_Button.HoverState.Parent = this.Mute_Button;
+            this.Mute_Button.Image = global::WindowsFormsApp1.Properties.Resources.mute;
+            this.Mute_Button.Location = new System.Drawing.Point(1314, 711);
+            this.Mute_Button.Name = "Mute_Button";
+            this.Mute_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Mute_Button.ShadowDecoration.Parent = this.Mute_Button;
+            this.Mute_Button.Size = new System.Drawing.Size(39, 38);
+            this.Mute_Button.TabIndex = 16;
+            this.Mute_Button.Click += new System.EventHandler(this.Mute_Button_Click);
+            // 
+            // Sound_Button
+            // 
+            this.Sound_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Sound_Button.CheckedState.Parent = this.Sound_Button;
+            this.Sound_Button.CustomImages.Parent = this.Sound_Button;
+            this.Sound_Button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Sound_Button.ForeColor = System.Drawing.Color.White;
+            this.Sound_Button.HoverState.Parent = this.Sound_Button;
+            this.Sound_Button.Image = global::WindowsFormsApp1.Properties.Resources.volume;
+            this.Sound_Button.Location = new System.Drawing.Point(1315, 711);
+            this.Sound_Button.Name = "Sound_Button";
+            this.Sound_Button.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Sound_Button.ShadowDecoration.Parent = this.Sound_Button;
+            this.Sound_Button.Size = new System.Drawing.Size(39, 38);
+            this.Sound_Button.TabIndex = 17;
+            this.Sound_Button.Click += new System.EventHandler(this.Sound_Button_Click);
             // 
             // FormMenu
             // 
@@ -204,9 +198,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1365, 761);
-            this.Controls.Add(this.guna2GradientButton5);
+            this.Controls.Add(this.Sound_Button);
+            this.Controls.Add(this.Mute_Button);
             this.Controls.Add(this.guna2GradientButton4);
-            this.Controls.Add(this.guna2GradientButton3);
             this.Controls.Add(this.guna2GradientButton2);
             this.Controls.Add(this.guna2GradientButton1);
             this.Controls.Add(this.label1);
@@ -218,6 +212,9 @@
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
+            
+            this.VisibleChanged += new System.EventHandler(this.FormMenu_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,8 +229,8 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton5;
+        public Guna.UI2.WinForms.Guna2GradientCircleButton Mute_Button;
+        public Guna.UI2.WinForms.Guna2GradientCircleButton Sound_Button;
     }
 }
