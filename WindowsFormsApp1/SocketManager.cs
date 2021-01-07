@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     {
         #region Server
         Socket Server;
-
+        
 
         public void CreateServer()
         {
@@ -42,7 +42,10 @@ namespace WindowsFormsApp1
         //Hàm tạo kết nối tới server
         public bool ConnectServer()
         {
+            
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
+            
+            
             Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             // return true nếu kết nối thành công, false nếu kết nối thất bại
