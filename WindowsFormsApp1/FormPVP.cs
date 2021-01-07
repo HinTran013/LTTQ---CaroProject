@@ -152,77 +152,93 @@ namespace WindowsFormsApp1
 
         private void KetNoiLAN_Btn_Click(object sender, EventArgs e)
         {
-            socket.IP = textBox_PlayerIP1.Text;
-
-            if (!socket.ConnectServer())
+            try
             {
-                socket.isServer = true;
-                BanCo_pnl.Enabled = true;
+                socket.IP = textBox_PlayerIP1.Text;
 
-                socket.CreateServer();
-
-                //Listen();
-
-                //--FOR CHATTING--
-                Thread listenThread = new Thread(() =>
+                if (!socket.ConnectServer())
                 {
-                    listener = new TcpListener(IPAddress.Any, 6969);
-                    listener.Start();
-                    client = listener.AcceptTcpClient();
-                    STR = new StreamReader(client.GetStream());
-                    STW = new StreamWriter(client.GetStream());
-                    STW.AutoFlush = true;
-
-                    backgroundWorker1.RunWorkerAsync();
-                    backgroundWorker2.WorkerSupportsCancellation = true;
-
-                    ChatTextBox.AppendText("Client was connected" + "\r\n");
-                });
-                listenThread.IsBackground = true;
-                listenThread.Start();
-                //----------------
-            }
-            else
-            {
-                socket.isServer = false;
-                BanCo_pnl.Enabled = false;
-                
-                Listen();
-
-                //--FOR CHATTING--
-                Thread listenThread = new Thread(() =>
-                {
-                    client = new TcpClient();
-                    IPEndPoint IpEnd = new IPEndPoint(IPAddress.Parse(textBox_PlayerIP1.Text), 6969);
-
+                    socket.isServer = true;
+                    BanCo_pnl.Enabled = true;
                     try
                     {
-                        client.Connect(IpEnd);
-
-                        if (client.Connected)
-                        {
-                            ChatTextBox.AppendText("Connected to server" + "\r\n");
-                            STW = new StreamWriter(client.GetStream());
-                            STR = new StreamReader(client.GetStream());
-                            STW.AutoFlush = true;
-                            backgroundWorker1.RunWorkerAsync();
-                            backgroundWorker2.WorkerSupportsCancellation = true;
-
-                        }
+                        socket.CreateServer();
                     }
                     catch
                     {
-                        MessageBox.Show("Người chơi host đã thoát!!", "THÔNG BÁO");
+                        MessageBox.Show("Server không tồn tại", "THÔNG BÁO");
+
+                        return;
                     }
-                });
-                listenThread.IsBackground = true;
-                listenThread.Start();
 
-                
-                //----------------
+                    //Listen();
+
+                    //--FOR CHATTING--
+                    Thread listenThread = new Thread(() =>
+                    {
+                        listener = new TcpListener(IPAddress.Any, 6969);
+                        listener.Start();
+                        client = listener.AcceptTcpClient();
+                        STR = new StreamReader(client.GetStream());
+                        STW = new StreamWriter(client.GetStream());
+                        STW.AutoFlush = true;
+
+                        backgroundWorker1.RunWorkerAsync();
+                        backgroundWorker2.WorkerSupportsCancellation = true;
+
+                        ChatTextBox.AppendText("Client was connected" + "\r\n");
+                    });
+                    listenThread.IsBackground = true;
+                    listenThread.Start();
+                    //----------------
+                }
+                else
+                {
+                    socket.isServer = false;
+                    BanCo_pnl.Enabled = false;
+
+                    Listen();
+
+                    //--FOR CHATTING--
+                    Thread listenThread = new Thread(() =>
+                    {
+                        client = new TcpClient();
+                        IPEndPoint IpEnd = new IPEndPoint(IPAddress.Parse(textBox_PlayerIP1.Text), 6969);
+
+                        try
+                        {
+                            client.Connect(IpEnd);
+
+                            if (client.Connected)
+                            {
+                                ChatTextBox.AppendText("Connected to server" + "\r\n");
+                                STW = new StreamWriter(client.GetStream());
+                                STR = new StreamReader(client.GetStream());
+                                STW.AutoFlush = true;
+                                backgroundWorker1.RunWorkerAsync();
+                                backgroundWorker2.WorkerSupportsCancellation = true;
+
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Người chơi host đã thoát!!", "THÔNG BÁO");
+                        }
+                    });
+                    listenThread.IsBackground = true;
+                    listenThread.Start();
+
+
+                    //----------------
+                }
+
+                KetNoiLAN_Btn.Enabled = false;
             }
-
-            KetNoiLAN_Btn.Enabled = false;
+            catch
+            {
+                MessageBox.Show("Hãy nhập đúng định dạng của địa chỉ IP", "THÔNG BÁO");
+                return;
+            }
         }
 
         //--FOR CHATTING--
